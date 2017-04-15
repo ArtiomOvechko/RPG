@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5F030C47-2422-456B-BBDF-1CDBA0BF1A6B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArtiomOvechko.RPG.ViewModel</RootNamespace>
+    <AssemblyName>ArtiomOvechko.RPG.ViewModel</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile44</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\ArtiomOvechko.RPG.Common\ArtiomOvechko.RPG.Common.csproj">
+      <Project>{f2b026f9-efc9-48d3-8080-6c8060170423}</Project>
+      <Name>ArtiomOvechko.RPG.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArtiomOvechko.RPG.Core\ArtiomOvechko.RPG.Core.csproj">
+      <Project>{511d3b25-ce04-46ec-9180-125865d6dbcf}</Project>
+      <Name>ArtiomOvechko.RPG.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\ActionCommand.cs" />
+    <Compile Include="Control\Player.cs" />
+    <Compile Include="Control\ViewPort.cs" />
+    <Compile Include="Enum\ActionType.cs" />
+    <Compile Include="Enum\LevelName.cs" />
+    <Compile Include="Helpers\LevelRepresentationalConverter.cs" />
+    <Compile Include="Helpers\RepresentationalModelFactory.cs" />
+    <Compile Include="Interfaces\Level\IControl.cs" />
+    <Compile Include="Interfaces\Level\ILevel.cs" />
+    <Compile Include="Interfaces\Level\ILevelRepresentationalModel.cs" />
+    <Compile Include="Interfaces\Level\IPlayable.cs" />
+    <Compile Include="Interfaces\Level\IPlayer.cs" />
+    <Compile Include="Interfaces\Level\IViewPort.cs" />
+    <Compile Include="Interfaces\Menu\ILevelChooseMenu.cs" />
+    <Compile Include="Interfaces\Menu\IMenu.cs" />
+    <Compile Include="Level\BaseOfflineLevel.cs" />
+    <Compile Include="Level\Representation\DefaultLevelRepresentationalModel.cs" />
+    <Compile Include="Level\Sanctuary.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Level\Online\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

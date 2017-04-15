@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F2B026F9-EFC9-48D3-8080-6C8060170423}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArtiomOvechko.RPG.Common</RootNamespace>
+    <AssemblyName>ArtiomOvechko.RPG.Common</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile44</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveDown\2.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveDown\3.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveDown\4.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveDown\5.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveDown\6.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveDown\7.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveDown\8.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveLeft\2.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveLeft\3.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveLeft\4.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveLeft\5.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveLeft\6.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveRight\2.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveRight\3.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveRight\4.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveRight\5.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveRight\6.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveUp\2.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveUp\3.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveUp\4.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveUp\5.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveUp\6.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveUp\7.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Sceleton\MoveUp\8.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Thief\MoveLeft\1.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Thief\MoveLeft\2.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Thief\MoveLeft\3.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Thief\MoveLeft\4.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Thief\MoveLeft\5.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Thief\MoveLeft\6.gif" />
+    <Content Include="Resources\Assets\Images\Actors\Thief\MoveLeft\7.gif" />
+    <Resource Include="Resources\Sounds\Actors\Knife\knife.wav" />
+    <Resource Include="Resources\Images\Actors\Obstacles\Tree.png" />
+    <Resource Include="Resources\Images\Actors\Thief\ThiefMoveLeft.gif" />
+    <Resource Include="Resources\Images\Actors\Thief\ThiefIdle.png" />
+    <Resource Include="Resources\Images\Actors\Sceleton\SceletonMovesRight.gif" />
+    <Resource Include="Resources\Images\Actors\Sceleton\SceletonMovesLeft.gif" />
+    <Resource Include="Resources\Images\Actors\Sceleton\SceletonLeftIdle.gif" />
+    <Resource Include="Resources\Images\Actors\Sceleton\SceletonIdleRight.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\ActorSettings.cs" />
+    <Compile Include="Settings\GlobalSettings.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
