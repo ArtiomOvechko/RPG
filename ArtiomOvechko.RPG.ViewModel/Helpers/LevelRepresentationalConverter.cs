@@ -3,6 +3,7 @@ using System;
 
 namespace ArtiomOvechko.RPG.ViewModel.Helpers
 {
+    // LevelRepresentationalConverter
     public class LevelRepresentationalConverter
     {
         private static  LevelRepresentationalConverter _instance;
