@@ -20,6 +20,14 @@ namespace Chevo.RPG.Core.Behavior.Projectile
             _currentActor = actor;
             _creator = creator;
 
+
+            // Implement fancy appearing of projectile depending on creator direction
+            //if (attacker.CurrentState == State.Moving)
+            //{
+            //    switch (projectile.Actor.)
+            //    projectile.Actor.Stats.StepLenght += attacker.Stats.StepLenght;
+            //}
+
             SoundPlayerHelper.GetInstance.Play(attackSoundUriString);
 
             _currentActor.StartMove(concreteDirection);

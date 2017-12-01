@@ -21,6 +21,11 @@ namespace Chevo.RPG.Core.Interfaces.Actor
         Point Position { get; set; }
 
         /// <summary>
+        /// Moving or idle
+        /// </summary>
+        State CurrentState { get; }
+
+        /// <summary>
         /// Path to animation file
         /// </summary>
         Uri CurrentAnimation { get; }

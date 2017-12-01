@@ -19,7 +19,6 @@ namespace Chevo.RPG.Core.Actor
     [Serializable]
     public abstract class BaseActor : INotifyPropertyChanged
     {
-        private State _currentState;
         private Direction _lastDirection;
         private Direction _currentDirection;
         private Point _currentPosition;
@@ -28,6 +27,8 @@ namespace Chevo.RPG.Core.Actor
         protected IWeapon _currentWeapon;
         protected IActorAnimation _animation;
         protected ICollisionResolver _collisionResolver;
+
+        public State CurrentState { get; private set; }
 
         #region Properties
         public IInventory Inventory { get; private set; }
@@ -63,7 +64,7 @@ namespace Chevo.RPG.Core.Actor
         {
             get
             {
-                switch (_currentState)
+                switch (CurrentState)
                 {
                     default:
                     case State.Idle:
@@ -94,10 +95,10 @@ namespace Chevo.RPG.Core.Actor
         {
             if (Stats.IsAlive)
             {
-                if (_currentState != State.Moving || direction != _currentDirection)
+                if (CurrentState != State.Moving || direction != _currentDirection)
                 {
                     _currentDirection = direction;
-                    _currentState = State.Moving;
+                    CurrentState = State.Moving;
                     OnPropertyChanged("CurrentAnimation");
                 }                
             }
@@ -105,7 +106,7 @@ namespace Chevo.RPG.Core.Actor
 
         public int Move()
         {
-            if (_currentState == State.Moving)
+            if (CurrentState == State.Moving)
             {
                 return _collisionResolver.ResolveCollision(_currentDirection);
             }
@@ -117,7 +118,7 @@ namespace Chevo.RPG.Core.Actor
         {
             if (Stats.IsAlive)
             {
-                _currentState = State.Idle;
+                CurrentState = State.Idle;
                 OnPropertyChanged("CurrentAnimation");
             }
         }
@@ -207,7 +208,7 @@ namespace Chevo.RPG.Core.Actor
         {
             Position = initialPosition;
             _currentDirection = Direction.Up;
-            _currentState = State.Idle;          
+            CurrentState = State.Idle;          
 
             Inventory = new DefaultInventory();
             if (weaponItem != null)

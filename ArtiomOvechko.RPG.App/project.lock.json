@@ -22166,22 +22166,22 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "c:\\users\\artio\\documents\\visual studio 2015\\Projects\\Custom.RPG\\ArtiomOvechko.RPG.App\\ArtiomOvechko.RPG.App.csproj",
+      "projectUniqueName": "C:\\Custom Projects\\RPG\\ArtiomOvechko.RPG.App\\ArtiomOvechko.RPG.App.csproj",
       "projectName": "ArtiomOvechko.RPG.App",
-      "projectPath": "c:\\users\\artio\\documents\\visual studio 2015\\Projects\\Custom.RPG\\ArtiomOvechko.RPG.App\\ArtiomOvechko.RPG.App.csproj",
-      "projectJsonPath": "c:\\users\\artio\\documents\\visual studio 2015\\Projects\\Custom.RPG\\ArtiomOvechko.RPG.App\\project.json",
+      "projectPath": "C:\\Custom Projects\\RPG\\ArtiomOvechko.RPG.App\\ArtiomOvechko.RPG.App.csproj",
+      "projectJsonPath": "C:\\Custom Projects\\RPG\\ArtiomOvechko.RPG.App\\project.json",
       "projectStyle": "ProjectJson",
       "frameworks": {
         "uap10.0": {
           "projectReferences": {
-            "c:\\users\\artio\\documents\\visual studio 2015\\Projects\\Custom.RPG\\ArtiomOvechko.RPG.Common\\ArtiomOvechko.RPG.Common.csproj": {
-              "projectPath": "c:\\users\\artio\\documents\\visual studio 2015\\Projects\\Custom.RPG\\ArtiomOvechko.RPG.Common\\ArtiomOvechko.RPG.Common.csproj"
+            "C:\\Custom Projects\\RPG\\ArtiomOvechko.RPG.Common\\ArtiomOvechko.RPG.Common.csproj": {
+              "projectPath": "C:\\Custom Projects\\RPG\\ArtiomOvechko.RPG.Common\\ArtiomOvechko.RPG.Common.csproj"
             },
-            "c:\\users\\artio\\documents\\visual studio 2015\\Projects\\Custom.RPG\\ArtiomOvechko.RPG.Core\\ArtiomOvechko.RPG.Core.csproj": {
-              "projectPath": "c:\\users\\artio\\documents\\visual studio 2015\\Projects\\Custom.RPG\\ArtiomOvechko.RPG.Core\\ArtiomOvechko.RPG.Core.csproj"
+            "C:\\Custom Projects\\RPG\\ArtiomOvechko.RPG.Core\\ArtiomOvechko.RPG.Core.csproj": {
+              "projectPath": "C:\\Custom Projects\\RPG\\ArtiomOvechko.RPG.Core\\ArtiomOvechko.RPG.Core.csproj"
             },
-            "c:\\users\\artio\\documents\\visual studio 2015\\Projects\\Custom.RPG\\ArtiomOvechko.RPG.ViewModel\\ArtiomOvechko.RPG.ViewModel.csproj": {
-              "projectPath": "c:\\users\\artio\\documents\\visual studio 2015\\Projects\\Custom.RPG\\ArtiomOvechko.RPG.ViewModel\\ArtiomOvechko.RPG.ViewModel.csproj"
+            "C:\\Custom Projects\\RPG\\ArtiomOvechko.RPG.ViewModel\\ArtiomOvechko.RPG.ViewModel.csproj": {
+              "projectPath": "C:\\Custom Projects\\RPG\\ArtiomOvechko.RPG.ViewModel\\ArtiomOvechko.RPG.ViewModel.csproj"
             }
           }
         }

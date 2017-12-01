@@ -25,7 +25,7 @@ namespace Chevo.RPG.Core.Weapon
 
                 var actor = new Actor.Knife(new Stats.Point(attacker.Position.X, attacker.Position.Y), attacker);
                 var projectile = new Projectile(actor, attacker, direction, WeaponSettings.KnifeRange, WeaponSettings.KnifeSound);
-
+                
                 EnvironmentContainer.AddInstance(projectile);
             }
             

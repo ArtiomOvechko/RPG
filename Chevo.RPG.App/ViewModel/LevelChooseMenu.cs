@@ -59,10 +59,14 @@ namespace Chevo.RPG.App.ViewModel
                 {
                     _hostLevel = new ActionCommand((x) =>
                     {
-                        var page = new GameLevelPage(new Sanctuary((int)SystemParameters.VirtualScreenWidth, (int)SystemParameters.VirtualScreenHeight));
-                        ((MainWindow)App.Current.MainWindow).CurrentPage.Content = page;
-                        ((MainWindow)App.Current.MainWindow).KeyUp += page.OnKeyUp;
-                        ((MainWindow)App.Current.MainWindow).KeyDown += page.OnKeyDown;
+                        FrameworkElement content = ((MainWindow)App.Current.MainWindow).CurrentPage.Content as FrameworkElement;
+                        if (content != null)
+                        {
+                            var page = new GameLevelPage(new Sanctuary((int)content.ActualWidth, (int)content.ActualHeight));
+                            ((MainWindow)App.Current.MainWindow).CurrentPage.Content = page;
+                            ((MainWindow)App.Current.MainWindow).KeyUp += page.OnKeyUp;
+                            ((MainWindow)App.Current.MainWindow).KeyDown += page.OnKeyDown;
+                        }
                     });
                 }
                 return _hostLevel;
