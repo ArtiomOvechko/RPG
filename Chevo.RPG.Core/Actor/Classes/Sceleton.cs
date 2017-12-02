@@ -10,7 +10,7 @@ using System;
 namespace Chevo.RPG.Core.Actor
 {
     [Serializable]
-    public class Sceleton : BaseActor, IActor
+    public class Sceleton : BaseActor
     {
         public Sceleton(IWeaponItem weapon, Point initialPostion) : base(weapon, initialPostion)
         {

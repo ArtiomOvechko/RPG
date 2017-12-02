@@ -3,9 +3,10 @@ using Chevo.RPG.Core.Animation;
 using Chevo.RPG.Core.Stats;
 using Chevo.RPG.Core.Collision;
 
+
 namespace Chevo.RPG.Core.Actor
 {
-    public class DungeonStoneWall: BaseActor, IActor
+    public class DungeonStoneWall: BaseActor
     {
         public DungeonStoneWall(Point initialPosition) : base(null, initialPosition)
         {

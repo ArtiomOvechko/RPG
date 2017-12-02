@@ -1,4 +1,8 @@
-﻿using Chevo.RPG.Core.Interfaces.Weapon;
+﻿using System.ComponentModel;
+using System;
+using System.Linq;
+
+using Chevo.RPG.Core.Interfaces.Weapon;
 using Chevo.RPG.Core.Interfaces.Animation;
 using Chevo.RPG.Core.Enum;
 using Chevo.RPG.Core.Helpers;
@@ -10,17 +14,15 @@ using Chevo.RPG.Core.Stats;
 using Chevo.RPG.Core.Interfaces.Inventory;
 using Chevo.RPG.Core.Inventory;
 
-using System.ComponentModel;
-using System;
-using System.Linq;
 
 namespace Chevo.RPG.Core.Actor
 {
+    /// <summary>
+    /// Initial implementation
+    /// </summary>
     [Serializable]
-    public abstract class BaseActor : INotifyPropertyChanged
+    public abstract class BaseActor : INotifyPropertyChanged, IActor
     {
-        private Direction _lastDirection;
-        private Direction _currentDirection;
         private Point _currentPosition;
         private IStats _stats;
 
@@ -28,6 +30,7 @@ namespace Chevo.RPG.Core.Actor
         protected IActorAnimation _animation;
         protected ICollisionResolver _collisionResolver;
 
+        public Direction CurrentDirection { get; private set; }
         public State CurrentState { get; private set; }
 
         #region Properties
@@ -68,9 +71,9 @@ namespace Chevo.RPG.Core.Actor
                 {
                     default:
                     case State.Idle:
-                        return _animation.GetIdleAnimation(_currentDirection);
+                        return _animation.GetIdleAnimation(CurrentDirection);
                     case State.Moving:
-                        return _animation.GetMovingAnimation(_currentDirection);
+                        return _animation.GetMovingAnimation(CurrentDirection);
                 }
             }
         }
@@ -95,9 +98,9 @@ namespace Chevo.RPG.Core.Actor
         {
             if (Stats.IsAlive)
             {
-                if (CurrentState != State.Moving || direction != _currentDirection)
+                if (CurrentState != State.Moving || direction != CurrentDirection)
                 {
-                    _currentDirection = direction;
+                    CurrentDirection = direction;
                     CurrentState = State.Moving;
                     OnPropertyChanged("CurrentAnimation");
                 }                
@@ -108,7 +111,7 @@ namespace Chevo.RPG.Core.Actor
         {
             if (CurrentState == State.Moving)
             {
-                return _collisionResolver.ResolveCollision(_currentDirection);
+                return _collisionResolver.ResolveCollision(CurrentDirection);
             }
 
             return 0;         
@@ -129,7 +132,7 @@ namespace Chevo.RPG.Core.Actor
             {
                 if (_currentWeapon != null)
                 {
-                    _currentWeapon.Attack((IActor)this, _currentDirection);
+                    _currentWeapon.Attack(this, CurrentDirection);
                 }
             }
         }
@@ -147,11 +150,11 @@ namespace Chevo.RPG.Core.Actor
             if (Stats.IsAlive)
             {
                 var collided = EnvironmentContainer.Instances.FirstOrDefault(x =>
-                                Collider.InRangeOfInteraction(new CollisionModel(x.Actor), new CollisionModel((IActor)this)) &&
+                                Collider.InRangeOfInteraction(new CollisionModel(x.Actor), new CollisionModel(this)) &&
                                 !ReferenceEquals(x.Actor, this));
 
                 var itemNear = EnvironmentContainer.Items.FirstOrDefault(x =>
-                    Collider.InRangeOfInteraction(new CollisionModel(0, x.Position.X, x.Position.Y), new CollisionModel((IActor)this)));
+                    Collider.InRangeOfInteraction(new CollisionModel(0, x.Position.X, x.Position.Y), new CollisionModel(this)));
 
                 if (itemNear == null && collided != null)
                 {
@@ -207,7 +210,7 @@ namespace Chevo.RPG.Core.Actor
         public BaseActor(IWeaponItem weaponItem, Point initialPosition)
         {
             Position = initialPosition;
-            _currentDirection = Direction.Up;
+            CurrentDirection = Direction.Up;
             CurrentState = State.Idle;          
 
             Inventory = new DefaultInventory();

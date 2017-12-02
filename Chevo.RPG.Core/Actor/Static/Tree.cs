@@ -3,9 +3,10 @@ using Chevo.RPG.Core.Animation;
 using Chevo.RPG.Core.Stats;
 using Chevo.RPG.Core.Collision;
 
+
 namespace Chevo.RPG.Core.Actor
 {
-    public class Tree: BaseActor, IActor
+    public class Tree: BaseActor
     {
         public Tree(Point initialPosition) : base(null, initialPosition)
         {

@@ -9,7 +9,7 @@ using Chevo.RPG.Core.Interfaces.Inventory;
 namespace Chevo.RPG.Core.Actor
 {
     [Serializable]
-    public class Thief: BaseActor, IActor
+    public class Thief: BaseActor
     {
         public Thief(IWeaponItem weapon, Point initialPosition) : base(weapon, initialPosition)
         {

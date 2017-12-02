@@ -9,7 +9,7 @@ using System;
 namespace Chevo.RPG.Core.Actor
 {
     [Serializable]
-    public class Knife: BaseActor, IActor
+    public class Knife: BaseActor
     {
         public Knife(Point initialPosition, IActor creator) : base(null, initialPosition)
         {

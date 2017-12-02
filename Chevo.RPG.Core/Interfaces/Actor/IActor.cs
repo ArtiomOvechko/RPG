@@ -16,11 +16,6 @@ namespace Chevo.RPG.Core.Interfaces.Actor
     public interface IActor: INotifyPropertyChanged
     {
         /// <summary>
-        /// Coordinates
-        /// </summary>
-        Point Position { get; set; }
-
-        /// <summary>
         /// Moving or idle
         /// </summary>
         State CurrentState { get; }
@@ -31,9 +26,9 @@ namespace Chevo.RPG.Core.Interfaces.Actor
         Uri CurrentAnimation { get; }
 
         /// <summary>
-        /// Health, speed, size and etc
+        /// Represents direction of actor (up, right, down, left)
         /// </summary>
-        IStats Stats { get; set; }
+        Direction CurrentDirection { get; }
         
         /// <summary>
         /// Currently used weapon
@@ -44,6 +39,16 @@ namespace Chevo.RPG.Core.Interfaces.Actor
         /// Actor items
         /// </summary>
         IInventory Inventory { get; }
+
+        /// <summary>
+        /// Coordinates
+        /// </summary>
+        Point Position { get; set; }
+
+        /// <summary>
+        /// Health, speed, size and etc
+        /// </summary>
+        IStats Stats { get; set; }
 
         /// <summary>
         /// Enable moving

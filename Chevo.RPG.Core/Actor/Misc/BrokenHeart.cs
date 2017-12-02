@@ -1,13 +1,11 @@
 ﻿using Chevo.RPG.Core.Animation;
 using Chevo.RPG.Core.Collision;
-using Chevo.RPG.Core.Interfaces.Actor;
-using Chevo.RPG.Core.Interfaces.Inventory;
 using Chevo.RPG.Core.Stats;
 
 
 namespace Chevo.RPG.Core.Actor
 {
-    public class BrokenHeart: BaseActor, IActor
+    public class BrokenHeart: BaseActor
     {
         public BrokenHeart(Point initialPosition) : base(null, initialPosition)
         {
