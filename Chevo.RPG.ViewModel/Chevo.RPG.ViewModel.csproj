@@ -50,7 +50,7 @@
     <Compile Include="Control\ViewPort.cs" />
     <Compile Include="Enum\LevelName.cs" />
     <Compile Include="Interfaces\IControl.cs" />
-    <Compile Include="Interfaces\IEditor.cs" />
+    <Compile Include="Interfaces\IEditorLevel.cs" />
     <Compile Include="Interfaces\ILevel.cs" />
     <Compile Include="Interfaces\ILevelSurface.cs" />
     <Compile Include="Interfaces\IMovable.cs" />

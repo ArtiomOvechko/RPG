@@ -5,7 +5,7 @@ using Chevo.RPG.Core.Interfaces.Actor;
 using Chevo.RPG.Core.Behavior.Projectile;
 
 using System.Linq;
-
+using System;
 
 namespace Chevo.RPG.Core.Collision
 {
@@ -50,7 +50,7 @@ namespace Chevo.RPG.Core.Collision
                 collided.Actor.HandleAttack(_owner.Stats);
             }
 
-            return offset;
+            return Math.Abs(offset);
         }
 
         public ProjectileCollisionResolver(IActor creator, IActor owner): base(owner)

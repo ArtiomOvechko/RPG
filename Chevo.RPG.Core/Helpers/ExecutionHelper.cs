@@ -3,15 +3,12 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-
+using Windows.Foundation.Metadata;
 
 namespace Chevo.RPG.Core.Helpers
 {
     public class ExecutionHelper
     {
-        //private static ExecutionHelper _instance;
-       // private static volatile object _lock = new object();
-
         public static ExecutionHelper GetNew
         {
             get
@@ -19,8 +16,6 @@ namespace Chevo.RPG.Core.Helpers
                 return new ExecutionHelper();
             }           
         }
-
-        //private ExecutionHelper() { }
 
         public async Task ExecuteContinuoslyAsync(Action someFunc, CancellationToken cancellationToken)
         {
@@ -32,6 +27,14 @@ namespace Chevo.RPG.Core.Helpers
             }
         }
 
+        public async Task ExecuteWithDelayAsync(Action delayedAction, int delayTime)
+        {
+            await Task.Delay(delayTime);
+            delayedAction();
+        }
+
+        // TBR
+        [Deprecated("Use ExecutionHelper.ExecuteContinuoslyAsync instead", DeprecationType.Deprecate, 1)]
         public async Task ExecuteContinuoslyAsyncWithPostAction(Action continuousAction, Action postAction, CancellationToken cancellationToken)
         {
             await Task.Delay(GlobalSettings.Default.GameSpeed);
@@ -43,12 +46,6 @@ namespace Chevo.RPG.Core.Helpers
             {
                 postAction();
             }
-        }
-
-        public async Task ExecuteWithDelayAsync(Action delayedAction, int delayTime)
-        {
-            await Task.Delay(delayTime);
-            delayedAction();
         }
     }
 }

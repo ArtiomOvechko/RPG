@@ -7,6 +7,7 @@ using Chevo.RPG.Core.Enum;
 using Chevo.RPG.Core.Behavior.Projectile;
 using Chevo.RPG.Core.Environment;
 using Chevo.RPG.Core.Factories;
+using System;
 
 namespace Chevo.RPG.Core.Collision
 {
@@ -61,7 +62,7 @@ namespace Chevo.RPG.Core.Collision
                 }
             }
 
-            return offset;
+            return Math.Abs(offset);
         }
 
         protected CollisionModel GetExpectedSpecs(IActor sender, Direction direction, int stepLength)

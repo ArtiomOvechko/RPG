@@ -46,6 +46,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="Windows.Foundation.FoundationContract">
+      <HintPath>..\..\..\Program Files (x86)\Windows Kits\10\References\Windows.Foundation.FoundationContract\2.0.0.0\Windows.Foundation.FoundationContract.winmd</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +67,7 @@
     <Compile Include="Animation\DungeonStoneWallAnimation.cs" />
     <Compile Include="Animation\TreeAnimation.cs" />
     <Compile Include="Behavior\BaseBehavior.cs" />
+    <Compile Include="Behavior\Npc\TestEnemyBehavior.cs" />
     <Compile Include="Behavior\Npc\GuideBehavior.cs" />
     <Compile Include="Behavior\Projectile\Projectile.cs" />
     <Compile Include="Collision\DefaultCollisionResolver.cs" />
@@ -73,7 +77,12 @@
     <Compile Include="Enum\State.cs" />
     <Compile Include="Environment\EnvironmentContainer.cs" />
     <Compile Include="Extensions\LinqExtension.cs" />
+    <Compile Include="Factories\BaseInstancePrototype.cs" />
     <Compile Include="Factories\DamageAnimationFactory.cs" />
+    <Compile Include="Factories\IInstanceFactory.cs" />
+    <Compile Include="Factories\IInstancePrototype.cs" />
+    <Compile Include="Factories\SceletonPrototype.cs" />
+    <Compile Include="Factories\WallPrototype.cs" />
     <Compile Include="Helpers\Base64Serializer.cs" />
     <Compile Include="Helpers\Collider.cs" />
     <Compile Include="Helpers\ExecutionHelper.cs" />

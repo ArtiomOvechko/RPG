@@ -74,6 +74,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\EditorLevelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\GameLevelPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -93,6 +97,9 @@
     </Compile>
     <Compile Include="Pages\AvailableLevelsPage.xaml.cs">
       <DependentUpon>AvailableLevelsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditorLevelPage.xaml.cs">
+      <DependentUpon>EditorLevelPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\GameLevelPage.xaml.cs">
       <DependentUpon>GameLevelPage.xaml</DependentUpon>

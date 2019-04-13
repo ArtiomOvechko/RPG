@@ -63,7 +63,7 @@ namespace Chevo.RPG.Core.Behavior.Projectile
         /// <returns>Empty string</returns>
         public string GetMessage()
         {
-            return "";
+            return string.Empty;
         }
 
         /// <summary>

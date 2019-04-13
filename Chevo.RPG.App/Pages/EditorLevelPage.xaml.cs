@@ -1,16 +1,18 @@
 ﻿using Chevo.RPG.Core.Enum;
+using Chevo.RPG.Core.Stats;
 using Chevo.RPG.ViewModel.Interfaces.Level;
-
+using Chevo.RPG.ViewModel.Level;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Chevo.RPG.App.Pages
 {
-    public partial class GameLevelPage : Page
+    public partial class EditorLevelPage : Page
     {
-        protected ILevel _currentLevel;
+        protected EditorLevel _currentLevel;
 
-        public GameLevelPage(ILevel level)
+        public EditorLevelPage(EditorLevel level)
         {
             InitializeComponent();
 
@@ -35,12 +37,6 @@ namespace Chevo.RPG.App.Pages
                 case Key.A:
                     _currentLevel.StopMove.Execute(Direction.Left);
                     break;
-                case Key.Enter:
-                    _currentLevel.TryInteract.Execute(null);
-                    break;
-                case Key.Space:
-                    _currentLevel.Attack.Execute(null);
-                    return;
                 default: return;
             }
         }
@@ -66,21 +62,28 @@ namespace Chevo.RPG.App.Pages
             }
         }
 
-        private void OnEquipPress(object sender, MouseButtonEventArgs e)
+        private void OnPutPress(object sender, MouseButtonEventArgs e)
         {
-            Label from = (Label)sender;
-            _currentLevel.EquipWeapon.Execute(from.Tag);
-        }
-
-        private void OnUnequipPress(object sender, MouseButtonEventArgs e)
-        {
-            _currentLevel.UnequipWeapon.Execute(null);
+            System.Windows.Point cursorPoint = Mouse.GetPosition(this);
+            _currentLevel.PutObject.Execute(
+                new Core.Stats.Point((int)cursorPoint.X - _currentLevel.ViewPort.Position.X, (int)cursorPoint.Y - _currentLevel.ViewPort.Position.Y));
         }
 
         private void OnDiscardPress(object sender, MouseButtonEventArgs e)
         {
-            Label from = (Label)sender;
-            _currentLevel.DiscardWeapon.Execute(from.Tag);
+            _currentLevel.DiscardObject.Execute(null);
+        }
+        private void OnPickPress(object sender, MouseButtonEventArgs e)
+        {
+            FrameworkElement from = (FrameworkElement)sender;
+            _currentLevel.PickObject.Execute(from.Tag);
+        }
+
+        private void Grid_MouseMove(object sender, MouseEventArgs e)
+        {
+            System.Windows.Point cursorPoint = Mouse.GetPosition(this);
+            _currentLevel.MovePickedObject.Execute(
+                new Core.Stats.Point((int)cursorPoint.X - _currentLevel.ViewPort.Position.X, (int)cursorPoint.Y - _currentLevel.ViewPort.Position.Y));
         }
     }
 }

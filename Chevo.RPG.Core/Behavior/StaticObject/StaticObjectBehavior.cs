@@ -16,7 +16,7 @@ namespace Chevo.RPG.Core.Behavior.StaticObject
 
         public string GetMessage()
         {
-            return "";
+            return string.Empty;
         }
 
         public override void ProcessCurrentState() { }

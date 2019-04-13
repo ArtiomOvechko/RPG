@@ -34,17 +34,37 @@ namespace Chevo.RPG.ViewModel.Level
             // Add NPC
             var GuideChar = new GuideBehavior(new Sceleton(new KnifeWeaponItem(null), new Point(3000, 2600)));
 
+            var TestEnemy1 = new TestEnemyBehavior(new Sceleton(new KnifeWeaponItem(null), new Point(3000, 2800)));
+            var TestEnemy2 = new TestEnemyBehavior(new Sceleton(new KnifeWeaponItem(null), new Point(2500, 2400)));
+            var TestEnemy3 = new TestEnemyBehavior(new Sceleton(new KnifeWeaponItem(null), new Point(2700, 2800)));
+            var TestEnemy4 = new TestEnemyBehavior(new Sceleton(new KnifeWeaponItem(null), new Point(2500, 3100)));
+
             // Init Player         
             Player = new Player(new Thief(new KnifeWeaponItem(null), new Point(2700, 2700)), new InteractionHandler(new Messenger()));
             ViewPort = new ViewPort(screenWidth, screenHeight, (IInstance)Player);
 
-            // Render all obstacles
+            // Load all obstacles
             EnvironmentContainer.AddInstance(wall1);
             EnvironmentContainer.AddInstance(wall2);
             EnvironmentContainer.AddInstance(GuideChar);
+            EnvironmentContainer.AddInstance(TestEnemy1);
+            EnvironmentContainer.AddInstance(TestEnemy2);
+            EnvironmentContainer.AddInstance(TestEnemy3);
+            EnvironmentContainer.AddInstance(TestEnemy4);
+
+            //for (var i = 3000; i < 3500; i+= 50)
+            //{
+            //    EnvironmentContainer.AddInstance(new TestEnemyBehavior(new Sceleton(new KnifeWeaponItem(null), new Point(i, i))));
+            //}
+
+            //for (var i = 32; i < 6000; i += 32)
+            //{
+            //    EnvironmentContainer.AddInstance(new StaticObjectBehavior(new DungeonStoneWall(new Point(i, 3000))));
+            //}
+
             EnvironmentContainer.AddInstance((IInstance)Player);
 
-            // Render all items
+            // Load all items
             EnvironmentContainer.Items.Add(CopperKey);
             EnvironmentContainer.Items.Add(CopperKey3);
             EnvironmentContainer.Items.Add(Knife);

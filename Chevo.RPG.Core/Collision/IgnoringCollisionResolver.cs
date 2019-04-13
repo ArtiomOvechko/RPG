@@ -1,6 +1,6 @@
 ﻿using Chevo.RPG.Core.Enum;
 using Chevo.RPG.Core.Interfaces.Actor;
-
+using System;
 
 namespace Chevo.RPG.Core.Collision
 {
@@ -32,7 +32,7 @@ namespace Chevo.RPG.Core.Collision
             }
             _owner.Position = new Stats.Point(expectedSpec.X, expectedSpec.Y);
 
-            return offset;
+            return Math.Abs(offset);
         }
 
         public IgnoringCollisionResolver(IActor owner): base(owner)

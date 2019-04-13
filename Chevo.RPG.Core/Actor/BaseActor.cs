@@ -147,7 +147,7 @@ namespace Chevo.RPG.Core.Actor
 
         public void TryInteract(IInteractionHandler interactor)
         {
-            if (Stats.IsAlive)
+            if (Stats.IsAlive && interactor != null)
             {
                 var collided = EnvironmentContainer.Instances.FirstOrDefault(x =>
                                 Collider.InRangeOfInteraction(new CollisionModel(x.Actor), new CollisionModel(this)) &&
@@ -169,7 +169,7 @@ namespace Chevo.RPG.Core.Actor
 
         public void TryStopInteraction(IInteractionHandler interactor)
         {
-            if (Stats.IsAlive)
+            if (Stats.IsAlive && interactor != null)
             {
                 var lastSpeakedWith = interactor.Messenger.LastSpeakedWith;
                 if (lastSpeakedWith != null)
