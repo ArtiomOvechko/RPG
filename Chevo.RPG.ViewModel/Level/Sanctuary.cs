@@ -40,7 +40,10 @@ namespace Chevo.RPG.ViewModel.Level
             var TestEnemy4 = new TestEnemyBehavior(new Sceleton(new KnifeWeaponItem(null), new Point(2500, 3100)));
 
             // Init Player         
-            Player = new Player(new Thief(new KnifeWeaponItem(null), new Point(2700, 2700)), new InteractionHandler(new Messenger()));
+            var playerActor = new Thief(new KnifeWeaponItem(null), new Point(2700, 2700));
+            var aimingMarker = new MovableObjectBehavior(new AimingMarker(playerActor.Position, playerActor));
+            Player = new Player(playerActor, aimingMarker, new InteractionHandler(new Messenger()));
+            //Player = new Player(playerActor, new InteractionHandler(new Messenger()));
             ViewPort = new ViewPort(screenWidth, screenHeight, (IInstance)Player);
 
             // Load all obstacles
@@ -62,6 +65,7 @@ namespace Chevo.RPG.ViewModel.Level
             //    EnvironmentContainer.AddInstance(new StaticObjectBehavior(new DungeonStoneWall(new Point(i, 3000))));
             //}
 
+            EnvironmentContainer.AddInstance(aimingMarker);
             EnvironmentContainer.AddInstance((IInstance)Player);
 
             // Load all items

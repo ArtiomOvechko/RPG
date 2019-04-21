@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actor\BaseActor.cs" />
+    <Compile Include="Actor\Misc\AimingMarker.cs" />
     <Compile Include="Actor\Projectiles\Bone.cs" />
     <Compile Include="Actor\Misc\BrokenHeart.cs" />
     <Compile Include="Actor\Projectiles\Knife.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Behavior\Npc\TestEnemyBehavior.cs" />
     <Compile Include="Behavior\Npc\GuideBehavior.cs" />
     <Compile Include="Behavior\Projectile\Projectile.cs" />
+    <Compile Include="Behavior\StaticObject\MovableObjectBehavior.cs" />
     <Compile Include="Collision\DefaultCollisionResolver.cs" />
     <Compile Include="Collision\IgnoringCollisionResolver.cs" />
     <Compile Include="Collision\ProjectileCollisionResolver.cs" />

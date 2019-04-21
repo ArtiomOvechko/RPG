@@ -38,9 +38,9 @@ namespace Chevo.RPG.App.Pages
                 case Key.Enter:
                     _currentLevel.TryInteract.Execute(null);
                     break;
-                case Key.Space:
-                    _currentLevel.Attack.Execute(null);
-                    return;
+                //case Key.Space:
+                //    _currentLevel.Attack.Execute(null);
+                //    return;
                 default: return;
             }
         }
@@ -81,6 +81,18 @@ namespace Chevo.RPG.App.Pages
         {
             Label from = (Label)sender;
             _currentLevel.DiscardWeapon.Execute(from.Tag);
+        }
+
+        private void Grid_MouseMove(object sender, MouseEventArgs e)
+        {
+            System.Windows.Point cursorPoint = Mouse.GetPosition(this);
+            _currentLevel.Aim.Execute(
+                new Core.Stats.Point((int)cursorPoint.X, (int)cursorPoint.Y));
+        }
+
+        private void Canvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            _currentLevel.Attack.Execute(null);
         }
     }
 }

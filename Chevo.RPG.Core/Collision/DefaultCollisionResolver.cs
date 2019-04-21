@@ -8,6 +8,7 @@ using Chevo.RPG.Core.Behavior.Projectile;
 using Chevo.RPG.Core.Environment;
 using Chevo.RPG.Core.Factories;
 using System;
+using Chevo.RPG.Core.Behavior.StaticObject;
 
 namespace Chevo.RPG.Core.Collision
 {
@@ -38,12 +39,12 @@ namespace Chevo.RPG.Core.Collision
         {
             var tempStepLength = _owner.Stats.StepLenght;
             int offset = 0;
-            while (tempStepLength-- != 0)
+            while (tempStepLength != 0)
             {
                 var expectedSpec = GetExpectedSpecs(_owner, direction, tempStepLength);
                 var collided = EnvironmentContainer.Instances.FirstOrDefault(instance => 
                     Collider.Colliding(new CollisionModel(instance.Actor.Stats.Size, instance.Actor.Position.X, instance.Actor.Position.Y), expectedSpec) &&
-                    _owner != instance.Actor && !(instance is Projectile));
+                    _owner != instance.Actor && !(instance is Projectile) && !(instance is MovableObjectBehavior));
                 if (collided == null)
                 {
                     switch (direction)
@@ -60,6 +61,7 @@ namespace Chevo.RPG.Core.Collision
                     _owner.Position = new Stats.Point(expectedSpec.X, expectedSpec.Y);
                     break;
                 }
+                tempStepLength--;
             }
 
             return Math.Abs(offset);

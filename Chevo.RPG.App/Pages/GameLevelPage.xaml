@@ -11,7 +11,7 @@
     <Page.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
     </Page.Resources>
-    <Grid>
+    <Grid MouseMove="Grid_MouseMove">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -26,7 +26,7 @@
         </Grid.ColumnDefinitions>
 
 
-        <Canvas Grid.ColumnSpan="4" Grid.RowSpan="4" Background="Black" Height="{Binding LevelWidth}" Width="{Binding LevelHeight}">
+        <Canvas MouseLeftButtonDown="Canvas_MouseLeftButtonDown" Grid.ColumnSpan="4" Grid.RowSpan="4" Background="Black" Height="{Binding LevelWidth}" Width="{Binding LevelHeight}">
             <!-- Level items -->
             <ItemsControl ItemsSource="{Binding LevelItems}" Canvas.Top="{Binding ViewPort.Position.Y}" Canvas.Left="{Binding ViewPort.Position.X}">
                 <ItemsControl.ItemsPanel>

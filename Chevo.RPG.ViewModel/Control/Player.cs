@@ -4,7 +4,6 @@ using Chevo.RPG.Core.Interfaces.Actor;
 using Chevo.RPG.ViewModel.Interfaces.Level;
 using Chevo.RPG.Core.Interfaces.Instance;
 using Chevo.RPG.Core.Interfaces.Interaction;
-using Chevo.RPG.Core.Helpers;
 using Chevo.RPG.Core.Interfaces.Inventory;
 
 using System;
@@ -35,12 +34,18 @@ namespace Chevo.RPG.ViewModel.Control
         [NonSerialized]
         private ICommand _discardWeapon;
         [NonSerialized]
+        private ICommand _aim;
+        [NonSerialized]
+        private IInstance _aimingMarker;
+        [NonSerialized]
         private CancellationTokenSource cancellationTokenSource;
+
+        private int _aimingMakerHalfSize;
 
         public IActor Actor
         {
             get { return _currentActor; }
-        }
+        }  
 
         public IInteractionHandler InteractionHandler { get; private set; }
 
@@ -53,7 +58,8 @@ namespace Chevo.RPG.ViewModel.Control
                     _startMove = new ActionCommand((x) =>
                     {
                         _currentDirection = (Direction)x;
-                        _currentActor.StartMove(_currentDirection);     
+                        _currentActor.StartMove(_currentDirection);
+                        _aimingMarker?.Actor.StartMove(_currentDirection);
                     });
                 }
                 return _startMove;
@@ -71,6 +77,7 @@ namespace Chevo.RPG.ViewModel.Control
                         if (_currentDirection == (Direction)x)
                         {
                             _currentActor.StopMove();
+                            _aimingMarker?.Actor.StopMove();
                         }
                     });
                 }
@@ -105,6 +112,27 @@ namespace Chevo.RPG.ViewModel.Control
                     });
                 }
                 return _attack;
+            }
+        }
+
+        public ICommand Aim
+        {
+            get
+            {
+                if (_aim == null)
+                {
+                    _aim = new ActionCommand((x) =>
+                    {
+                        Direction aimDirection = (Direction)x;
+                        if (_currentActor.CurrentAimDirection != aimDirection)
+                        {
+                            _currentActor.CurrentAimDirection = aimDirection;
+                            if (_aimingMarker != null)
+                                _aimingMarker.Actor.CurrentAimDirection = aimDirection;
+                        }
+                    });
+                }
+                return _aim;
             }
         }
 
@@ -153,6 +181,14 @@ namespace Chevo.RPG.ViewModel.Control
             }
         }
 
+        public Player(IActor actor, IInstance aimingMarker, IInteractionHandler interactor)
+        {
+            _currentActor = actor;
+            _aimingMarker = aimingMarker;
+            InteractionHandler = interactor;
+            _aimingMakerHalfSize = _aimingMarker.Actor.Stats.Size / 2 - _currentActor.Stats.Size / 2;
+        }
+
         public Player(IActor actor, IInteractionHandler interactor)
         {
             _currentActor = actor;
@@ -168,6 +204,8 @@ namespace Chevo.RPG.ViewModel.Control
         {
             _currentActor.TryStopInteraction(InteractionHandler);
             _currentActor.Move();
+            if (_aimingMarker != null)
+                _aimingMarker.Actor.Position = new Core.Stats.Point(_currentActor.Position.X - _aimingMakerHalfSize, _currentActor.Position.Y - _aimingMakerHalfSize);
         }
     }
 }

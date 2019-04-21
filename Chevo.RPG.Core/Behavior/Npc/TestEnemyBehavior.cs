@@ -1,11 +1,8 @@
-﻿using Chevo.RPG.Core.Environment;
-using Chevo.RPG.Core.Helpers;
-using Chevo.RPG.Core.Interfaces.Actor;
+﻿using Chevo.RPG.Core.Interfaces.Actor;
 using Chevo.RPG.Core.Interfaces.Instance;
-using Chevo.RPG.Core.Interfaces.Interaction;
 
 using System;
-using System.Linq;
+
 
 namespace Chevo.RPG.Core.Behavior.Npc
 {
@@ -18,6 +15,7 @@ namespace Chevo.RPG.Core.Behavior.Npc
         {
             _currentActor = actor;
             _currentActor.StartMove(Enum.Direction.Right);
+            _currentActor.UnequipWeapon();
         }
 
         public string GetMessage()
@@ -48,11 +46,10 @@ namespace Chevo.RPG.Core.Behavior.Npc
                     case Enum.Direction.Down:
                         _currentActor.StartMove(Enum.Direction.Left);
                         break;
-                }
-                
+                }              
             }
 
-            //_currentActor.Attack();
+            _currentActor.Attack();
 
             base.ProcessCurrentState();         
         }

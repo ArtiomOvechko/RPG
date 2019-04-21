@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Windows.Input;
 using System;
 using Chevo.RPG.Core.Interfaces.Inventory;
+using Chevo.RPG.Core.Stats;
+using Chevo.RPG.Core.Enum;
 
 namespace Chevo.RPG.ViewModel.Level
 {
@@ -19,6 +21,15 @@ namespace Chevo.RPG.ViewModel.Level
         private ICommand _equipWeapon;
         private ICommand _unequipWeapon;
         private ICommand _discardWeapon;
+        private ICommand _aim;
+
+        private enum ScreenPart
+        {
+            RightUp,
+            RightDown,
+            LeftUp,
+            LeftDown
+        }
 
         public IControl Player { get; protected set; }
         public IViewPort ViewPort { get; protected set; }
@@ -86,6 +97,53 @@ namespace Chevo.RPG.ViewModel.Level
                     });
                 }
                 return _attack;
+            }
+        }
+
+        public ICommand Aim
+        {
+            get
+            {
+                if (_aim == null)
+                {
+                    _aim = new ActionCommand((x) =>
+                    {
+                        Point screenPoint = (Point)x;
+
+                        ScreenPart mouseScreenPart;
+
+                        if (screenPoint.X >= ViewPort.ScreenWidth / 2)
+                        {
+                            mouseScreenPart = screenPoint.Y >= ViewPort.ScreenHeight / 2 ? ScreenPart.RightDown : ScreenPart.RightUp;
+                        }
+                        else
+                        {
+                            mouseScreenPart = screenPoint.Y >= ViewPort.ScreenHeight / 2 ? ScreenPart.LeftDown : ScreenPart.LeftUp;
+                        }
+
+                        Direction aimDirection;
+
+                        switch (mouseScreenPart)
+                        {
+                            default:
+                            case ScreenPart.RightUp:
+                                aimDirection = (ViewPort.ScreenHeight / 2 - screenPoint.Y) >= (screenPoint.X - ViewPort.ScreenWidth / 2) ? Direction.Up : Direction.Right;
+                                break;
+                            case ScreenPart.RightDown:
+                                aimDirection = (screenPoint.Y - ViewPort.ScreenHeight / 2) >= (screenPoint.X - ViewPort.ScreenWidth / 2) ? Direction.Down : Direction.Right;
+                                break;
+                            case ScreenPart.LeftDown:
+                                aimDirection = (screenPoint.Y - ViewPort.ScreenHeight / 2) >= (ViewPort.ScreenWidth / 2 - screenPoint.X) ? Direction.Down : Direction.Left;
+                                break;
+                            case ScreenPart.LeftUp:
+                                aimDirection = (ViewPort.ScreenHeight / 2 - screenPoint.Y) >= (ViewPort.ScreenWidth / 2 - screenPoint.X) ? Direction.Up : Direction.Left;
+                                break;
+                        }
+
+                        Player.Aim.Execute(aimDirection);
+                    });
+                }
+                return _aim;
             }
         }
 

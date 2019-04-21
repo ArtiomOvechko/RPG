@@ -25,12 +25,30 @@ namespace Chevo.RPG.Core.Actor
     {
         private Point _currentPosition;
         private IStats _stats;
+        private Uri _currentAnimation;
+        private Direction _currentAimDirection;
 
         protected IWeapon _currentWeapon;
         protected IActorAnimation _animation;
         protected ICollisionResolver _collisionResolver;
+       
 
-        public Direction CurrentDirection { get; private set; }
+        public Direction CurrentDirection { get; set; }
+
+        public Direction CurrentAimDirection
+        {
+            get
+            {
+                return _currentAimDirection;
+            }
+
+            set
+            {
+                _currentAimDirection = value;
+                OnPropertyChanged("CurrentAnimation");
+            }
+        }
+
         public State CurrentState { get; private set; }
 
         #region Properties
@@ -42,6 +60,7 @@ namespace Chevo.RPG.Core.Actor
             {
                 return _currentWeapon;
             }
+
             set
             {
                 _currentWeapon = value;
@@ -59,6 +78,7 @@ namespace Chevo.RPG.Core.Actor
             set
             {
                 _stats = value;
+
                 OnPropertyChanged("Stats");
             }
         }
@@ -71,10 +91,14 @@ namespace Chevo.RPG.Core.Actor
                 {
                     default:
                     case State.Idle:
-                        return _animation.GetIdleAnimation(CurrentDirection);
+                        _currentAnimation = _animation?.GetIdleAnimation(Weapon != null ? CurrentAimDirection : CurrentDirection, _currentAnimation);
+                        break;
                     case State.Moving:
-                        return _animation.GetMovingAnimation(CurrentDirection);
+                        _currentAnimation = _animation?.GetMovingAnimation(Weapon != null ? CurrentAimDirection : CurrentDirection, _currentAnimation);
+                        break;
                 }
+
+                return _currentAnimation;
             }
         }
 
@@ -103,7 +127,7 @@ namespace Chevo.RPG.Core.Actor
                     CurrentDirection = direction;
                     CurrentState = State.Moving;
                     OnPropertyChanged("CurrentAnimation");
-                }                
+                }
             }
         }
 
@@ -132,7 +156,7 @@ namespace Chevo.RPG.Core.Actor
             {
                 if (_currentWeapon != null)
                 {
-                    _currentWeapon.Attack(this, CurrentDirection);
+                    _currentWeapon.Attack(this, CurrentAimDirection);
                 }
             }
         }
@@ -211,6 +235,7 @@ namespace Chevo.RPG.Core.Actor
         {
             Position = initialPosition;
             CurrentDirection = Direction.Up;
+            CurrentAimDirection = Direction.Right;
             CurrentState = State.Idle;          
 
             Inventory = new DefaultInventory();
@@ -223,10 +248,7 @@ namespace Chevo.RPG.Core.Actor
 
         protected void OnPropertyChanged(string name)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

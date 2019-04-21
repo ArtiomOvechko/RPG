@@ -6,7 +6,7 @@ namespace Chevo.RPG.Core.Interfaces.Animation
 {
     public interface IActorAnimation
     {
-        Uri GetMovingAnimation(Direction direction);
-        Uri GetIdleAnimation(Direction direction);
+        Uri GetMovingAnimation(Direction direction, Uri currentAnimation);
+        Uri GetIdleAnimation(Direction direction, Uri currentAnimation);
     }
 }

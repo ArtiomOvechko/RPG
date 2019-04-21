@@ -20,6 +20,22 @@ namespace Chevo.RPG.ViewModel.Control
         private int _screenHeight;
         private Point _position;
 
+        public int ScreenWidth
+        {
+            get
+            {
+                return _screenWidth;
+            }
+        }
+
+        public int ScreenHeight
+        {
+            get
+            {
+                return _screenHeight;
+            }
+        }
+
         /// <summary>
         /// View position relative to level canvas
         /// </summary>

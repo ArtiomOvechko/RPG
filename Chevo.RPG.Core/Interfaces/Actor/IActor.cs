@@ -29,7 +29,13 @@ namespace Chevo.RPG.Core.Interfaces.Actor
         /// Represents direction of actor (up, right, down, left)
         /// </summary>
         Direction CurrentDirection { get; }
-        
+
+        /// <summary>
+        /// Represents aiming direction of actor (up, right, down, left)
+        /// It has priority over common direction in case when actors have a weapon equipped
+        /// </summary>
+        Direction CurrentAimDirection { get; set; }
+
         /// <summary>
         /// Currently used weapon
         /// </summary>

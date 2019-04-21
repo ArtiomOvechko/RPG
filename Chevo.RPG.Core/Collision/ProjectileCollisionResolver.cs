@@ -6,6 +6,7 @@ using Chevo.RPG.Core.Behavior.Projectile;
 
 using System.Linq;
 using System;
+using Chevo.RPG.Core.Behavior.StaticObject;
 
 namespace Chevo.RPG.Core.Collision
 {
@@ -26,7 +27,7 @@ namespace Chevo.RPG.Core.Collision
             var expectedSpec = GetExpectedSpecs(_owner, direction, _owner.Stats.StepLenght);
             var collided = EnvironmentContainer.Instances.FirstOrDefault(instance =>
                 Collider.Colliding(new CollisionModel(instance.Actor.Stats.Size, instance.Actor.Position.X, instance.Actor.Position.Y), expectedSpec) &&
-                _owner != instance.Actor && _creator != instance.Actor && !(instance is Projectile));
+                _owner != instance.Actor && _creator != instance.Actor && !(instance is Projectile) && !(instance is MovableObjectBehavior));
             if (collided == null)
             {
                 switch (direction)

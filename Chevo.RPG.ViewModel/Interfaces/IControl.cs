@@ -13,5 +13,7 @@ namespace Chevo.RPG.ViewModel.Interfaces.Level
         ICommand UnequipWeapon { get; }
 
         ICommand DiscardWeapon { get; }
+
+        ICommand Aim { get; }
     }
 }
