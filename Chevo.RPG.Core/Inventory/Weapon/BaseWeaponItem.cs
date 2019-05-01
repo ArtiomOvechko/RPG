@@ -1,4 +1,5 @@
-﻿using Chevo.RPG.Core.Interfaces.Inventory;
+﻿using Chevo.RPG.Core.Interfaces.Actor;
+using Chevo.RPG.Core.Interfaces.Inventory;
 using Chevo.RPG.Core.Interfaces.Weapon;
 using Chevo.RPG.Core.Stats;
 
@@ -88,12 +89,13 @@ namespace Chevo.RPG.Core.Inventory.Weapon
         /// Get weapon from item and mark it as equipped
         /// </summary>
         /// <returns></returns>
-        public IWeapon Equip()
+        public IWeapon Equip(IActor owner)
         {
             _equipped = true;
             OnPropertyChanged("Equippable");
             OnPropertyChanged("Unequippable");
             OnPropertyChanged("Discardable");
+            _weapon.SetSize(owner);
             return _weapon;
         }
 

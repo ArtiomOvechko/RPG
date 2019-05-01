@@ -1,19 +1,24 @@
 ﻿using Chevo.RPG.Core.Interfaces.Weapon;
 using Chevo.RPG.Core.Behavior.Projectile;
-using Chevo.RPG.Core.Actor;
 using Chevo.RPG.Core.Enum;
 using Chevo.RPG.Core.Interfaces.Actor;
 using Chevo.RPG.Common.Settings;
 using Chevo.RPG.Core.Environment;
 using Chevo.RPG.Core.Helpers;
+using Chevo.RPG.Core.Animation;
 
 namespace Chevo.RPG.Core.Weapon
 {
-    public class BlazingHands: IWeapon 
+    public class BlazingHands: BaseWeapon 
     {
         private bool _canAttack = true;
 
-        public void Attack(IActor attacker, Direction direction)
+        public BlazingHands()
+        {
+            Animation = new KnifeAnimation();
+        }
+
+        public override void Attack(IActor attacker, Direction direction)
         {
             if (_canAttack)
             {

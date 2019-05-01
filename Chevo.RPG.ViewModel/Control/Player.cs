@@ -36,8 +36,6 @@ namespace Chevo.RPG.ViewModel.Control
         [NonSerialized]
         private ICommand _aim;
         [NonSerialized]
-        private IInstance _aimingMarker;
-        [NonSerialized]
         private CancellationTokenSource cancellationTokenSource;
 
         private int _aimingMakerHalfSize;
@@ -59,7 +57,6 @@ namespace Chevo.RPG.ViewModel.Control
                     {
                         _currentDirection = (Direction)x;
                         _currentActor.StartMove(_currentDirection);
-                        _aimingMarker?.Actor.StartMove(_currentDirection);
                     });
                 }
                 return _startMove;
@@ -77,7 +74,6 @@ namespace Chevo.RPG.ViewModel.Control
                         if (_currentDirection == (Direction)x)
                         {
                             _currentActor.StopMove();
-                            _aimingMarker?.Actor.StopMove();
                         }
                     });
                 }
@@ -127,8 +123,6 @@ namespace Chevo.RPG.ViewModel.Control
                         if (_currentActor.CurrentAimDirection != aimDirection)
                         {
                             _currentActor.CurrentAimDirection = aimDirection;
-                            if (_aimingMarker != null)
-                                _aimingMarker.Actor.CurrentAimDirection = aimDirection;
                         }
                     });
                 }
@@ -181,18 +175,19 @@ namespace Chevo.RPG.ViewModel.Control
             }
         }
 
-        public Player(IActor actor, IInstance aimingMarker, IInteractionHandler interactor)
-        {
-            _currentActor = actor;
-            _aimingMarker = aimingMarker;
-            InteractionHandler = interactor;
-            _aimingMakerHalfSize = _aimingMarker.Actor.Stats.Size / 2 - _currentActor.Stats.Size / 2;
-        }
+        public string Name { get; private set; }
 
         public Player(IActor actor, IInteractionHandler interactor)
         {
             _currentActor = actor;
             InteractionHandler = interactor;
+        }
+
+        public Player(IActor actor, string name, IInteractionHandler interactor)
+        {
+            _currentActor = actor;
+            InteractionHandler = interactor;
+            Name = name;
         }
 
         public string GetMessage()
@@ -204,8 +199,6 @@ namespace Chevo.RPG.ViewModel.Control
         {
             _currentActor.TryStopInteraction(InteractionHandler);
             _currentActor.Move();
-            if (_aimingMarker != null)
-                _aimingMarker.Actor.Position = new Core.Stats.Point(_currentActor.Position.X - _aimingMakerHalfSize, _currentActor.Position.Y - _aimingMakerHalfSize);
         }
     }
 }

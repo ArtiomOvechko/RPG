@@ -45,6 +45,10 @@ namespace Chevo.RPG.Core.Actor
             set
             {
                 _currentAimDirection = value;
+                if (_currentWeapon != null)
+                {
+                    _currentWeapon.CurrentDirection = value;
+                }                
                 OnPropertyChanged("CurrentAnimation");
             }
         }
@@ -65,6 +69,7 @@ namespace Chevo.RPG.Core.Actor
             {
                 _currentWeapon = value;
                 OnPropertyChanged("Weapon");
+                OnPropertyChanged("WeaponPosition");
             }
         }
 
@@ -113,6 +118,15 @@ namespace Chevo.RPG.Core.Actor
             {
                 _currentPosition = value;
                 OnPropertyChanged("Position");
+                OnPropertyChanged("WeaponPosition");
+            }
+        }
+
+        public Point WeaponPosition
+        {
+            get
+            {
+                return new Point(_currentPosition.X + _stats.Size / 2 - Weapon?.Size / 2 ?? 0, _currentPosition.Y + _stats.Size / 2 - Weapon?.Size / 2 ?? 0);
             }
         }
         #endregion
@@ -213,8 +227,10 @@ namespace Chevo.RPG.Core.Actor
             if (Stats == null || Stats.IsAlive)
             {
                 UnequipWeapon();
-                _currentWeapon = weaponItem.Equip();
-            }            
+                IWeapon newWeapon = weaponItem.Equip(this);
+                newWeapon.CurrentDirection = CurrentDirection;
+                Weapon = newWeapon;
+            }
         }
 
         public void UnequipWeapon()
@@ -242,7 +258,6 @@ namespace Chevo.RPG.Core.Actor
             if (weaponItem != null)
             {
                 Inventory.Add(weaponItem);
-                EquipWeapon(weaponItem);
             }           
         }
 

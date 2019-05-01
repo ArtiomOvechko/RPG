@@ -113,6 +113,7 @@
     <Compile Include="Behavior\StaticObject\StaticObjectBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stats\DefaultStats.cs" />
+    <Compile Include="Weapon\BaseWeapon.cs" />
     <Compile Include="Weapon\BlazingHands.cs" />
     <Compile Include="Weapon\Knife.cs" />
   </ItemGroup>

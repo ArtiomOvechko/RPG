@@ -66,6 +66,45 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
+
+            <!--<ItemsControl ItemsSource="{Binding LevelObjects}" Canvas.Top="{Binding ViewPort.Position.Y}" Canvas.Left="{Binding ViewPort.Position.X}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas Background="Transparent" Height="{Binding LevelWidth}" Width="{Binding LevelHeight}"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="Canvas.Left" Value="{Binding Actor.Position.X}"/>
+                        <Setter Property="Canvas.Top" Value="{Binding Actor.Position.Y}"/>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Label Foreground="White" FontSize="32" Content="{Binding Name}"></Label>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>-->
+
+            <!--Object's weapons-->
+            <ItemsControl ItemsSource="{Binding LevelObjects}" Canvas.Top="{Binding ViewPort.Position.Y}" Canvas.Left="{Binding ViewPort.Position.X}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas Background="Transparent" Height="{Binding LevelWidth}" Width="{Binding LevelHeight}"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="Canvas.Left" Value="{Binding Actor.WeaponPosition.X}"/>
+                        <Setter Property="Canvas.Top" Value="{Binding Actor.WeaponPosition.Y}"/>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Width="{Binding Actor.Weapon.Size}" Height="{Binding Actor.Weapon.Size}" gif:ImageBehavior.AnimatedSource="{Binding Actor.Weapon.CurrentAnimation}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Canvas>
 
         <!--Inventory-->

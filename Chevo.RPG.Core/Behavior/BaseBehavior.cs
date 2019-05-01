@@ -13,6 +13,8 @@ namespace Chevo.RPG.Core.Behavior
         protected CancellationTokenSource _cts;
         protected IActor _currentActor;
 
+        public string Name { get; protected set; }
+
         public IActor Actor
         {
             get

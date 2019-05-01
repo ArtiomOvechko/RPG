@@ -8,15 +8,21 @@ using Chevo.RPG.Core.Interfaces.Actor;
 using Chevo.RPG.Common.Settings;
 using Chevo.RPG.Core.Environment;
 using Chevo.RPG.Core.Helpers;
+using Chevo.RPG.Core.Animation;
 
 namespace Chevo.RPG.Core.Weapon
 {
     [Serializable]
-    public class Knife: IWeapon
+    public class Knife: BaseWeapon
     {
         private bool _canAttack = true;
 
-        public void Attack(IActor attacker, Direction direction)
+        public Knife()
+        {
+            Animation = new KnifeAnimation();
+        }
+
+        public override void Attack(IActor attacker, Direction direction)
         {
             if (_canAttack)
             {

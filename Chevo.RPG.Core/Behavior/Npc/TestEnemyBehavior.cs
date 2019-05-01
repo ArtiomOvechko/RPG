@@ -1,8 +1,8 @@
 ﻿using Chevo.RPG.Core.Interfaces.Actor;
 using Chevo.RPG.Core.Interfaces.Instance;
-
+using Chevo.RPG.Core.Interfaces.Inventory;
 using System;
-
+using System.Linq;
 
 namespace Chevo.RPG.Core.Behavior.Npc
 {
@@ -11,7 +11,7 @@ namespace Chevo.RPG.Core.Behavior.Npc
     {
         public int _distancePassed = 0;
 
-        public TestEnemyBehavior(IActor actor): base()
+        public TestEnemyBehavior(IActor actor) : base()
         {
             _currentActor = actor;
             _currentActor.StartMove(Enum.Direction.Right);
@@ -26,6 +26,12 @@ namespace Chevo.RPG.Core.Behavior.Npc
         public override void ProcessCurrentState()
         {
             _distancePassed += _currentActor.Move();
+
+            //reconsider quipping ANY item because it is exception-prone case
+            if (_currentActor.Weapon == null && _currentActor.Inventory.Items.FirstOrDefault() != null)
+            {
+                _currentActor.EquipWeapon((IWeaponItem)_currentActor.Inventory.Items.FirstOrDefault());
+            }
 
             if (_distancePassed > 100)
             {

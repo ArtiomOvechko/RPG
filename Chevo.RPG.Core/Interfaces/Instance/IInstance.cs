@@ -10,5 +10,7 @@ namespace Chevo.RPG.Core.Interfaces.Instance
         string GetMessage();
 
         void ProcessCurrentState();
+
+        string Name { get; }
     }
 }
