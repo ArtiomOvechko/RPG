@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -78,6 +81,8 @@
     <Compile Include="Enum\Direction.cs" />
     <Compile Include="Enum\State.cs" />
     <Compile Include="Environment\EnvironmentContainer.cs" />
+    <Compile Include="Environment\LevelSaveMetadata.cs" />
+    <Compile Include="Environment\SaveManager.cs" />
     <Compile Include="Extensions\LinqExtension.cs" />
     <Compile Include="Factories\BaseInstancePrototype.cs" />
     <Compile Include="Factories\DamageAnimationFactory.cs" />
@@ -123,7 +128,9 @@
       <Name>Chevo.RPG.Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
