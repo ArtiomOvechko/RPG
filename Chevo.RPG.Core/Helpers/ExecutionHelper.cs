@@ -3,7 +3,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Windows.Foundation.Metadata;
+//using Windows.Foundation.Metadata;
 
 namespace Chevo.RPG.Core.Helpers
 {
@@ -34,7 +34,7 @@ namespace Chevo.RPG.Core.Helpers
         }
 
         // TBR
-        [Deprecated("Use ExecutionHelper.ExecuteContinuoslyAsync instead", DeprecationType.Deprecate, 1)]
+        //[Deprecated("Use ExecutionHelper.ExecuteContinuoslyAsync instead", DeprecationType.Deprecate, 1)]
         public async Task ExecuteContinuoslyAsyncWithPostAction(Action continuousAction, Action postAction, CancellationToken cancellationToken)
         {
             await Task.Delay(GlobalSettings.Default.GameSpeed);
