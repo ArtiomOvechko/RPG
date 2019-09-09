@@ -9,7 +9,7 @@ using Chevo.RPG.Core.Inventory.Item;
 using Chevo.RPG.Core.Inventory.Weapon;
 using Chevo.RPG.Core.Stats;
 using Chevo.RPG.ViewModel.Control;
-
+using System;
 
 namespace Chevo.RPG.ViewModel.Level
 {
@@ -45,6 +45,8 @@ namespace Chevo.RPG.ViewModel.Level
             //Player = new Player(playerActor, new InteractionHandler(new Messenger()));
             ViewPort = new ViewPort(screenWidth, screenHeight, (IInstance)Player);
 
+            EnvironmentContainer.AddInstance((IInstance)Player);
+
             // Load all obstacles
             EnvironmentContainer.AddInstance(wall1);
             EnvironmentContainer.AddInstance(wall2);
@@ -54,17 +56,17 @@ namespace Chevo.RPG.ViewModel.Level
             EnvironmentContainer.AddInstance(TestEnemy3);
             EnvironmentContainer.AddInstance(TestEnemy4);
 
-            //for (var i = 3000; i < 3500; i+= 50)
-            //{
-            //    EnvironmentContainer.AddInstance(new TestEnemyBehavior(new Sceleton(new KnifeWeaponItem(null), new Point(i, i))));
-            //}
+            for (var i = 3000; i < 6500; i += 50)
+            {
+                EnvironmentContainer.AddInstance(new TestEnemyBehavior(new Sceleton(new KnifeWeaponItem(null), new Point(i, i))));
+            }
 
-            //for (var i = 32; i < 6000; i += 32)
-            //{
-            //    EnvironmentContainer.AddInstance(new StaticObjectBehavior(new DungeonStoneWall(new Point(i, 3000))));
-            //}
+            Random r = new Random();
 
-            EnvironmentContainer.AddInstance((IInstance)Player);
+            for (var i = 1; i < 10000; i += 1)
+            {
+                EnvironmentContainer.AddInstance(new MovableObjectBehavior(new Tree(new Point(r.Next(3000, 6500), r.Next(3000, 6500)))));
+            }
 
             // Load all items
             EnvironmentContainer.Items.Add(CopperKey);

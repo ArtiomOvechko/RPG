@@ -26,6 +26,16 @@ namespace Chevo.RPG.Core.Helpers
             return false;
         }
 
+        /// experimental: try process instances only next to the player (thief as tmp)
+        public static bool InRangeOfRender(CollisionModel otherInstanceSpecs, CollisionModel currentSpecs)
+        {
+            if (getDistance(otherInstanceSpecs, currentSpecs) < 1000)
+            {
+                return true;
+            }
+            return false;
+        }
+
         private static bool Intersect(CollisionModel from, CollisionModel to)
         {
             Point leftUp = new Point(from.X - from.Size / 2, from.Y - from.Size / 2);

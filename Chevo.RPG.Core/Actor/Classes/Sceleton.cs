@@ -6,7 +6,6 @@ using Chevo.RPG.Core.Stats;
 
 using System;
 
-
 namespace Chevo.RPG.Core.Actor
 {
     [Serializable]
@@ -14,9 +13,10 @@ namespace Chevo.RPG.Core.Actor
     {
         public Sceleton(IWeaponItem weapon, Point initialPostion) : base(weapon, initialPostion)
         {
-            Stats = new DefaultStats(Common.Settings.ActorSettings.DefaultSize, 3, 1, Common.Settings.ActorSettings.SkeletonStepLength);
+            Stats = new DefaultStats(Common.Settings.ActorSettings.DefaultSize, 9999, 1, Common.Settings.ActorSettings.SkeletonStepLength);
             _animation = new SceletonAnimation();
             _collisionResolver = new DefaultCollisionResolver(this);                
         }
+
     }
 }

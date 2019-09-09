@@ -13,7 +13,7 @@ namespace Chevo.RPG.Core.Actor
     {
         public Thief(IWeaponItem weapon, Point initialPosition) : base(weapon, initialPosition)
         {
-            Stats = new DefaultStats(Common.Settings.ActorSettings.DefaultSize, 3, 3, Common.Settings.ActorSettings.ThiefStepLength);
+            Stats = new DefaultStats(Common.Settings.ActorSettings.DefaultSize, 30, 3, Common.Settings.ActorSettings.ThiefStepLength);
             _animation = new ThiefAnimation();
             _collisionResolver = new DefaultCollisionResolver(this);
         }
