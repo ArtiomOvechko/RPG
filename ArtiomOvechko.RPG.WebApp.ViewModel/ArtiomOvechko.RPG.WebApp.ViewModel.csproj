@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ArtiomOvechko.RPG.WebApp.Common\ArtiomOvechko.RPG.WebApp.Common.csproj" />
+      <ProjectReference Include="..\ArtiomOvechko.RPG.WebApp.Core\ArtiomOvechko.RPG.WebApp.Core.csproj" />
+    </ItemGroup>
+
+</Project>

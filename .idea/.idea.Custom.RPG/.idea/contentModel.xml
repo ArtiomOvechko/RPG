@@ -1,0 +1,976 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_Custom.RPG.-815269948.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="ArtiomOvechko.RPG.App" t="IncludeRecursive">
+        <e p="App.xaml" t="Include" />
+        <e p="App.xaml.cs" t="Include" />
+        <e p="ArtiomOvechko.RPG.App.csproj" t="IncludeRecursive" />
+        <e p="ArtiomOvechko.RPG.App_TemporaryKey.pfx" t="Include" />
+        <e p="Assets" t="Include">
+          <e p="LockScreenLogo.scale-200.png" t="Include" />
+          <e p="SplashScreen.scale-200.png" t="Include" />
+          <e p="Square150x150Logo.scale-200.png" t="Include" />
+          <e p="Square44x44Logo.scale-200.png" t="Include" />
+          <e p="Square44x44Logo.targetsize-24_altform-unplated.png" t="Include" />
+          <e p="StoreLogo.png" t="Include" />
+          <e p="Wide310x150Logo.scale-200.png" t="Include" />
+        </e>
+        <e p="Helpers" t="Include">
+          <e p="ScreenCentering.cs" t="Include" />
+        </e>
+        <e p="MainPage.xaml" t="Include" />
+        <e p="MainPage.xaml.cs" t="Include" />
+        <e p="Package.appxmanifest" t="Include" />
+        <e p="project.json" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="Default.rd.xml" t="Include" />
+        </e>
+      </e>
+      <e p="ArtiomOvechko.RPG.Blazor" t="IncludeRecursive">
+        <e p="_Imports.razor" t="Include" />
+        <e p="App.razor" t="Include" />
+        <e p="ArtiomOvechko.RPG.Blazor.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="ArtiomOvechko.RPG.Blazor.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Pages" t="Include">
+          <e p="Counter.razor" t="Include" />
+          <e p="FetchData.razor" t="Include" />
+          <e p="Index.razor" t="Include" />
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Shared" t="Include">
+          <e p="MainLayout.razor" t="Include" />
+          <e p="NavMenu.razor" t="Include" />
+          <e p="SurveyPrompt.razor" t="Include" />
+        </e>
+        <e p="wwwroot" t="Include">
+          <e p="css" t="Include">
+            <e p="bootstrap" t="Include">
+              <e p="bootstrap.min.css" t="Include" />
+              <e p="bootstrap.min.css.map" t="Include" />
+            </e>
+            <e p="open-iconic" t="Include">
+              <e p="font" t="Include">
+                <e p="css" t="Include">
+                  <e p="open-iconic-bootstrap.min.css" t="Include" />
+                </e>
+                <e p="fonts" t="Include">
+                  <e p="open-iconic.eot" t="Include" />
+                  <e p="open-iconic.otf" t="Include" />
+                  <e p="open-iconic.svg" t="Include" />
+                  <e p="open-iconic.ttf" t="Include" />
+                  <e p="open-iconic.woff" t="Include" />
+                </e>
+              </e>
+              <e p="FONT-LICENSE" t="Include" />
+              <e p="ICON-LICENSE" t="Include" />
+              <e p="README.md" t="Include" />
+            </e>
+            <e p="site.css" t="Include" />
+          </e>
+          <e p="favicon.ico" t="Include" />
+          <e p="index.html" t="Include" />
+          <e p="sample-data" t="Include">
+            <e p="weather.json" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="ArtiomOvechko.RPG.Common" t="IncludeRecursive">
+        <e p="ArtiomOvechko.RPG.Common.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Resources" t="Include">
+          <e p="Assets" t="Include">
+            <e p="Images" t="Include">
+              <e p="Actors" t="Include">
+                <e p="Sceleton" t="Include">
+                  <e p="MoveDown" t="Include">
+                    <e p="2.gif" t="Include" />
+                    <e p="3.gif" t="Include" />
+                    <e p="4.gif" t="Include" />
+                    <e p="5.gif" t="Include" />
+                    <e p="6.gif" t="Include" />
+                    <e p="7.gif" t="Include" />
+                    <e p="8.gif" t="Include" />
+                  </e>
+                  <e p="MoveLeft" t="Include">
+                    <e p="2.gif" t="Include" />
+                    <e p="3.gif" t="Include" />
+                    <e p="4.gif" t="Include" />
+                    <e p="5.gif" t="Include" />
+                    <e p="6.gif" t="Include" />
+                  </e>
+                  <e p="MoveRight" t="Include">
+                    <e p="2.gif" t="Include" />
+                    <e p="3.gif" t="Include" />
+                    <e p="4.gif" t="Include" />
+                    <e p="5.gif" t="Include" />
+                    <e p="6.gif" t="Include" />
+                  </e>
+                  <e p="MoveUp" t="Include">
+                    <e p="2.gif" t="Include" />
+                    <e p="3.gif" t="Include" />
+                    <e p="4.gif" t="Include" />
+                    <e p="5.gif" t="Include" />
+                    <e p="6.gif" t="Include" />
+                    <e p="7.gif" t="Include" />
+                    <e p="8.gif" t="Include" />
+                  </e>
+                </e>
+                <e p="Thief" t="Include">
+                  <e p="MoveLeft" t="Include">
+                    <e p="1.gif" t="Include" />
+                    <e p="2.gif" t="Include" />
+                    <e p="3.gif" t="Include" />
+                    <e p="4.gif" t="Include" />
+                    <e p="5.gif" t="Include" />
+                    <e p="6.gif" t="Include" />
+                    <e p="7.gif" t="Include" />
+                  </e>
+                </e>
+              </e>
+            </e>
+          </e>
+          <e p="Images" t="Include">
+            <e p="Actors" t="Include">
+              <e p="Obstacles" t="Include">
+                <e p="Tree.png" t="Include" />
+              </e>
+              <e p="Sceleton" t="Include">
+                <e p="SceletonIdleRight.gif" t="Include" />
+                <e p="SceletonLeftIdle.gif" t="Include" />
+                <e p="SceletonMovesLeft.gif" t="Include" />
+                <e p="SceletonMovesRight.gif" t="Include" />
+              </e>
+              <e p="Thief" t="Include">
+                <e p="ThiefIdle.png" t="Include" />
+                <e p="ThiefMoveLeft.gif" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Sounds" t="Include">
+            <e p="Actors" t="Include">
+              <e p="Knife" t="Include">
+                <e p="knife.wav" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="Settings" t="Include">
+          <e p="ActorSettings.cs" t="Include" />
+          <e p="GlobalSettings.cs" t="Include" />
+        </e>
+      </e>
+      <e p="ArtiomOvechko.RPG.Core" t="IncludeRecursive">
+        <e p="Actor" t="Include">
+          <e p="BaseActor.cs" t="Include" />
+          <e p="Sceleton.cs" t="Include" />
+          <e p="Thief.cs" t="Include" />
+        </e>
+        <e p="Animation" t="Include">
+          <e p="SceletonAnimation.cs" t="Include" />
+          <e p="ThiefAnimation.cs" t="Include" />
+          <e p="TreeAnimation.cs" t="Include" />
+        </e>
+        <e p="ArtiomOvechko.RPG.Core.csproj" t="IncludeRecursive" />
+        <e p="Behavior" t="Include">
+          <e p="BaseBehavior.cs" t="Include" />
+          <e p="Npc" t="Include">
+            <e p="Guide.cs" t="Include" />
+          </e>
+          <e p="Projectile" t="Include">
+            <e p="Projectile.cs" t="Include" />
+          </e>
+          <e p="StaticObject" t="Include">
+            <e p="Tree.cs" t="Include" />
+          </e>
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Collision" t="Include">
+          <e p="DefaultCollisionResolver.cs" t="Include" />
+          <e p="ProjectileCollisionResolver.cs" t="Include" />
+        </e>
+        <e p="Enum" t="Include">
+          <e p="Direction.cs" t="Include" />
+          <e p="State.cs" t="Include" />
+        </e>
+        <e p="Helpers" t="Include">
+          <e p="Collider.cs" t="Include" />
+          <e p="ExecutionHelper.cs" t="Include" />
+          <e p="Point.cs" t="Include" />
+          <e p="ScreenCentering.cs" t="Include" />
+          <e p="SoundPlayerHelper.cs" t="Include" />
+        </e>
+        <e p="Interaction" t="Include">
+          <e p="InteractionHandler.cs" t="Include" />
+          <e p="Messenger.cs" t="Include" />
+        </e>
+        <e p="Interfaces" t="Include">
+          <e p="Actor" t="Include">
+            <e p="IActor.cs" t="Include" />
+          </e>
+          <e p="Animation" t="Include">
+            <e p="IActorAnimation.cs" t="Include" />
+          </e>
+          <e p="Collision" t="Include">
+            <e p="ICollisionResolver.cs" t="Include" />
+          </e>
+          <e p="Instance" t="Include">
+            <e p="IInstance.cs" t="Include" />
+            <e p="ISpec.cs" t="Include" />
+          </e>
+          <e p="Interaction" t="Include">
+            <e p="IBehavior.cs" t="Include" />
+            <e p="IInteractor.cs" t="Include" />
+            <e p="IInteractorHadler.cs" t="Include" />
+            <e p="IMessenger.cs" t="Include" />
+          </e>
+          <e p="Weapon" t="Include">
+            <e p="IWeapon.cs" t="Include" />
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Spec" t="Include">
+          <e p="Point.cs" t="Include" />
+          <e p="Spec.cs" t="Include" />
+        </e>
+        <e p="Weapon" t="Include">
+          <e p="Knife.cs" t="Include" />
+        </e>
+      </e>
+      <e p="ArtiomOvechko.RPG.Editor" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="App.xaml" t="Include" />
+        <e p="App.xaml.cs" t="Include" />
+        <e p="ArtiomOvechko.RPG.Editor.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="MainWindow.xaml" t="Include" />
+        <e p="MainWindow.xaml.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Pages" t="Include">
+          <e p="Editor.xaml" t="Include" />
+          <e p="Editor.xaml.cs" t="Include" />
+        </e>
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+          <e p="Settings.Designer.cs" t="Include" />
+          <e p="Settings.settings" t="Include" />
+        </e>
+      </e>
+      <e p="ArtiomOvechko.RPG.Test" t="IncludeRecursive">
+        <e p="ArtiomOvechko.RPG.Test.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="SerializationTest.cs" t="Include" />
+      </e>
+      <e p="ArtiomOvechko.RPG.ViewModel" t="IncludeRecursive">
+        <e p="ArtiomOvechko.RPG.ViewModel.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Commands" t="Include">
+          <e p="ActionCommand.cs" t="Include" />
+        </e>
+        <e p="Control" t="Include">
+          <e p="Player.cs" t="Include" />
+          <e p="ViewPort.cs" t="Include" />
+        </e>
+        <e p="Enum" t="Include">
+          <e p="ActionType.cs" t="Include" />
+          <e p="LevelName.cs" t="Include" />
+        </e>
+        <e p="Helpers" t="Include">
+          <e p="LevelRepresentationalConverter.cs" t="Include" />
+          <e p="RepresentationalModelFactory.cs" t="Include" />
+        </e>
+        <e p="Interfaces" t="Include">
+          <e p="Level" t="Include">
+            <e p="IControl.cs" t="Include" />
+            <e p="ILevel.cs" t="Include" />
+            <e p="ILevelRepresentationalModel.cs" t="Include" />
+            <e p="IPlayable.cs" t="Include" />
+            <e p="IPlayer.cs" t="Include" />
+            <e p="IViewPort.cs" t="Include" />
+          </e>
+          <e p="Menu" t="Include">
+            <e p="ILevelChooseMenu.cs" t="Include" />
+            <e p="IMenu.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Level" t="Include">
+          <e p="BaseOfflineLevel.cs" t="Include" />
+          <e p="Online" t="Include" />
+          <e p="Representation" t="Include">
+            <e p="DefaultLevelRepresentationalModel.cs" t="Include" />
+          </e>
+          <e p="Sanctuary.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="ArtiomOvechko.RPG.WebAPI" t="IncludeRecursive">
+        <e p="App_Data" t="Include" />
+        <e p="App_Start" t="Include">
+          <e p="BundleConfig.cs" t="Include" />
+          <e p="FilterConfig.cs" t="Include" />
+          <e p="RouteConfig.cs" t="Include" />
+          <e p="WebApiConfig.cs" t="Include" />
+        </e>
+        <e p="ArtiomOvechko.RPG.WebAPI.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="LevelsController.cs" t="Include" />
+        </e>
+        <e p="favicon.ico" t="Include" />
+        <e p="Global" t="Include">
+          <e p="ApiSharedData.cs" t="Include" />
+        </e>
+        <e p="Global.asax" t="Include" />
+        <e p="Global.asax.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Project_Readme.html" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="roslyn" t="Include" />
+        <e p="Web.config" t="Include" />
+        <e p="Web.Debug.config" t="Include" />
+        <e p="Web.Release.config" t="Include" />
+      </e>
+      <e p="ArtiomOvechko.RPG.WebApp.Common" t="IncludeRecursive">
+        <e p="ArtiomOvechko.RPG.WebApp.Common.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Constants" t="Include">
+          <e p="PrototypeNames.cs" t="Include" />
+        </e>
+        <e p="GlobalSettings.Designer.cs" t="Include" />
+        <e p="GlobalSettings.settings" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="ArtiomOvechko.RPG.WebApp.Common.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Resources" t="Include">
+          <e p="Assets" t="Include">
+            <e p="Images" t="Include">
+              <e p="Actors" t="Include">
+                <e p="Base" t="Include">
+                  <e p="Template.gif" t="Include" />
+                </e>
+                <e p="Sceleton" t="Include">
+                  <e p="MoveLeft" t="Include">
+                    <e p="2.gif" t="Include" />
+                    <e p="3.gif" t="Include" />
+                    <e p="4.gif" t="Include" />
+                    <e p="5.gif" t="Include" />
+                    <e p="6.gif" t="Include" />
+                  </e>
+                  <e p="MoveRight" t="Include">
+                    <e p="2.gif" t="Include" />
+                    <e p="3.gif" t="Include" />
+                    <e p="4.gif" t="Include" />
+                    <e p="5.gif" t="Include" />
+                    <e p="6.gif" t="Include" />
+                  </e>
+                </e>
+                <e p="Thief" t="Include">
+                  <e p="MoveLeft" t="Include">
+                    <e p="3.gif" t="Include" />
+                    <e p="4.gif" t="Include" />
+                    <e p="5.gif" t="Include" />
+                    <e p="6.gif" t="Include" />
+                  </e>
+                  <e p="MoveRight" t="Include">
+                    <e p="2.gif" t="Include" />
+                    <e p="3.gif" t="Include" />
+                    <e p="4.gif" t="Include" />
+                    <e p="5.gif" t="Include" />
+                    <e p="6.gif" t="Include" />
+                  </e>
+                </e>
+              </e>
+            </e>
+          </e>
+          <e p="Images" t="Include">
+            <e p="Actors" t="Include">
+              <e p="Heart" t="Include">
+                <e p="NormalHeart.gif" t="Include" />
+              </e>
+              <e p="Knife" t="Include">
+                <e p="DaggerDown.gif" t="Include" />
+                <e p="DaggerLeft.gif" t="Include" />
+                <e p="DaggerRight.gif" t="Include" />
+                <e p="DaggerUp.gif" t="Include" />
+              </e>
+              <e p="Sceleton" t="Include">
+                <e p="SceletonIdleRight.gif" t="Include" />
+                <e p="SceletonLeftIdle.gif" t="Include" />
+                <e p="SceletonMovesLeft.gif" t="Include" />
+                <e p="SceletonMovesRight.gif" t="Include" />
+              </e>
+              <e p="Thief" t="Include">
+                <e p="ThiefIdleLeft.gif" t="Include" />
+                <e p="ThiefIdleRight.gif" t="Include" />
+                <e p="ThiefMoveLeft.gif" t="Include" />
+                <e p="ThiefMoveRight.gif" t="Include" />
+              </e>
+            </e>
+            <e p="Obstacles" t="Include">
+              <e p="DungeonStoneWall" t="Include">
+                <e p="Wall.gif" t="Include" />
+              </e>
+              <e p="Tree.png" t="Include" />
+            </e>
+          </e>
+          <e p="Sounds" t="Include">
+            <e p="Actors" t="Include">
+              <e p="Knife" t="Include">
+                <e p="knife.wav" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="Settings" t="Include">
+          <e p="ActorSettings.cs" t="Include" />
+          <e p="GlobalSettings.cs" t="Include" />
+          <e p="ItemSettings.cs" t="Include" />
+          <e p="WeaponSettings.cs" t="Include" />
+        </e>
+      </e>
+      <e p="ArtiomOvechko.RPG.WebApp.Core" t="IncludeRecursive">
+        <e p="Actor" t="Include">
+          <e p="BaseActor.cs" t="Include" />
+          <e p="Classes" t="Include">
+            <e p="Sceleton.cs" t="Include" />
+            <e p="Thief.cs" t="Include" />
+          </e>
+          <e p="Misc" t="Include">
+            <e p="AimingMarker.cs" t="Include" />
+            <e p="BrokenHeart.cs" t="Include" />
+          </e>
+          <e p="Projectiles" t="Include">
+            <e p="Bone.cs" t="Include" />
+            <e p="Knife.cs" t="Include" />
+          </e>
+          <e p="Static" t="Include">
+            <e p="DungeonStoneWall.cs" t="Include" />
+            <e p="Tree.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Animation" t="Include">
+          <e p="DungeonStoneWallAnimation.cs" t="Include" />
+          <e p="HeartAnimation.cs" t="Include" />
+          <e p="KnifeAnimation.cs" t="Include" />
+          <e p="SceletonAnimation.cs" t="Include" />
+          <e p="ThiefAnimation.cs" t="Include" />
+          <e p="TreeAnimation.cs" t="Include" />
+        </e>
+        <e p="ArtiomOvechko.RPG.WebApp.Core.csproj" t="IncludeRecursive" />
+        <e p="Behavior" t="Include">
+          <e p="BaseBehavior.cs" t="Include" />
+          <e p="Npc" t="Include">
+            <e p="GuideBehavior.cs" t="Include" />
+            <e p="TestEnemyBehavior.cs" t="Include" />
+          </e>
+          <e p="Projectile" t="Include">
+            <e p="Projectile.cs" t="Include" />
+          </e>
+          <e p="StaticObject" t="Include">
+            <e p="MovableObjectBehavior.cs" t="Include" />
+            <e p="StaticObjectBehavior.cs" t="Include" />
+          </e>
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Collision" t="Include">
+          <e p="DefaultCollisionResolver.cs" t="Include" />
+          <e p="IgnoringCollisionResolver.cs" t="Include" />
+          <e p="ProjectileCollisionResolver.cs" t="Include" />
+        </e>
+        <e p="Enum" t="Include">
+          <e p="Direction.cs" t="Include" />
+          <e p="State.cs" t="Include" />
+        </e>
+        <e p="Environment" t="Include">
+          <e p="EnvironmentContainer.cs" t="Include" />
+          <e p="LevelSaveMetadata.cs" t="Include" />
+          <e p="SaveManager.cs" t="Include" />
+        </e>
+        <e p="Extensions" t="Include">
+          <e p="LinqExtension.cs" t="Include" />
+        </e>
+        <e p="Factories" t="Include">
+          <e p="BaseInstancePrototype.cs" t="Include" />
+          <e p="DamageAnimationFactory.cs" t="Include" />
+          <e p="IInstanceFactory.cs" t="Include" />
+          <e p="IInstancePrototype.cs" t="Include" />
+          <e p="SceletonPrototype.cs" t="Include" />
+          <e p="WallPrototype.cs" t="Include" />
+        </e>
+        <e p="Helpers" t="Include">
+          <e p="Base64Serializer.cs" t="Include" />
+          <e p="Collider.cs" t="Include" />
+          <e p="DirectionConverter.cs" t="Include" />
+          <e p="ExecutionHelper.cs" t="Include" />
+          <e p="ScreenCentering.cs" t="Include" />
+          <e p="SoundPlayerHelper.cs" t="Include" />
+        </e>
+        <e p="Interaction" t="Include">
+          <e p="InteractionHandler.cs" t="Include" />
+          <e p="Messenger.cs" t="Include" />
+        </e>
+        <e p="Interfaces" t="Include">
+          <e p="Actor" t="Include">
+            <e p="IActor.cs" t="Include" />
+            <e p="IStats.cs" t="Include" />
+          </e>
+          <e p="Animation" t="Include">
+            <e p="IActorAnimation.cs" t="Include" />
+          </e>
+          <e p="Collision" t="Include">
+            <e p="ICollisionResolver.cs" t="Include" />
+          </e>
+          <e p="Instance" t="Include">
+            <e p="IInstance.cs" t="Include" />
+          </e>
+          <e p="Interaction" t="Include">
+            <e p="IInteractor.cs" t="Include" />
+            <e p="IInteractorHadler.cs" t="Include" />
+            <e p="IMessenger.cs" t="Include" />
+            <e p="ISpec.cs" t="Include" />
+          </e>
+          <e p="Inventory" t="Include">
+            <e p="IInventory.cs" t="Include" />
+            <e p="IItem.cs" t="Include" />
+            <e p="IWeaponItem.cs" t="Include" />
+          </e>
+          <e p="Weapon" t="Include">
+            <e p="IWeapon.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Inventory" t="Include">
+          <e p="DefaultInventory.cs" t="Include" />
+          <e p="Item" t="Include">
+            <e p="BaseItem.cs" t="Include" />
+            <e p="CopperKeyItem.cs" t="Include" />
+          </e>
+          <e p="Weapon" t="Include">
+            <e p="BaseWeaponItem.cs" t="Include" />
+            <e p="KnifeWeaponItem.cs" t="Include" />
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="ArtiomOvechko.RPG.WebApp.Core.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Stats" t="Include">
+          <e p="DefaultStats.cs" t="Include" />
+          <e p="Point.cs" t="Include" />
+        </e>
+        <e p="Weapon" t="Include">
+          <e p="BaseWeapon.cs" t="Include" />
+          <e p="BlazingHands.cs" t="Include" />
+          <e p="Knife.cs" t="Include" />
+        </e>
+      </e>
+      <e p="ArtiomOvechko.RPG.WebApp.ViewModel" t="IncludeRecursive">
+        <e p="ArtiomOvechko.RPG.WebApp.ViewModel.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Commands" t="Include">
+          <e p="ActionCommand.cs" t="Include" />
+        </e>
+        <e p="Control" t="Include">
+          <e p="Player.cs" t="Include" />
+          <e p="ViewPort.cs" t="Include" />
+        </e>
+        <e p="Enum" t="Include">
+          <e p="LevelName.cs" t="Include" />
+        </e>
+        <e p="Interfaces" t="Include">
+          <e p="IControl.cs" t="Include" />
+          <e p="IEditorLevel.cs" t="Include" />
+          <e p="ILevel.cs" t="Include" />
+          <e p="ILevelSurface.cs" t="Include" />
+          <e p="IMovable.cs" t="Include" />
+          <e p="IPlayable.cs" t="Include" />
+          <e p="IViewPort.cs" t="Include" />
+        </e>
+        <e p="Level" t="Include">
+          <e p="BaseOfflineLevel.cs" t="Include" />
+          <e p="EditorLevel.cs" t="Include" />
+          <e p="Sanctuary.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="ArtiomOvechko.RPG.WebApp.ViewModel.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Playable" t="Include">
+          <e p="DefaultPlayableSet.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Chevo.RPG.App" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="App.xaml" t="Include" />
+        <e p="App.xaml.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Chevo.RPG.App.csproj" t="IncludeRecursive" />
+        <e p="Helpers" t="Include">
+          <e p="LevelRepresentationalConverter.cs" t="Include" />
+          <e p="RepresentationalModelFactory.cs" t="Include" />
+        </e>
+        <e p="MainWindow.xaml" t="Include" />
+        <e p="MainWindow.xaml.cs" t="Include" />
+        <e p="Models" t="Include">
+          <e p="DefaultLevelRepresentationalModel.cs" t="Include" />
+          <e p="Interfaces" t="Include">
+            <e p="ILevelRepresentationalModel.cs" t="Include" />
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Pages" t="Include">
+          <e p="AvailableLevelsPage.xaml" t="Include" />
+          <e p="AvailableLevelsPage.xaml.cs" t="Include" />
+          <e p="EditorLevelPage.xaml" t="Include" />
+          <e p="EditorLevelPage.xaml.cs" t="Include" />
+          <e p="GameLevelPage.xaml" t="Include" />
+          <e p="GameLevelPage.xaml.cs" t="Include" />
+          <e p="MenuPage.xaml" t="Include" />
+          <e p="MenuPage.xaml.cs" t="Include" />
+        </e>
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+          <e p="Settings.Designer.cs" t="Include" />
+          <e p="Settings.settings" t="Include" />
+        </e>
+        <e p="ViewModel" t="Include">
+          <e p="LevelChooseMenu.cs" t="Include" />
+          <e p="MainMenu.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Chevo.RPG.Common" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Chevo.RPG.Common.csproj" t="IncludeRecursive" />
+        <e p="Constants" t="Include">
+          <e p="PrototypeNames.cs" t="Include" />
+        </e>
+        <e p="GlobalSettings.Designer.cs" t="Include" />
+        <e p="GlobalSettings.settings" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Resources" t="Include">
+          <e p="Assets" t="Include">
+            <e p="Images" t="Include">
+              <e p="Actors" t="Include">
+                <e p="Base" t="Include">
+                  <e p="Template.gif" t="Include" />
+                </e>
+                <e p="Sceleton" t="Include">
+                  <e p="MoveDown" t="Include" />
+                  <e p="MoveLeft" t="Include">
+                    <e p="2.gif" t="Include" />
+                    <e p="3.gif" t="Include" />
+                    <e p="4.gif" t="Include" />
+                    <e p="5.gif" t="Include" />
+                    <e p="6.gif" t="Include" />
+                  </e>
+                  <e p="MoveRight" t="Include">
+                    <e p="1.gif" t="Include" />
+                    <e p="2.gif" t="Include" />
+                    <e p="3.gif" t="Include" />
+                    <e p="4.gif" t="Include" />
+                    <e p="5.gif" t="Include" />
+                    <e p="6.gif" t="Include" />
+                  </e>
+                  <e p="MoveUp" t="Include" />
+                </e>
+                <e p="Thief" t="Include">
+                  <e p="MoveLeft" t="Include">
+                    <e p="3.gif" t="Include" />
+                    <e p="4.gif" t="Include" />
+                    <e p="5.gif" t="Include" />
+                    <e p="6.gif" t="Include" />
+                  </e>
+                  <e p="MoveRight" t="Include">
+                    <e p="2.gif" t="Include" />
+                    <e p="3.gif" t="Include" />
+                    <e p="4.gif" t="Include" />
+                    <e p="5.gif" t="Include" />
+                    <e p="6.gif" t="Include" />
+                  </e>
+                </e>
+              </e>
+            </e>
+          </e>
+          <e p="Images" t="Include">
+            <e p="Actors" t="Include">
+              <e p="Heart" t="Include">
+                <e p="NormalHeart.gif" t="Include" />
+              </e>
+              <e p="Knife" t="Include">
+                <e p="DaggerDown.gif" t="Include" />
+                <e p="DaggerLeft.gif" t="Include" />
+                <e p="DaggerRight.gif" t="Include" />
+                <e p="DaggerUp.gif" t="Include" />
+              </e>
+              <e p="Sceleton" t="Include">
+                <e p="SceletonIdleRight.gif" t="Include" />
+                <e p="SceletonLeftIdle.gif" t="Include" />
+                <e p="SceletonMovesLeft.gif" t="Include" />
+                <e p="SceletonMovesRight.gif" t="Include" />
+              </e>
+              <e p="Thief" t="Include">
+                <e p="ThiefIdleLeft.gif" t="Include" />
+                <e p="ThiefIdleRight.gif" t="Include" />
+                <e p="ThiefMoveLeft.gif" t="Include" />
+                <e p="ThiefMoveRight.gif" t="Include" />
+              </e>
+            </e>
+            <e p="Obstacles" t="Include">
+              <e p="DungeonStoneWall" t="Include">
+                <e p="Wall.gif" t="Include" />
+              </e>
+              <e p="Tree.png" t="Include" />
+            </e>
+          </e>
+          <e p="Sounds" t="Include">
+            <e p="Actors" t="Include">
+              <e p="Knife" t="Include">
+                <e p="knife.wav" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="Settings" t="Include">
+          <e p="ActorSettings.cs" t="Include" />
+          <e p="GlobalSettings.cs" t="Include" />
+          <e p="ItemSettings.cs" t="Include" />
+          <e p="WeaponSettings.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Chevo.RPG.Core" t="IncludeRecursive">
+        <e p="Actor" t="Include">
+          <e p="BaseActor.cs" t="Include" />
+          <e p="Classes" t="Include">
+            <e p="Sceleton.cs" t="Include" />
+            <e p="Thief.cs" t="Include" />
+          </e>
+          <e p="Misc" t="Include">
+            <e p="AimingMarker.cs" t="Include" />
+            <e p="BrokenHeart.cs" t="Include" />
+          </e>
+          <e p="Projectiles" t="Include">
+            <e p="Bone.cs" t="Include" />
+            <e p="Knife.cs" t="Include" />
+          </e>
+          <e p="Static" t="Include">
+            <e p="DungeonStoneWall.cs" t="Include" />
+            <e p="Tree.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Animation" t="Include">
+          <e p="DungeonStoneWallAnimation.cs" t="Include" />
+          <e p="HeartAnimation.cs" t="Include" />
+          <e p="KnifeAnimation.cs" t="Include" />
+          <e p="SceletonAnimation.cs" t="Include" />
+          <e p="ThiefAnimation.cs" t="Include" />
+          <e p="TreeAnimation.cs" t="Include" />
+        </e>
+        <e p="Behavior" t="Include">
+          <e p="BaseBehavior.cs" t="Include" />
+          <e p="Npc" t="Include">
+            <e p="GuideBehavior.cs" t="Include" />
+            <e p="TestEnemyBehavior.cs" t="Include" />
+          </e>
+          <e p="Projectile" t="Include">
+            <e p="Projectile.cs" t="Include" />
+          </e>
+          <e p="StaticObject" t="Include">
+            <e p="MovableObjectBehavior.cs" t="Include" />
+            <e p="StaticObjectBehavior.cs" t="Include" />
+          </e>
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Chevo.RPG.Core.csproj" t="IncludeRecursive" />
+        <e p="Collision" t="Include">
+          <e p="DefaultCollisionResolver.cs" t="Include" />
+          <e p="IgnoringCollisionResolver.cs" t="Include" />
+          <e p="ProjectileCollisionResolver.cs" t="Include" />
+        </e>
+        <e p="Enum" t="Include">
+          <e p="Direction.cs" t="Include" />
+          <e p="State.cs" t="Include" />
+        </e>
+        <e p="Environment" t="Include">
+          <e p="EnvironmentContainer.cs" t="Include" />
+          <e p="LevelSaveMetadata.cs" t="Include" />
+          <e p="SaveManager.cs" t="Include" />
+        </e>
+        <e p="Extensions" t="Include">
+          <e p="LinqExtension.cs" t="Include" />
+        </e>
+        <e p="Factories" t="Include">
+          <e p="BaseInstancePrototype.cs" t="Include" />
+          <e p="DamageAnimationFactory.cs" t="Include" />
+          <e p="IInstanceFactory.cs" t="Include" />
+          <e p="IInstancePrototype.cs" t="Include" />
+          <e p="SceletonPrototype.cs" t="Include" />
+          <e p="WallPrototype.cs" t="Include" />
+        </e>
+        <e p="Helpers" t="Include">
+          <e p="Base64Serializer.cs" t="Include" />
+          <e p="Collider.cs" t="Include" />
+          <e p="ExecutionHelper.cs" t="Include" />
+          <e p="ScreenCentering.cs" t="Include" />
+          <e p="SoundPlayerHelper.cs" t="Include" />
+        </e>
+        <e p="Interaction" t="Include">
+          <e p="InteractionHandler.cs" t="Include" />
+          <e p="Messenger.cs" t="Include" />
+        </e>
+        <e p="Interfaces" t="Include">
+          <e p="Actor" t="Include">
+            <e p="IActor.cs" t="Include" />
+            <e p="IStats.cs" t="Include" />
+          </e>
+          <e p="Animation" t="Include">
+            <e p="IActorAnimation.cs" t="Include" />
+          </e>
+          <e p="Collision" t="Include">
+            <e p="ICollisionResolver.cs" t="Include" />
+          </e>
+          <e p="Instance" t="Include">
+            <e p="IInstance.cs" t="Include" />
+          </e>
+          <e p="Interaction" t="Include">
+            <e p="IInteractor.cs" t="Include" />
+            <e p="IInteractorHadler.cs" t="Include" />
+            <e p="IMessenger.cs" t="Include" />
+          </e>
+          <e p="Inventory" t="Include">
+            <e p="IInventory.cs" t="Include" />
+            <e p="IItem.cs" t="Include" />
+            <e p="IWeaponItem.cs" t="Include" />
+          </e>
+          <e p="Weapon" t="Include">
+            <e p="IWeapon.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Inventory" t="Include">
+          <e p="DefaultInventory.cs" t="Include" />
+          <e p="Item" t="Include">
+            <e p="BaseItem.cs" t="Include" />
+            <e p="CopperKeyItem.cs" t="Include" />
+          </e>
+          <e p="Weapon" t="Include">
+            <e p="BaseWeaponItem.cs" t="Include" />
+            <e p="KnifeWeaponItem.cs" t="Include" />
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Stats" t="Include">
+          <e p="DefaultStats.cs" t="Include" />
+          <e p="Point.cs" t="Include" />
+        </e>
+        <e p="Weapon" t="Include">
+          <e p="BaseWeapon.cs" t="Include" />
+          <e p="BlazingHands.cs" t="Include" />
+          <e p="Knife.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Chevo.RPG.ViewModel" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Chevo.RPG.ViewModel.csproj" t="IncludeRecursive" />
+        <e p="Commands" t="Include">
+          <e p="ActionCommand.cs" t="Include" />
+        </e>
+        <e p="Control" t="Include">
+          <e p="Player.cs" t="Include" />
+          <e p="ViewPort.cs" t="Include" />
+        </e>
+        <e p="Enum" t="Include">
+          <e p="LevelName.cs" t="Include" />
+        </e>
+        <e p="Interfaces" t="Include">
+          <e p="IControl.cs" t="Include" />
+          <e p="IEditorLevel.cs" t="Include" />
+          <e p="ILevel.cs" t="Include" />
+          <e p="ILevelSurface.cs" t="Include" />
+          <e p="IMovable.cs" t="Include" />
+          <e p="IPlayable.cs" t="Include" />
+          <e p="IViewPort.cs" t="Include" />
+        </e>
+        <e p="Level" t="Include">
+          <e p="BaseOfflineLevel.cs" t="Include" />
+          <e p="EditorLevel.cs" t="Include" />
+          <e p="Sanctuary.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Custom.RPG.sln" t="IncludeFlat" />
+      <e p="Multiplayer" t="Include" />
+      <e p="packages" t="ExcludeRecursive">
+        <e p="Microsoft.Net.Compilers.1.0.0/tools/csc.exe" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0/tools/Microsoft.Build.Tasks.CodeAnalysis.dll" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0/tools/Microsoft.CodeAnalysis.CSharp.dll" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0/tools/Microsoft.CodeAnalysis.dll" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0/tools/Microsoft.CodeAnalysis.VisualBasic.dll" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0/tools/Microsoft.CSharp.Core.targets" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0/tools/Microsoft.VisualBasic.Core.targets" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0/tools/System.Collections.Immutable.dll" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0/tools/System.Reflection.Metadata.dll" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0/tools/vbc.exe" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0/tools/VBCSCompiler.exe" t="Include" />
+        <e p="Microsoft.Net.Compilers.1.0.0/tools/VBCSCompiler.exe.config" t="Include" />
+      </e>
+      <e p="Test" t="Include" />
+      <e p="UWP" t="Include" />
+      <e p="WebApp" t="Include" />
+      <e p="WPF" t="Include" />
+    </e>
+  </component>
+</project>

@@ -1,0 +1,23 @@
+﻿<Properties StartupConfiguration="{2EDF3FF0-D97C-4B9A-B6A9-378A45E35CCD}|">
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Custom.RPG" expanded="True" selected="True">
+            <Node name="Multiplayer" expanded="True" />
+            <Node name="Test" expanded="True" />
+            <Node name="UWP" expanded="True" />
+            <Node name="WPF" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Multiplayer.ArtiomOvechko.RPG.WebAPI PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

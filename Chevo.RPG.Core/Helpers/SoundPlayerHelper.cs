@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Media;
-using System.Windows.Resources;
+//using System.Windows.Resources;
 
 namespace Chevo.RPG.Core.Helpers
 {
@@ -32,10 +32,10 @@ namespace Chevo.RPG.Core.Helpers
         public void Play(string uriString)
         {
             Uri uri = new Uri(uriString);
-            StreamResourceInfo sri = System.Windows.Application.GetResourceStream(uri);
-            SoundPlayer player = new SoundPlayer(sri.Stream);
-            player.Load();
-            player.Play();
+            //StreamResourceInfo sri = System.Windows.Application.GetResourceStream(uri);
+            // SoundPlayer player = new SoundPlayer(sri.Stream);
+            // player.Load();
+            // player.Play();
         }
     }
 }
