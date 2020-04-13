@@ -28,7 +28,7 @@ namespace Chevo.RPG.WebApp.Common {
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public int GameSpeed {
             get {
-                return ((int)(this["GameSpeed"]));
+                return 50;
             }
         }
         
@@ -37,7 +37,7 @@ namespace Chevo.RPG.WebApp.Common {
         [global::System.Configuration.DefaultSettingValueAttribute("5000")]
         public int LevelWidth {
             get {
-                return ((int)(this["LevelWidth"]));
+                return 5000;
             }
         }
         
@@ -46,7 +46,7 @@ namespace Chevo.RPG.WebApp.Common {
         [global::System.Configuration.DefaultSettingValueAttribute("5000")]
         public int LevelHeight {
             get {
-                return ((int)(this["LevelHeight"]));
+                return 5000;
             }
         }
     }

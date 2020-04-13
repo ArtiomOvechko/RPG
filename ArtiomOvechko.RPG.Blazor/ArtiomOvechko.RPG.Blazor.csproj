@@ -15,4 +15,12 @@
   <ItemGroup>
     <ProjectReference Include="..\ArtiomOvechko.RPG.WebApp.ViewModel\ArtiomOvechko.RPG.WebApp.ViewModel.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\resources" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\sample-data\weather.json" />
+  </ItemGroup>
 </Project>

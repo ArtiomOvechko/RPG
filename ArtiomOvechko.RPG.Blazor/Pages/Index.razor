@@ -1,7 +1,47 @@
 ﻿@page "/"
+@using Chevo.RPG.WebApp.ViewModel.Interfaces
+@using Chevo.RPG.WebApp.ViewModel.Level
+@using Microsoft.JSInterop;
+@using System.Threading.Tasks;
+@inject BrowserService browserService;
 
-<h1>Hello, world!</h1>
 
-Welcome to your new app.
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@code {
+    
+    public class BrowserService
+    {
+        private readonly IJSRuntime _js;
+
+        public BrowserService(IJSRuntime js)
+        {
+            _js = js;
+        }
+
+        public async Task<BrowserDimension> GetDimensionsAsync()
+        {
+            return await _js.InvokeAsync<BrowserDimension>("getDimensions");
+        }
+        
+        public BrowserDimension GetDimensions()
+        {
+            return new BrowserDimension() {Height = 1, Width = -1};
+        }
+    }
+    
+    public class BrowserDimension
+    {
+        public int Width { get; set; }
+        public int Height { get; set; }
+    }
+
+    public ILevel CurrentLevel { get; private set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        BrowserDimension dimension = await browserService.GetDimensionsAsync();
+        Console.WriteLine($"Width: {dimension.Width}; Height: {dimension.Height}");        
+        CurrentLevel = new Sanctuary((int) dimension.Width, (int) dimension.Height);
+    }
+
+}

@@ -43,8 +43,6 @@
           </e>
         </e>
         <e p="Pages" t="Include">
-          <e p="Counter.razor" t="Include" />
-          <e p="FetchData.razor" t="Include" />
           <e p="Index.razor" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
@@ -53,8 +51,6 @@
         </e>
         <e p="Shared" t="Include">
           <e p="MainLayout.razor" t="Include" />
-          <e p="NavMenu.razor" t="Include" />
-          <e p="SurveyPrompt.razor" t="Include" />
         </e>
         <e p="wwwroot" t="Include">
           <e p="css" t="Include">
@@ -83,8 +79,38 @@
           </e>
           <e p="favicon.ico" t="Include" />
           <e p="index.html" t="Include" />
-          <e p="sample-data" t="Include">
-            <e p="weather.json" t="Include" />
+          <e p="Resources" t="Include">
+            <e p="Images" t="Include">
+              <e p="Actors" t="Include">
+                <e p="Heart" t="Include">
+                  <e p="NormalHeart.gif" t="Include" />
+                </e>
+                <e p="Knife" t="Include">
+                  <e p="DaggerDown.gif" t="Include" />
+                  <e p="DaggerLeft.gif" t="Include" />
+                  <e p="DaggerRight.gif" t="Include" />
+                  <e p="DaggerUp.gif" t="Include" />
+                </e>
+                <e p="Sceleton" t="Include">
+                  <e p="SceletonIdleRight.gif" t="Include" />
+                  <e p="SceletonLeftIdle.gif" t="Include" />
+                  <e p="SceletonMovesLeft.gif" t="Include" />
+                  <e p="SceletonMovesRight.gif" t="Include" />
+                </e>
+                <e p="Thief" t="Include">
+                  <e p="ThiefIdleLeft.gif" t="Include" />
+                  <e p="ThiefIdleRight.gif" t="Include" />
+                  <e p="ThiefMoveLeft.gif" t="Include" />
+                  <e p="ThiefMoveRight.gif" t="Include" />
+                </e>
+              </e>
+              <e p="Obstacles" t="Include">
+                <e p="DungeonStoneWall" t="Include">
+                  <e p="Wall.gif" t="Include" />
+                </e>
+                <e p="Tree.png" t="Include" />
+              </e>
+            </e>
           </e>
         </e>
       </e>
@@ -416,37 +442,6 @@
                   </e>
                 </e>
               </e>
-            </e>
-          </e>
-          <e p="Images" t="Include">
-            <e p="Actors" t="Include">
-              <e p="Heart" t="Include">
-                <e p="NormalHeart.gif" t="Include" />
-              </e>
-              <e p="Knife" t="Include">
-                <e p="DaggerDown.gif" t="Include" />
-                <e p="DaggerLeft.gif" t="Include" />
-                <e p="DaggerRight.gif" t="Include" />
-                <e p="DaggerUp.gif" t="Include" />
-              </e>
-              <e p="Sceleton" t="Include">
-                <e p="SceletonIdleRight.gif" t="Include" />
-                <e p="SceletonLeftIdle.gif" t="Include" />
-                <e p="SceletonMovesLeft.gif" t="Include" />
-                <e p="SceletonMovesRight.gif" t="Include" />
-              </e>
-              <e p="Thief" t="Include">
-                <e p="ThiefIdleLeft.gif" t="Include" />
-                <e p="ThiefIdleRight.gif" t="Include" />
-                <e p="ThiefMoveLeft.gif" t="Include" />
-                <e p="ThiefMoveRight.gif" t="Include" />
-              </e>
-            </e>
-            <e p="Obstacles" t="Include">
-              <e p="DungeonStoneWall" t="Include">
-                <e p="Wall.gif" t="Include" />
-              </e>
-              <e p="Tree.png" t="Include" />
             </e>
           </e>
           <e p="Sounds" t="Include">

@@ -1,4 +1,5 @@
-﻿using Chevo.RPG.WebApp.Core.Helpers;
+﻿using System;
+using Chevo.RPG.WebApp.Core.Helpers;
 using Chevo.RPG.WebApp.Core.Interfaces.Instance;
 using Chevo.RPG.WebApp.Core.Interfaces.Inventory;
 using Chevo.RPG.WebApp.Core.Extensions;
@@ -36,7 +37,7 @@ namespace Chevo.RPG.WebApp.Core.Environment
         {
             await ExecutionHelper.GetNew.ExecuteContinuoslyAsync(() =>
             {
-
+                Console.WriteLine("environment cycle starting...");
                 Instances.Where(i => i.Actor.Stats.IsAlive)
                     .ForEach(i => {
                         i.ProcessCurrentState();
@@ -56,6 +57,7 @@ namespace Chevo.RPG.WebApp.Core.Environment
 
                 _toAdd.Clear();
                 _toDelete.Clear();
+                Console.WriteLine("environment cycle ended");
             }, _cts.Token);
         }
     }

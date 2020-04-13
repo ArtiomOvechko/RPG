@@ -31,7 +31,7 @@ namespace Chevo.RPG.WebApp.Core.Helpers
 
         public void Play(string uriString)
         {
-            Uri uri = new Uri(uriString);
+            //Uri uri = new Uri(uriString);
             //StreamResourceInfo sri = System.Windows.Application.GetResourceStream(uri);
             // SoundPlayer player = new SoundPlayer(sri.Stream);
             // player.Load();
