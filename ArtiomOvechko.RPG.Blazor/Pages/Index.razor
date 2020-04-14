@@ -3,9 +3,31 @@
 @using Chevo.RPG.WebApp.ViewModel.Level
 @using Microsoft.JSInterop;
 @using System.Threading.Tasks;
+@using Chevo.RPG.WebApp.Core.Interfaces.Instance
 @inject BrowserService browserService;
 
+@if (CurrentLevel != null)
+{
+    <div style="
+    background: black;
+    width: @(CurrentLevel.LevelWidth)px;
+    height: @(CurrentLevel.LevelHeight)px;
+    position: absolute;
+    left: @(CurrentLevel.ViewPort.Position.X)px;
+    top: @(CurrentLevel.ViewPort.Position.Y)px;">
+    
+        @foreach (IInstance levelObject in CurrentLevel.LevelObjects)
+        {
+            <img src="/resources/images/actors/sceleton/SceletonMovesLeft.gif" style="
+            width: @(levelObject.Actor.Stats.Size)px;
+            height: @(levelObject.Actor.Stats.Size)px;
+            position: absolute;
+            left: @(levelObject.Actor.Position.X)px;
+            top: @(levelObject.Actor.Position.Y)px;">
+        }
 
+    </div>
+}
 
 @code {
     
