@@ -14,7 +14,7 @@ namespace Chevo.RPG.WebApp.Core.Actor
     {
         public Sceleton(IWeaponItem weapon, Point initialPostion) : base(weapon, initialPostion)
         {
-            Stats = new DefaultStats(Common.Settings.ActorSettings.DefaultSize, 3, 1, Common.Settings.ActorSettings.SkeletonStepLength);
+            Stats = new DefaultStats(Common.Settings.ActorSettings.DefaultSize, 3000, 1, Common.Settings.ActorSettings.SkeletonStepLength);
             _animation = new SceletonAnimation();
             _collisionResolver = new DefaultCollisionResolver(this);                
         }

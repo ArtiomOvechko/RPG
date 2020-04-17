@@ -1,9 +1,15 @@
-﻿using Chevo.RPG.WebApp.Common.Commands;
+﻿using System;
+using Chevo.RPG.WebApp.Common.Commands;
 using Chevo.RPG.WebApp.Core.Interfaces.Instance;
 
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows.Input;
-
+using ArtiomOvechko.RPG.WebApp.Core.Collections;
+using ArtiomOvechko.RPG.WebApp.ViewModel.Annotations;
 using Chevo.RPG.WebApp.Core.Interfaces.Inventory;
 using Chevo.RPG.WebApp.Core.Stats;
 using Chevo.RPG.WebApp.Core.Enum;
@@ -33,7 +39,7 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
         public IControl Player { get; protected set; }
         public IViewPort ViewPort { get; protected set; }
 
-        public IEnumerable<IInstance> LevelObjects { get; protected set; }
+        public ViewModelCollection<IInstance> LevelObjects { get; protected set; } = new ViewModelCollection<IInstance>();
         public IEnumerable<IItem> LevelItems { get; protected set; }
 
         public int LevelWidth { get; protected set; }
@@ -191,6 +197,17 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
             }
         }
 
-        public BaseOfflineLevel(int screenWidth, int screenHeight) { }
+        public BaseOfflineLevel(int screenWidth, int screenHeight)
+        {
+            LevelObjects.StateChanged += (sender, args) => OnPropertyChanged(nameof(LevelObjects));
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

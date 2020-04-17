@@ -16,6 +16,7 @@ using Chevo.RPG.WebApp.Core.Inventory.Weapon;
 using Chevo.RPG.WebApp.Core.Behavior.StaticObject;
 using System.Linq;
 using System.Collections.ObjectModel;
+using ArtiomOvechko.RPG.WebApp.Core.Collections;
 using Chevo.RPG.WebApp.Core.Factories;
 
 namespace Chevo.RPG.WebApp.ViewModel.Level
@@ -39,7 +40,7 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
         public int LevelHeight { get; protected set; }
 
         // We need to add a container for levelobjects but not included into EnvironmentContainer
-        public IEnumerable<IInstance> LevelObjects { get; protected set; }
+        public ViewModelCollection<IInstance> LevelObjects { get; protected set; }
 
         public IEnumerable<IItem> LevelItems { get; protected set; }
 
@@ -123,7 +124,7 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
                     {
                         if (ActivePrototype != null)
                         {
-                            ((ObservableCollection<IInstance>)LevelObjects).Insert(0, ActivePrototype.CreateInstance((Point)x));                            
+                            LevelObjects.Add( ActivePrototype.CreateInstance((Point)x));                            
                         }
                     });
                 }
@@ -156,13 +157,13 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
             ((ObservableCollection<IInstancePrototype>)ActivePrototypes).Insert(0, ActivePrototype);
 
             ///// TODO: Replace it with special editor environment container
-            LevelObjects = new ObservableCollection<IInstance>();          
+            LevelObjects = new ViewModelCollection<IInstance>();          
             //LevelItems = EnvironmentContainer.Items;
             // Add Terrain 4 test
             var wall1 = new StaticObjectBehavior(new DungeonStoneWall(new Point(2400, 2600)));
             var wall2 = new StaticObjectBehavior(new DungeonStoneWall(new Point(2900, 2900)));
-            ((ObservableCollection<IInstance>)LevelObjects).Insert(0, wall1);
-            ((ObservableCollection<IInstance>)LevelObjects).Insert(0, wall2);
+            LevelObjects.Add(wall1);
+            LevelObjects.Add(wall2);
 
 
             //Replace with invisible actor with ignoring collision resolver

@@ -1,0 +1,52 @@
+﻿@page "/"
+@using ArtiomOvechko.RPG.WebApp.BlazorServer
+@namespace ArtiomOvechko.RPG.WebApp.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>testproj</title>
+    <base href="~/" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="css/site.css" rel="stylesheet" />
+</head>
+<body style="position:fixed;">
+    <app>
+        <component type="typeof(App)" render-mode="ServerPrerendered" />
+    </app>
+
+    <div id="blazor-error-ui">
+        <environment include="Staging,Production">
+            An error has occurred. This application may no longer respond until reloaded.
+        </environment>
+        <environment include="Development">
+            An unhandled exception has occurred. See browser dev tools for details.
+        </environment>
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    
+    <script type="text/javascript">
+        function getDimensions() {
+            return {
+                Height: window.innerHeight,
+                Width: window.innerWidth
+            }
+        }
+        
+        // console.log('registering custom window event handlers...');
+        // window.onkeyup = function (event) {
+        //     console.log('keyup');
+        //     console.log(document.getElementsByClassName('game-surface')[0]);
+        // }
+    </script>
+
+    <script src="_framework/blazor.server.js"></script>
+</body>
+</html>

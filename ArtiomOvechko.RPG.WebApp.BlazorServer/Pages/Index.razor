@@ -1,0 +1,135 @@
+﻿@page "/"
+@using Chevo.RPG.WebApp.ViewModel.Interfaces
+@using Chevo.RPG.WebApp.ViewModel.Level
+@using Microsoft.JSInterop;
+@using System.Threading.Tasks;
+@using Chevo.RPG.WebApp.Core.Interfaces.Instance
+@using System.ComponentModel;
+@using System.Threading
+@using Chevo.RPG.WebApp.Core.Enum
+
+@inject BrowserService browserService;
+
+@if (CurrentLevel != null)
+{
+        <div class="game-surface" @onkeyup=@OnKeyUp style="
+          background: black;
+          width: @(CurrentLevel.LevelWidth)px;
+          height: @(CurrentLevel.LevelHeight)px;
+          position: absolute;
+          left: @(CurrentLevel.ViewPort.Position.X)px;
+          top: @(CurrentLevel.ViewPort.Position.Y)px;">
+          
+              @foreach (IInstance levelObject in CurrentLevel.LevelObjects.Items)
+              {
+                  @if (levelObject != null)
+                  {
+                      <img src="/resources/images/actors/sceleton/SceletonMovesLeft.gif" style="
+                          width: @(levelObject.Actor.Stats.Size)px;
+                          height: @(levelObject.Actor.Stats.Size)px;
+                          position: absolute;
+                          left: @(levelObject.Actor.Position.X)px;
+                          top: @(levelObject.Actor.Position.Y)px;">
+                  }
+              }
+        </div>
+
+}
+
+@code {
+    
+    public class BrowserService
+    {
+        private readonly IJSRuntime _js;
+
+        public BrowserService(IJSRuntime js)
+        {
+            _js = js;
+        }
+
+        public async Task<BrowserDimension> GetDimensionsAsync()
+        {
+            return await _js.InvokeAsync<BrowserDimension>("getDimensions");
+        }
+        
+        public BrowserDimension GetDimensions()
+        {
+            return new BrowserDimension() {Height = 1, Width = -1};
+        }
+    }
+    
+    public class BrowserDimension
+    {
+        public int Width { get; set; }
+        public int Height { get; set; }
+    }
+
+    private ILevel CurrentLevel { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRenderer)
+    {
+        if (firstRenderer)
+        {
+            BrowserDimension dimension = await browserService.GetDimensionsAsync();
+            Console.WriteLine($"Width: {dimension.Width}; Height: {dimension.Height}");
+            Thread backroundThread = new Thread(new ThreadStart(() =>
+            {
+                CurrentLevel = new Sanctuary((int) dimension.Width, (int) dimension.Height);
+                CurrentLevel.PropertyChanged += (o, e) => InvokeAsync(() =>
+                {
+                    StateHasChanged();
+                });
+            }));
+            backroundThread.Start();
+        }
+    }
+
+    public void OnKeyUp(object o)
+    {
+        Console.WriteLine(o);
+       // Console.WriteLine(e.Type);
+    //     switch (e.Type)
+    //     {
+    //         case Key.W:
+    //             CurrentLevel.StopMove.Execute(Direction.Up);
+    //             break;
+    //         case Key.D:
+    //             CurrentLevel.StopMove.Execute(Direction.Right);
+    //             break;
+    //         case Key.S:
+    //             CurrentLevel.StopMove.Execute(Direction.Down);
+    //             break;
+    //         case Key.A:
+    //             CurrentLevel.StopMove.Execute(Direction.Left);
+    //             break;
+    //         case Key.Enter:
+    //             CurrentLevel.TryInteract.Execute(null);
+    //             break;
+    // //case Key.Space:
+    // //    _currentLevel.Attack.Execute(null);
+    // //    return;
+    //         default: return;
+        //}
+    }
+
+    public void OnKeyDown(Key e)
+    {
+        switch (e)
+        {
+            case Key.W:
+                CurrentLevel.StartMove.Execute(Direction.Up);
+                break;
+            case Key.D:
+                CurrentLevel.StartMove.Execute(Direction.Right);
+                break;
+            case Key.S:
+                CurrentLevel.StartMove.Execute(Direction.Down);
+                break;
+            case Key.A:
+                CurrentLevel.StartMove.Execute(Direction.Left);                      
+                break;
+            default:
+                return;
+        }
+    }
+}

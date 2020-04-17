@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-
+using System.Collections.ObjectModel;
+using ArtiomOvechko.RPG.WebApp.Core.Collections;
 using Chevo.RPG.WebApp.Core.Interfaces.Instance;
 using Chevo.RPG.WebApp.Core.Interfaces.Inventory;
 using Chevo.RPG.WebApp.ViewModel.Interfaces;
@@ -15,7 +16,7 @@ namespace Chevo.RPG.WebApp.ViewModel.Interfaces
         /// <summary>
         /// All level obstackles
         /// </summary>
-        IEnumerable<IInstance> LevelObjects { get; }
+        ViewModelCollection<IInstance> LevelObjects { get; }
 
         /// <summary>
         /// All level items

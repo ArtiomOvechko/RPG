@@ -43,7 +43,7 @@ namespace Chevo.RPG.WebApp.Core.Collision
             {
                 var expectedSpec = GetExpectedSpecs(_owner, direction, tempStepLength);
                 var collided = EnvironmentContainer.Instances.FirstOrDefault(instance => 
-                    Collider.Colliding(new CollisionModel(instance.Actor.Stats.Size, instance.Actor.Position.X, instance.Actor.Position.Y), expectedSpec) &&
+                    instance != null && Collider.Colliding(new CollisionModel(instance.Actor.Stats.Size, instance.Actor.Position.X, instance.Actor.Position.Y), expectedSpec) &&
                     _owner != instance.Actor && !(instance is Projectile) && !(instance is MovableObjectBehavior));
                 if (collided == null)
                 {

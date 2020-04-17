@@ -19,7 +19,7 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
         {
             LevelWidth = Common.Settings.GlobalSettings.LevelWidth;
             LevelHeight = Common.Settings.GlobalSettings.LevelHeight;
-            LevelObjects = EnvironmentContainer.Instances;
+            EnvironmentContainer.Instances = LevelObjects;
             LevelItems = EnvironmentContainer.Items;
 
             // Add Terrain
@@ -54,10 +54,10 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
             EnvironmentContainer.AddInstance(TestEnemy3);
             EnvironmentContainer.AddInstance(TestEnemy4);
 
-            //for (var i = 3000; i < 3500; i+= 50)
-            //{
-            //    EnvironmentContainer.AddInstance(new TestEnemyBehavior(new Sceleton(new KnifeWeaponItem(null), new Point(i, i))));
-            //}
+            for (var i = 3000; i < 3500; i+= 50)
+            {
+                EnvironmentContainer.AddInstance(new TestEnemyBehavior(new Sceleton(new KnifeWeaponItem(null), new Point(i, i))));
+            }
 
             //for (var i = 32; i < 6000; i += 32)
             //{

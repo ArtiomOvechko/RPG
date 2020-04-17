@@ -30,90 +30,6 @@
           <e p="Default.rd.xml" t="Include" />
         </e>
       </e>
-      <e p="ArtiomOvechko.RPG.Blazor" t="IncludeRecursive">
-        <e p="_Imports.razor" t="Include" />
-        <e p="App.razor" t="Include" />
-        <e p="ArtiomOvechko.RPG.Blazor.csproj" t="IncludeRecursive" />
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netstandard2.1" t="Include">
-              <e p="ArtiomOvechko.RPG.Blazor.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="Pages" t="Include">
-          <e p="Index.razor" t="Include" />
-        </e>
-        <e p="Program.cs" t="Include" />
-        <e p="Properties" t="Include">
-          <e p="launchSettings.json" t="Include" />
-        </e>
-        <e p="Shared" t="Include">
-          <e p="MainLayout.razor" t="Include" />
-        </e>
-        <e p="wwwroot" t="Include">
-          <e p="css" t="Include">
-            <e p="bootstrap" t="Include">
-              <e p="bootstrap.min.css" t="Include" />
-              <e p="bootstrap.min.css.map" t="Include" />
-            </e>
-            <e p="open-iconic" t="Include">
-              <e p="font" t="Include">
-                <e p="css" t="Include">
-                  <e p="open-iconic-bootstrap.min.css" t="Include" />
-                </e>
-                <e p="fonts" t="Include">
-                  <e p="open-iconic.eot" t="Include" />
-                  <e p="open-iconic.otf" t="Include" />
-                  <e p="open-iconic.svg" t="Include" />
-                  <e p="open-iconic.ttf" t="Include" />
-                  <e p="open-iconic.woff" t="Include" />
-                </e>
-              </e>
-              <e p="FONT-LICENSE" t="Include" />
-              <e p="ICON-LICENSE" t="Include" />
-              <e p="README.md" t="Include" />
-            </e>
-            <e p="site.css" t="Include" />
-          </e>
-          <e p="favicon.ico" t="Include" />
-          <e p="index.html" t="Include" />
-          <e p="Resources" t="Include">
-            <e p="Images" t="Include">
-              <e p="Actors" t="Include">
-                <e p="Heart" t="Include">
-                  <e p="NormalHeart.gif" t="Include" />
-                </e>
-                <e p="Knife" t="Include">
-                  <e p="DaggerDown.gif" t="Include" />
-                  <e p="DaggerLeft.gif" t="Include" />
-                  <e p="DaggerRight.gif" t="Include" />
-                  <e p="DaggerUp.gif" t="Include" />
-                </e>
-                <e p="Sceleton" t="Include">
-                  <e p="SceletonIdleRight.gif" t="Include" />
-                  <e p="SceletonLeftIdle.gif" t="Include" />
-                  <e p="SceletonMovesLeft.gif" t="Include" />
-                  <e p="SceletonMovesRight.gif" t="Include" />
-                </e>
-                <e p="Thief" t="Include">
-                  <e p="ThiefIdleLeft.gif" t="Include" />
-                  <e p="ThiefIdleRight.gif" t="Include" />
-                  <e p="ThiefMoveLeft.gif" t="Include" />
-                  <e p="ThiefMoveRight.gif" t="Include" />
-                </e>
-              </e>
-              <e p="Obstacles" t="Include">
-                <e p="DungeonStoneWall" t="Include">
-                  <e p="Wall.gif" t="Include" />
-                </e>
-                <e p="Tree.png" t="Include" />
-              </e>
-            </e>
-          </e>
-        </e>
-      </e>
       <e p="ArtiomOvechko.RPG.Common" t="IncludeRecursive">
         <e p="ArtiomOvechko.RPG.Common.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
@@ -388,16 +304,102 @@
         <e p="Web.Debug.config" t="Include" />
         <e p="Web.Release.config" t="Include" />
       </e>
+      <e p="ArtiomOvechko.RPG.WebApp.BlazorServer" t="IncludeRecursive">
+        <e p="_Imports.razor" t="Include" />
+        <e p="App.razor" t="Include" />
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="ArtiomOvechko.RPG.WebApp.BlazorServer.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Release" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="ArtiomOvechko.RPG.WebApp.BlazorServer.AssemblyInfo.cs" t="Include" />
+              <e p="ArtiomOvechko.RPG.WebApp.BlazorServer.RazorAssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Pages" t="Include">
+          <e p="_Host.cshtml" t="Include" />
+          <e p="Index.razor" t="Include" />
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Shared" t="Include">
+          <e p="MainLayout.razor" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="wwwroot" t="Include">
+          <e p="css" t="Include">
+            <e p="bootstrap" t="Include">
+              <e p="bootstrap.min.css" t="Include" />
+              <e p="bootstrap.min.css.map" t="Include" />
+            </e>
+            <e p="open-iconic" t="Include">
+              <e p="font" t="Include">
+                <e p="css" t="Include">
+                  <e p="open-iconic-bootstrap.min.css" t="Include" />
+                </e>
+                <e p="fonts" t="Include">
+                  <e p="open-iconic.eot" t="Include" />
+                  <e p="open-iconic.otf" t="Include" />
+                  <e p="open-iconic.svg" t="Include" />
+                  <e p="open-iconic.ttf" t="Include" />
+                  <e p="open-iconic.woff" t="Include" />
+                </e>
+              </e>
+              <e p="FONT-LICENSE" t="Include" />
+              <e p="ICON-LICENSE" t="Include" />
+              <e p="README.md" t="Include" />
+            </e>
+            <e p="site.css" t="Include" />
+          </e>
+          <e p="favicon.ico" t="Include" />
+          <e p="Resources" t="Include">
+            <e p="Images" t="Include">
+              <e p="Actors" t="Include">
+                <e p="Heart" t="Include">
+                  <e p="NormalHeart.gif" t="Include" />
+                </e>
+                <e p="Knife" t="Include">
+                  <e p="DaggerDown.gif" t="Include" />
+                  <e p="DaggerLeft.gif" t="Include" />
+                  <e p="DaggerRight.gif" t="Include" />
+                  <e p="DaggerUp.gif" t="Include" />
+                </e>
+                <e p="Sceleton" t="Include">
+                  <e p="SceletonIdleRight.gif" t="Include" />
+                  <e p="SceletonLeftIdle.gif" t="Include" />
+                  <e p="SceletonMovesLeft.gif" t="Include" />
+                  <e p="SceletonMovesRight.gif" t="Include" />
+                </e>
+                <e p="Thief" t="Include">
+                  <e p="ThiefIdleLeft.gif" t="Include" />
+                  <e p="ThiefIdleRight.gif" t="Include" />
+                  <e p="ThiefMoveLeft.gif" t="Include" />
+                  <e p="ThiefMoveRight.gif" t="Include" />
+                </e>
+              </e>
+              <e p="Obstacles" t="Include">
+                <e p="DungeonStoneWall" t="Include">
+                  <e p="Wall.gif" t="Include" />
+                </e>
+                <e p="Tree.png" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="ArtiomOvechko.RPG.WebApp.Common" t="IncludeRecursive">
         <e p="ArtiomOvechko.RPG.WebApp.Common.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Constants" t="Include">
           <e p="PrototypeNames.cs" t="Include" />
         </e>
-        <e p="GlobalSettings.Designer.cs" t="Include" />
-        <e p="GlobalSettings.settings" t="Include" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netstandard2.1" t="Include">
               <e p="ArtiomOvechko.RPG.WebApp.Common.AssemblyInfo.cs" t="Include" />
             </e>
@@ -459,6 +461,18 @@
           <e p="WeaponSettings.cs" t="Include" />
         </e>
       </e>
+      <e p="ArtiomOvechko.RPG.WebApp.Console" t="IncludeRecursive">
+        <e p="ArtiomOvechko.RPG.WebApp.Console.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Release" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="ArtiomOvechko.RPG.WebApp.Console.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+      </e>
       <e p="ArtiomOvechko.RPG.WebApp.Core" t="IncludeRecursive">
         <e p="Actor" t="Include">
           <e p="BaseActor.cs" t="Include" />
@@ -503,6 +517,9 @@
           </e>
         </e>
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Collections" t="Include">
+          <e p="ViewModelCollection.cs" t="Include" />
+        </e>
         <e p="Collision" t="Include">
           <e p="DefaultCollisionResolver.cs" t="Include" />
           <e p="IgnoringCollisionResolver.cs" t="Include" />
@@ -510,6 +527,7 @@
         </e>
         <e p="Enum" t="Include">
           <e p="Direction.cs" t="Include" />
+          <e p="Key.cs" t="Include" />
           <e p="State.cs" t="Include" />
         </e>
         <e p="Environment" t="Include">
@@ -581,7 +599,7 @@
           </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netstandard2.1" t="Include">
               <e p="ArtiomOvechko.RPG.WebApp.Core.AssemblyInfo.cs" t="Include" />
             </e>
@@ -598,6 +616,7 @@
         </e>
       </e>
       <e p="ArtiomOvechko.RPG.WebApp.ViewModel" t="IncludeRecursive">
+        <e p="Annotations.cs" t="Include" />
         <e p="ArtiomOvechko.RPG.WebApp.ViewModel.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Commands" t="Include">
@@ -625,7 +644,7 @@
           <e p="Sanctuary.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netstandard2.1" t="Include">
               <e p="ArtiomOvechko.RPG.WebApp.ViewModel.AssemblyInfo.cs" t="Include" />
             </e>

@@ -1,4 +1,9 @@
-﻿namespace Chevo.RPG.WebApp.ViewModel.Interfaces
+﻿using System.ComponentModel;
+
+namespace Chevo.RPG.WebApp.ViewModel.Interfaces
 {
-    public interface ILevel: ILevelSurface, IPlayable, IControl { }
+    public interface ILevel : ILevelSurface, IPlayable, IControl, INotifyPropertyChanged
+    {
+        
+    }
 }
