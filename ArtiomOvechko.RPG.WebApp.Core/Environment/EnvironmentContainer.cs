@@ -9,38 +9,45 @@ using System.Collections.ObjectModel;
 using System.Threading;
 using System.Linq;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using ArtiomOvechko.RPG.WebApp.Core.Collections;
 
 namespace Chevo.RPG.WebApp.Core.Environment
 {
-    public static class EnvironmentContainer
+    public class EnvironmentContainer : IEnvironmentContainer
     {
         private const int _bufferCapacity = 1000;
         
-        private static CancellationTokenSource _cts = new CancellationTokenSource();
+        private CancellationTokenSource _cts = new CancellationTokenSource();
 
-        private static IInstance[] _toAdd = new IInstance[_bufferCapacity];
-        private static IInstance[] _toDelete = new IInstance[_bufferCapacity];
+        private IInstance[] _toAdd = new IInstance[_bufferCapacity];
+        private IInstance[] _toDelete = new IInstance[_bufferCapacity];
 
-        private static int _instanceAddCounter = -1;
-        private static int _instanceDeleteCounter = -1;
-        private static int _instanceCount = 0;
+        private int _instanceAddCounter = -1;
+        private int _instanceDeleteCounter = -1;
+        private int _instanceCount = 0;
         
-        public static ViewModelCollection<IInstance> Instances = new ViewModelCollection<IInstance>();
+        public ViewModelCollection<IInstance> _instances = new ViewModelCollection<IInstance>();
+        public ObservableCollection<IItem> _items = new ObservableCollection<IItem>();
 
-        public static void AddInstance(IInstance instance)
+        public ViewModelCollection<IInstance> Instances
+        {
+            get { return _instances; }
+            set { _instances = value; }
+        }
+        public ObservableCollection<IItem> Items => _items;
+
+        public void AddInstance(IInstance instance)
         {
             _toAdd[Interlocked.Increment(ref _instanceAddCounter)] = instance;
         }
 
-        public static void RemoveInstance(IInstance instance)
+        public void RemoveInstance(IInstance instance)
         {
             _toDelete[Interlocked.Increment(ref _instanceDeleteCounter)] = instance;
         }
 
-        public static ObservableCollection<IItem> Items = new ObservableCollection<IItem>();
-
-        public static async void Run()
+        public async void Run()
         {
             await ExecutionHelper.GetNew.ExecuteContinuoslyAsync(() =>
             {

@@ -9,7 +9,7 @@ namespace Chevo.RPG.WebApp.Core.Factories
     {
         public static IInstance GetHeart(IActor creator)
         {
-            var actor = new BrokenHeart(new Stats.Point(creator.Position.X, creator.Position.Y));
+            var actor = new BrokenHeart(new Stats.Point(creator.Position.X, creator.Position.Y), creator.Environment);
             return new Projectile(actor, creator, Enum.Direction.Up, Common.Settings.ActorSettings.BrokenHeartRange, Common.Settings.WeaponSettings.KnifeSound);
         }
     }

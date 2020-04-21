@@ -76,7 +76,7 @@ namespace Chevo.RPG.WebApp.Core.Behavior.Projectile
 
             if (_moveLength <= 0)
             {
-                EnvironmentContainer.RemoveInstance(this);
+                _currentActor.Environment.RemoveInstance(this);
             }
         }
     }

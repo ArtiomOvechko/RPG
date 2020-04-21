@@ -24,13 +24,14 @@ namespace Chevo.RPG.WebApp.Core.Collision
         public virtual void HandleAttack(IStats attackerStats)
         {
             _owner.Stats.LostLives(attackerStats.Damage);
-            EnvironmentContainer.AddInstance(DamageAnimationFactory.GetHeart(_owner));
+            IEnvironmentContainer environment = _owner.Environment;
+            environment.AddInstance(DamageAnimationFactory.GetHeart(_owner));
             if (_owner.Stats.Lives.Count <= 0)
             {
-                var ownerInstance = EnvironmentContainer.Instances.FirstOrDefault(x => x.Actor == _owner);
+                var ownerInstance = environment.Instances.FirstOrDefault(x => x.Actor == _owner);
                 if (ownerInstance != null)
                 {
-                    EnvironmentContainer.RemoveInstance(ownerInstance);
+                    environment.RemoveInstance(ownerInstance);
                 }
             }
         }
@@ -42,7 +43,7 @@ namespace Chevo.RPG.WebApp.Core.Collision
             while (tempStepLength != 0)
             {
                 var expectedSpec = GetExpectedSpecs(_owner, direction, tempStepLength);
-                var collided = EnvironmentContainer.Instances.FirstOrDefault(instance => 
+                var collided = _owner.Environment.Instances.FirstOrDefault(instance => 
                     instance != null && Collider.Colliding(new CollisionModel(instance.Actor.Stats.Size, instance.Actor.Position.X, instance.Actor.Position.Y), expectedSpec) &&
                     _owner != instance.Actor && !(instance is Projectile) && !(instance is MovableObjectBehavior));
                 if (collided == null)

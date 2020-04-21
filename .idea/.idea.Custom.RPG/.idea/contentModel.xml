@@ -532,6 +532,7 @@
         </e>
         <e p="Environment" t="Include">
           <e p="EnvironmentContainer.cs" t="Include" />
+          <e p="IEnvironmentContainer.cs" t="Include" />
           <e p="LevelSaveMetadata.cs" t="Include" />
           <e p="SaveManager.cs" t="Include" />
         </e>

@@ -2,7 +2,7 @@
 {
     public static class GlobalSettings
     {
-        public const int GameStepDelay = 5;
+        public const int GameStepDelay = 10;
 
         public const int LevelHeight = 10000;
 

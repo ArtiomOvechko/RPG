@@ -29,6 +29,7 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
         private ICommand _putObject;
         private ICommand _discardObject;
         private ICommand _movePickedObject;
+        private IEnvironmentContainer _environment;
 
         public IInstancePrototype ActivePrototype { get; set; }
 
@@ -124,7 +125,7 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
                     {
                         if (ActivePrototype != null)
                         {
-                            LevelObjects.Add( ActivePrototype.CreateInstance((Point)x));                            
+                            LevelObjects.Add( ActivePrototype.CreateInstance((Point)x, _environment));                            
                         }
                     });
                 }
@@ -149,6 +150,8 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
 
         public EditorLevel(int screenWidth, int screenHeight)
         {
+            _environment = new EnvironmentContainer();
+            
             LevelWidth = Common.Settings.GlobalSettings.LevelWidth;
             LevelHeight = Common.Settings.GlobalSettings.LevelHeight;
 
@@ -160,14 +163,14 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
             LevelObjects = new ViewModelCollection<IInstance>();          
             //LevelItems = EnvironmentContainer.Items;
             // Add Terrain 4 test
-            var wall1 = new StaticObjectBehavior(new DungeonStoneWall(new Point(2400, 2600)));
-            var wall2 = new StaticObjectBehavior(new DungeonStoneWall(new Point(2900, 2900)));
+            var wall1 = new StaticObjectBehavior(new DungeonStoneWall(new Point(2400, 2600), _environment));
+            var wall2 = new StaticObjectBehavior(new DungeonStoneWall(new Point(2900, 2900), _environment));
             LevelObjects.Add(wall1);
             LevelObjects.Add(wall2);
 
 
             //Replace with invisible actor with ignoring collision resolver
-            Player = new Player(new BrokenHeart(new Point(2700, 2700)), null);
+            Player = new Player(new BrokenHeart(new Point(2700, 2700), _environment), null);
             ViewPort = new ViewPort(screenWidth, screenHeight, (IInstance)Player);
 
 
@@ -178,8 +181,8 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
                 ((ObservableCollection<IInstancePrototype>)PickableObjects).Insert(0, (IInstancePrototype)Activator.CreateInstance(t));
             }
 
-            EnvironmentContainer.AddInstance((IInstance)Player);
-            EnvironmentContainer.Run();
+            _environment.AddInstance((IInstance)Player);
+            _environment.Run();
         }
     }
 }

@@ -22,10 +22,11 @@ namespace Chevo.RPG.WebApp.Core.Collision
         public override void HandleAttack(IStats attackerStats) { }
 
         public override int ResolveCollision(Direction direction)
-        { 
+        {
+            IEnvironmentContainer environment = _owner.Environment;
             int offset = 0;
             var expectedSpec = GetExpectedSpecs(_owner, direction, _owner.Stats.StepLenght);
-            var collided = EnvironmentContainer.Instances.FirstOrDefault(instance =>
+            var collided = environment.Instances.FirstOrDefault(instance =>
                 instance != null && Collider.Colliding(new CollisionModel(instance.Actor.Stats.Size, instance.Actor.Position.X, instance.Actor.Position.Y), expectedSpec) &&
                 _owner != instance.Actor && _creator != instance.Actor && !(instance is Projectile) && !(instance is MovableObjectBehavior));
             if (collided == null)
@@ -45,8 +46,8 @@ namespace Chevo.RPG.WebApp.Core.Collision
             }
             else
             {
-                var behavior = EnvironmentContainer.Instances.FirstOrDefault(x => x.Actor == _owner);
-                EnvironmentContainer.RemoveInstance(behavior);
+                var behavior = environment.Instances.FirstOrDefault(x => x.Actor == _owner);
+                environment.RemoveInstance(behavior);
 
                 collided.Actor.HandleAttack(_owner.Stats);
             }

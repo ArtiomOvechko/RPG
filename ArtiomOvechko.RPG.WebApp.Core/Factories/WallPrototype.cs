@@ -4,6 +4,7 @@ using Chevo.RPG.WebApp.Core.Actor;
 using Chevo.RPG.WebApp.Core.Stats;
 using System;
 using Chevo.RPG.WebApp.Common.Constants;
+using Chevo.RPG.WebApp.Core.Environment;
 
 namespace Chevo.RPG.WebApp.Core.Factories
 {
@@ -20,13 +21,13 @@ namespace Chevo.RPG.WebApp.Core.Factories
         {
             get
             {
-                return CreateInstance(null).Actor.CurrentAnimation;
+                return CreateInstance(null, null).Actor.CurrentAnimation;
             }
         }
 
-        public IInstance CreateInstance(Point initialPosition)
+        public IInstance CreateInstance(Point initialPosition, IEnvironmentContainer environmentContainer)
         {
-            return new StaticObjectBehavior(new DungeonStoneWall(initialPosition));
+            return new StaticObjectBehavior(new DungeonStoneWall(initialPosition, environmentContainer));
         }
     }
 }

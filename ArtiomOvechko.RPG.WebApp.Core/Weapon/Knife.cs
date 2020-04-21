@@ -29,10 +29,10 @@ namespace Chevo.RPG.WebApp.Core.Weapon
                 _canAttack = false;
                 ExecutionHelper.GetNew.ExecuteWithDelayAsync(() => { _canAttack = true; }, WeaponSettings.KnifeCoolDown);
 
-                var actor = new Actor.Knife(new Stats.Point(attacker.Position.X, attacker.Position.Y), attacker);
+                var actor = new Actor.Knife(new Stats.Point(attacker.Position.X, attacker.Position.Y), attacker, attacker.Environment);
                 var projectile = new Projectile(actor, attacker, direction, WeaponSettings.KnifeRange, WeaponSettings.KnifeSound);
                 
-                EnvironmentContainer.AddInstance(projectile);
+                attacker.Environment.AddInstance(projectile);
             }
             
         }

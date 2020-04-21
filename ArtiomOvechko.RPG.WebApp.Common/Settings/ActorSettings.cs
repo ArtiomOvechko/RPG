@@ -2,7 +2,7 @@
 {
     public static class ActorSettings
     {
-        public const int DefaultSize = 32;
+        public const int DefaultSize = 64;
 
         public const int InteractionDistance = 164;
 

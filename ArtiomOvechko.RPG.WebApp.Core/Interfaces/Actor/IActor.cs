@@ -6,6 +6,7 @@ using Chevo.RPG.WebApp.Core.Stats;
 
 using System.ComponentModel;
 using System;
+using Chevo.RPG.WebApp.Core.Environment;
 
 
 namespace Chevo.RPG.WebApp.Core.Interfaces.Actor
@@ -15,6 +16,11 @@ namespace Chevo.RPG.WebApp.Core.Interfaces.Actor
     /// </summary>
     public interface IActor: INotifyPropertyChanged
     {
+        /// <summary>
+        /// Current environment of the instance
+        /// </summary>
+        IEnvironmentContainer Environment { get; }
+        
         /// <summary>
         /// Moving or idle
         /// </summary>

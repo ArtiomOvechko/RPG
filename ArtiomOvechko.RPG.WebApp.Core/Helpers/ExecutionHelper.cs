@@ -5,7 +5,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Chevo.RPG.WebApp.Common.Settings;
 
-//using Windows.Foundation.Metadata;
 
 namespace Chevo.RPG.WebApp.Core.Helpers
 {
@@ -33,21 +32,6 @@ namespace Chevo.RPG.WebApp.Core.Helpers
         {
             await Task.Delay(delayTime);
             delayedAction();
-        }
-
-        // TBR
-        //[Deprecated("Use ExecutionHelper.ExecuteContinuoslyAsync instead", DeprecationType.Deprecate, 1)]
-        public async Task ExecuteContinuoslyAsyncWithPostAction(Action continuousAction, Action postAction, CancellationToken cancellationToken)
-        {
-            await Task.Delay(GlobalSettings.GameStepDelay);
-            continuousAction();
-            if (!cancellationToken.IsCancellationRequested)
-            {
-                await ExecuteContinuoslyAsyncWithPostAction(continuousAction, postAction, cancellationToken);
-            } else
-            {
-                postAction();
-            }
         }
     }
 }

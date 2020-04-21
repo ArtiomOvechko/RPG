@@ -43,7 +43,7 @@ namespace Chevo.RPG.WebApp.Core.Behavior.Npc
         {
             if (!_interacted)
             {
-                var player = EnvironmentContainer.Instances.FirstOrDefault(x => x is IInteractor &&
+                var player = _currentActor?.Environment.Instances.FirstOrDefault(x => x is IInteractor &&
                     Collider.InRangeOfInteraction(new CollisionModel(x.Actor), new CollisionModel(_currentActor)));
                 if (player != null)
                 {

@@ -23,6 +23,8 @@ namespace Chevo.RPG.WebApp.Core.Actor
     [Serializable]
     public abstract class BaseActor : INotifyPropertyChanged, IActor
     {
+        public IEnvironmentContainer Environment { get; }
+        
         private Point _currentPosition;
         private IStats _stats;
         private Uri _currentAnimation;
@@ -187,11 +189,11 @@ namespace Chevo.RPG.WebApp.Core.Actor
         {
             if (Stats.IsAlive && interactor != null)
             {
-                var collided = EnvironmentContainer.Instances.FirstOrDefault(x =>
+                var collided = Environment.Instances.FirstOrDefault(x =>
                                 Collider.InRangeOfInteraction(new CollisionModel(x.Actor), new CollisionModel(this)) &&
                                 !ReferenceEquals(x.Actor, this));
 
-                var itemNear = EnvironmentContainer.Items.FirstOrDefault(x =>
+                var itemNear = Environment.Items.FirstOrDefault(x =>
                     Collider.InRangeOfInteraction(new CollisionModel(0, x.Position.X, x.Position.Y), new CollisionModel(this)));
 
                 if (itemNear == null && collided != null)
@@ -200,7 +202,7 @@ namespace Chevo.RPG.WebApp.Core.Actor
                 }
                 else if (itemNear != null) {
                     Inventory.Add(itemNear);
-                    EnvironmentContainer.Items.Remove(itemNear);
+                    Environment.Items.Remove(itemNear);
                 }
             }
         }
@@ -237,18 +239,18 @@ namespace Chevo.RPG.WebApp.Core.Actor
         {
             if (Stats == null || Stats.IsAlive)
             {
-                var equippedWeapon = (IWeaponItem)Inventory.Items.Where(x => x is IWeaponItem && !((IWeaponItem)x).Equippable).FirstOrDefault();
-                if (equippedWeapon != null)
-                {
-                    equippedWeapon.Unequip();
-                }
+                IWeaponItem equippedWeapon = (IWeaponItem)Inventory.Items
+                    .FirstOrDefault(x => x is IWeaponItem && !((IWeaponItem)x).Equippable);
+                equippedWeapon?.Unequip();
                 _currentWeapon = null;
             }           
         }
         #endregion
 
-        public BaseActor(IWeaponItem weaponItem, Point initialPosition)
+        public BaseActor(IWeaponItem weaponItem, Point initialPosition, IEnvironmentContainer environmentContainer)
         {
+            Environment = environmentContainer;
+            
             Position = initialPosition;
             CurrentDirection = Direction.Up;
             CurrentAimDirection = Direction.Right;
