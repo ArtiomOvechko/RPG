@@ -21,7 +21,7 @@ namespace Chevo.RPG.WebApp.ViewModel.Interfaces
         /// <summary>
         /// All level items
         /// </summary>
-        IEnumerable<IItem> LevelItems { get; }
+        ViewModelCollection<IItem> LevelItems { get; }
 
         /// <summary>
         /// Camera view port

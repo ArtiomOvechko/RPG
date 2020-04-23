@@ -10,12 +10,12 @@ namespace Chevo.RPG.WebApp.Core.Animation
     {
         public Uri GetIdleAnimation(Direction direction, Uri currentAnimation)
         {
-            return new Uri(@"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/Actors/Heart/NormalHeart.gif");
+            return new Uri(@"/resources/images/actors/heart/NormalHeart.gif");
         }
 
         public Uri GetMovingAnimation(Direction direction, Uri currentAnimation)
         {
-            return new Uri(@"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/Actors/Heart/NormalHeart.gif");
+            return new Uri(@"/resources/images/actors/heart/NormalHeart.gif");
         }
     }
 }

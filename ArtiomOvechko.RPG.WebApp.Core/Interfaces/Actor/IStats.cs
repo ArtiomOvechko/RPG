@@ -1,21 +1,24 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using Chevo.RPG.WebApp.Core.Stats;
 
 namespace Chevo.RPG.WebApp.Core.Interfaces.Actor
 {
     public interface IStats: INotifyPropertyChanged
     {
-        ICollection<object> Lives { get; }
+        public List<Effect> CurrentEffects { get; set; }
+
+        float HealthPercentage { get; }
 
         bool IsAlive { get; }
 
         int Damage { get; set; }
 
         int Size { get; set; }
+        
+        int HealthBarSize { get; }
 
-        int StepLenght { get; set; }
-
-        void LostLives(int lives);
+        int StepLength { get; set; }
 
         void AddLives(int lives);
     }

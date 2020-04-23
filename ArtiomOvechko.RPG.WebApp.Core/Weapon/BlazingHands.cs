@@ -18,10 +18,12 @@ namespace Chevo.RPG.WebApp.Core.Weapon
             Animation = new KnifeAnimation();
         }
 
-        public override void Attack(IActor attacker, Direction direction)
+        public override bool Attack(IActor attacker, Direction direction)
         {
+            bool result = false;
             if (_canAttack)
             {
+                result = true;
                 _canAttack = false;
                 ExecutionHelper.GetNew.ExecuteWithDelayAsync(() => { _canAttack = true; }, WeaponSettings.BlazingHandsCooldown);
 
@@ -43,6 +45,7 @@ namespace Chevo.RPG.WebApp.Core.Weapon
                 attacker.Environment.AddInstance(projectile3);
             }
 
+            return result;
         }
     }
 }

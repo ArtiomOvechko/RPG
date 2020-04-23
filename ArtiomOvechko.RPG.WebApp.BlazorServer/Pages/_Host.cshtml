@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>testproj</title>
+    <title>ArtiomOvechko.RPG</title>
     <base href="~/" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
     <link href="css/site.css" rel="stylesheet" />
@@ -32,6 +32,13 @@
         <a class="dismiss">🗙</a>
     </div>
     
+    <style type="text/css">
+        .rotator {
+            transition: transform 500ms ease;
+            transform: rotate(360deg);
+        }
+    </style>
+    
     <script type="text/javascript">
         function getDimensions() {
             return {
@@ -39,12 +46,38 @@
                 Width: window.innerWidth
             }
         }
+
+        window.onkeyup = function (event) {
+            var changeEvent = new Event("change");
+            var code;
+            if (event.code) {
+                code = event.code;
+                console.log(event.code);
+            }
+            else {
+                code = event.keyCode;
+               console.log(event.code);
+            }
+            var element = document.getElementById("stopController");
+            element.value = code;
+            element.dispatchEvent(changeEvent)
+        }
         
-        // console.log('registering custom window event handlers...');
-        // window.onkeyup = function (event) {
-        //     console.log('keyup');
-        //     console.log(document.getElementsByClassName('game-surface')[0]);
-        // }
+        window.onkeydown = function (event) {
+            var changeEvent = new Event("change");
+            var code;
+            if (event.code) {
+                code = event.code;
+                console.log(event.code);
+            }
+            else {
+                code = event.keyCode;
+               console.log(event.code);
+            }
+            var element = document.getElementById("moveController");
+            element.value = code;
+            element.dispatchEvent(changeEvent)
+        }
     </script>
 
     <script src="_framework/blazor.server.js"></script>

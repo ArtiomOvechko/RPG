@@ -16,6 +16,14 @@ namespace Chevo.RPG.WebApp.Core.Interfaces.Actor
     /// </summary>
     public interface IActor: INotifyPropertyChanged
     {
+        public bool IsInteractive { get; }
+        
+        public bool IsDamaged { get; }
+        
+        public bool IsHealthBarShown { get; }
+        
+        public bool IsAttacking { get; }
+        
         /// <summary>
         /// Current environment of the instance
         /// </summary>
@@ -56,11 +64,23 @@ namespace Chevo.RPG.WebApp.Core.Interfaces.Actor
         /// Coordinates
         /// </summary>
         Point Position { get; set; }
+        
+        /// <summary>
+        /// Position of the health bar
+        /// </summary>
+        Point HealthBarPosition { get; }
+        
+        Point WeaponPosition { get; }
 
         /// <summary>
         /// Health, speed, size and etc
         /// </summary>
         IStats Stats { get; set; }
+
+        /// <summary>
+        /// Handle effects
+        /// </summary>
+        void ProcessCurrentState();
 
         /// <summary>
         /// Enable moving

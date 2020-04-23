@@ -49,6 +49,6 @@ namespace Chevo.RPG.WebApp.Core.Weapon
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
-        public abstract void Attack(IActor attacker, Direction direction);
+        public abstract bool Attack(IActor attacker, Direction direction);
     }
 }

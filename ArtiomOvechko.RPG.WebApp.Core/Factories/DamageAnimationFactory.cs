@@ -12,5 +12,11 @@ namespace Chevo.RPG.WebApp.Core.Factories
             var actor = new BrokenHeart(new Stats.Point(creator.Position.X, creator.Position.Y), creator.Environment);
             return new Projectile(actor, creator, Enum.Direction.Up, Common.Settings.ActorSettings.BrokenHeartRange, Common.Settings.WeaponSettings.KnifeSound);
         }
+        
+        public static IInstance GetNumber(IActor creator, int damage)
+        {
+            var actor = new BrokenHeart(new Stats.Point(creator.Position.X, creator.Position.Y), creator.Environment);
+            return new Projectile(actor, creator, Enum.Direction.Up, Common.Settings.ActorSettings.BrokenHeartRange, Common.Settings.WeaponSettings.KnifeSound);
+        }
     }
 }

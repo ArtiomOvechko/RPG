@@ -9,16 +9,16 @@ using Chevo.RPG.WebApp.Core.Interfaces.Inventory;
 using System;
 using System.Windows.Input;
 using System.Threading;
+using Chevo.RPG.WebApp.Core.Behavior;
 
 
 namespace Chevo.RPG.WebApp.ViewModel.Control
 {
     [Serializable]
-    public class Player: IInstance, IControl, IInteractor
+    public class Player: BaseBehavior, IInstance, IControl, IInteractor
     {
         [NonSerialized]
         private Direction _currentDirection;
-        private IActor _currentActor { get; set; }
         [NonSerialized]
         private ICommand _startMove;
         [NonSerialized]
@@ -35,10 +35,6 @@ namespace Chevo.RPG.WebApp.ViewModel.Control
         private ICommand _discardWeapon;
         [NonSerialized]
         private ICommand _aim;
-        [NonSerialized]
-        private CancellationTokenSource cancellationTokenSource;
-
-        private int _aimingMakerHalfSize;
 
         public IActor Actor
         {
@@ -195,8 +191,10 @@ namespace Chevo.RPG.WebApp.ViewModel.Control
             return null;
         }
 
-        public void ProcessCurrentState()
+        public override void ProcessCurrentState()
         {
+            base.ProcessCurrentState();
+            
             _currentActor.TryStopInteraction(InteractionHandler);
             _currentActor.Move();
         }

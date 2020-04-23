@@ -39,10 +39,7 @@ namespace Chevo.RPG.WebApp.Core.Behavior
 
         public virtual void ProcessCurrentState()
         {
-            //if (!_currentActor.Stats.IsAlive)
-            //{
-            //    _cts.Cancel();
-            //}
+            _currentActor?.ProcessCurrentState();
         }
     }
 }

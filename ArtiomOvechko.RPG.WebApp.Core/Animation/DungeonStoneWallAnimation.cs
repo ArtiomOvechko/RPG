@@ -10,12 +10,12 @@ namespace Chevo.RPG.WebApp.Core.Animation
     {
         public Uri GetIdleAnimation(Direction direction, Uri currentAnimation)
         {
-            return new Uri(@"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/Obstacles/DungeonStoneWall/Wall.gif");
+            return new Uri(@"/resources/images/obstacles/dungeonStoneWall/Wall.gif");
         }
 
         public Uri GetMovingAnimation(Direction direction, Uri currentAnimation)
         {
-            return new Uri(@"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/DungeonStoneWall/Wall.gif");
+            return new Uri(@"/resources/images/obstacles/dungeonStoneWall/Wall.gif");
         }
     }
 }

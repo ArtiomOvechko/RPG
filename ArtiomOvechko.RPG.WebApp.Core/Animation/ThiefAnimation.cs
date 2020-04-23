@@ -9,13 +9,13 @@ namespace Chevo.RPG.WebApp.Core.Animation
     [Serializable]
     public class ThiefAnimation : IActorAnimation
     {
-        private const string IdleLeft = @"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/Actors/Thief/ThiefIdleLeft.gif";
+        private const string IdleLeft = @"/resources/images/actors/thief/ThiefIdleLeft.gif";
 
-        private const string MovesLeft = @"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/Actors/Thief/ThiefMoveLeft.gif";
+        private const string MovesLeft = @"/resources/images/actors/thief/ThiefMoveLeft.gif";
 
-        private const string IdleRight = @"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/Actors/Thief/ThiefIdleRight.gif";
+        private const string IdleRight = @"/resources/images/actors/thief/ThiefIdleRight.gif";
 
-        private const string MovesRight = @"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/Actors/Thief/ThiefMoveRight.gif";
+        private const string MovesRight = @"/resources/images/actors/thief/ThiefMoveRight.gif";
 
         public Uri GetIdleAnimation(Direction direction, Uri currentAnimation)
         {

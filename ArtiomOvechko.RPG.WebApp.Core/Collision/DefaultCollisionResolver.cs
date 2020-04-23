@@ -23,10 +23,10 @@ namespace Chevo.RPG.WebApp.Core.Collision
 
         public virtual void HandleAttack(IStats attackerStats)
         {
-            _owner.Stats.LostLives(attackerStats.Damage);
+            _owner.Stats.AddLives(-attackerStats.Damage);
             IEnvironmentContainer environment = _owner.Environment;
-            environment.AddInstance(DamageAnimationFactory.GetHeart(_owner));
-            if (_owner.Stats.Lives.Count <= 0)
+            //environment.AddInstance(DamageAnimationFactory.GetHeart(_owner));
+            if (_owner.Stats.HealthPercentage <= 0)
             {
                 var ownerInstance = environment.Instances.FirstOrDefault(x => x.Actor == _owner);
                 if (ownerInstance != null)
@@ -38,7 +38,7 @@ namespace Chevo.RPG.WebApp.Core.Collision
 
         public virtual int ResolveCollision(Direction direction)
         {
-            var tempStepLength = _owner.Stats.StepLenght;
+            var tempStepLength = _owner.Stats.StepLength;
             int offset = 0;
             while (tempStepLength != 0)
             {

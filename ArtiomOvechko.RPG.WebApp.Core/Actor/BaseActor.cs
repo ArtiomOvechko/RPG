@@ -23,6 +23,10 @@ namespace Chevo.RPG.WebApp.Core.Actor
     [Serializable]
     public abstract class BaseActor : INotifyPropertyChanged, IActor
     {
+        protected bool _isInteractive = false;
+
+        public bool IsInteractive => _isInteractive;
+
         public IEnvironmentContainer Environment { get; }
         
         private Point _currentPosition;
@@ -119,18 +123,27 @@ namespace Chevo.RPG.WebApp.Core.Actor
             set
             {
                 _currentPosition = value;
-                OnPropertyChanged("Position");
-                OnPropertyChanged("WeaponPosition");
+                OnPropertyChanged(nameof(Position));
+                OnPropertyChanged(nameof(WeaponPosition));
+                OnPropertyChanged(nameof(HealthBarPosition));
             }
         }
+        
+        public Point HealthBarPosition => 
+            new Point(_currentPosition.X - ((_stats.HealthBarSize - _stats.Size) / 2), _currentPosition.Y - 10);
+        
+        public Point WeaponPosition => 
+            new Point(_currentPosition.X + _stats.Size / 2 - Weapon?.Size / 2 ?? 0, _currentPosition.Y + _stats.Size / 2 - Weapon?.Size / 2 ?? 0);
 
-        public Point WeaponPosition
-        {
-            get
-            {
-                return new Point(_currentPosition.X + _stats.Size / 2 - Weapon?.Size / 2 ?? 0, _currentPosition.Y + _stats.Size / 2 - Weapon?.Size / 2 ?? 0);
-            }
-        }
+        private bool _isDamaged = false;
+        public bool IsDamaged => _isDamaged;
+
+        private bool _isHealthBarShown = false;
+        public bool IsHealthBarShown => _isHealthBarShown;
+        
+        private bool _isAttacking = false;
+        public bool IsAttacking => _isAttacking;
+
         #endregion
 
         #region Methods
@@ -172,7 +185,11 @@ namespace Chevo.RPG.WebApp.Core.Actor
             {
                 if (_currentWeapon != null)
                 {
-                    _currentWeapon.Attack(this, CurrentAimDirection);
+                    bool attackPerformed = _currentWeapon.Attack(this, CurrentAimDirection);
+                    if (attackPerformed)
+                    {
+                        _stats.CurrentEffects.Add(new Effect(EffectType.Attacking, TimeSpan.FromMilliseconds(500)));
+                    }
                 }
             }
         }
@@ -185,16 +202,41 @@ namespace Chevo.RPG.WebApp.Core.Actor
             }
         }
 
+        public void ProcessCurrentState()
+        {
+            _isDamaged = false;
+            _isHealthBarShown = false;
+            _isAttacking = false;
+            _stats.CurrentEffects = _stats.CurrentEffects.Where(e => e.EndTime >= DateTime.Now || e.IsPermanent).ToList();
+            foreach (Effect effect in _stats.CurrentEffects)
+            {
+                if (effect.Type == EffectType.Damage)
+                {
+                    _isDamaged = true;
+                }
+
+                if (effect.Type == EffectType.HealthChanged)
+                {
+                    _isHealthBarShown = true;
+                }
+
+                if (effect.Type == EffectType.Attacking)
+                {
+                    _isAttacking = true;
+                }
+            }
+        }
+
         public void TryInteract(IInteractionHandler interactor)
         {
             if (Stats.IsAlive && interactor != null)
             {
                 var collided = Environment.Instances.FirstOrDefault(x =>
-                                Collider.InRangeOfInteraction(new CollisionModel(x.Actor), new CollisionModel(this)) &&
+                                x != null && Collider.InRangeOfInteraction(new CollisionModel(x.Actor), new CollisionModel(this)) &&
                                 !ReferenceEquals(x.Actor, this));
 
                 var itemNear = Environment.Items.FirstOrDefault(x =>
-                    Collider.InRangeOfInteraction(new CollisionModel(0, x.Position.X, x.Position.Y), new CollisionModel(this)));
+                    x != null && Collider.InRangeOfInteraction(new CollisionModel(0, x.Position.X, x.Position.Y), new CollisionModel(this)));
 
                 if (itemNear == null && collided != null)
                 {
@@ -202,7 +244,7 @@ namespace Chevo.RPG.WebApp.Core.Actor
                 }
                 else if (itemNear != null) {
                     Inventory.Add(itemNear);
-                    Environment.Items.Remove(itemNear);
+                    Environment.Items.RemoveAll(new []{itemNear}, 1);
                 }
             }
         }

@@ -13,6 +13,8 @@ using ArtiomOvechko.RPG.WebApp.ViewModel.Annotations;
 using Chevo.RPG.WebApp.Core.Interfaces.Inventory;
 using Chevo.RPG.WebApp.Core.Stats;
 using Chevo.RPG.WebApp.Core.Enum;
+using Chevo.RPG.WebApp.Core.Interfaces.Actor;
+using Chevo.RPG.WebApp.ViewModel.Control;
 using Chevo.RPG.WebApp.ViewModel.Interfaces;
 
 namespace Chevo.RPG.WebApp.ViewModel.Level
@@ -36,11 +38,12 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
             LeftDown
         }
 
+        public IActor Actor => Player.Actor;
         public IControl Player { get; protected set; }
         public IViewPort ViewPort { get; protected set; }
 
         public ViewModelCollection<IInstance> LevelObjects { get; protected set; } = new ViewModelCollection<IInstance>();
-        public IEnumerable<IItem> LevelItems { get; protected set; }
+        public ViewModelCollection<IItem> LevelItems { get; protected set; }
 
         public int LevelWidth { get; protected set; }
         public int LevelHeight { get; protected set; }
@@ -198,6 +201,10 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
         }
 
         public BaseOfflineLevel(int screenWidth, int screenHeight)
+        {
+        }
+
+        protected void SubscribeOnEvents()
         {
             LevelObjects.StateChanged += (sender, args) => OnPropertyChanged(nameof(LevelObjects));
         }

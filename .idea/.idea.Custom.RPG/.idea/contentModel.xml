@@ -481,7 +481,6 @@
             <e p="Thief.cs" t="Include" />
           </e>
           <e p="Misc" t="Include">
-            <e p="AimingMarker.cs" t="Include" />
             <e p="BrokenHeart.cs" t="Include" />
           </e>
           <e p="Projectiles" t="Include">
@@ -529,6 +528,7 @@
           <e p="Direction.cs" t="Include" />
           <e p="Key.cs" t="Include" />
           <e p="State.cs" t="Include" />
+          <e p="UIEventType.cs" t="Include" />
         </e>
         <e p="Environment" t="Include">
           <e p="EnvironmentContainer.cs" t="Include" />
@@ -608,6 +608,7 @@
         </e>
         <e p="Stats" t="Include">
           <e p="DefaultStats.cs" t="Include" />
+          <e p="Effect.cs" t="Include" />
           <e p="Point.cs" t="Include" />
         </e>
         <e p="Weapon" t="Include">

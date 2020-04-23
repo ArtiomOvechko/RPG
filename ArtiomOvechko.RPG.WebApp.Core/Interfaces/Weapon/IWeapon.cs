@@ -6,7 +6,7 @@ namespace Chevo.RPG.WebApp.Core.Interfaces.Weapon
 {
     public interface IWeapon
     {
-        void Attack(IActor attacker, Direction direction);
+        bool Attack(IActor attacker, Direction direction);
 
         Uri CurrentAnimation { get; }
 

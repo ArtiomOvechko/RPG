@@ -17,7 +17,7 @@ namespace Chevo.RPG.WebApp.Core.Collision
         public override int ResolveCollision(Direction direction)
         {
             int offset = 0;
-            var expectedSpec = GetExpectedSpecs(_owner, direction, _owner.Stats.StepLenght);
+            var expectedSpec = GetExpectedSpecs(_owner, direction, _owner.Stats.StepLength);
 
             switch (direction)
             {

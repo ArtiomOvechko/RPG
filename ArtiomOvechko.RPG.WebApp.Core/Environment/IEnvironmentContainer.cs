@@ -11,7 +11,7 @@ namespace Chevo.RPG.WebApp.Core.Environment
     {
         ViewModelCollection<IInstance> Instances { get; set; }
         
-        ObservableCollection<IItem> Items { get; }
+        ViewModelCollection<IItem> Items { get; }
         
         void AddInstance(IInstance instance);
 

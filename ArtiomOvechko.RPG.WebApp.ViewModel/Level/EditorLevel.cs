@@ -5,14 +5,11 @@ using System.Collections.Generic;
 using Chevo.RPG.WebApp.Core.Interfaces.Instance;
 using Chevo.RPG.WebApp.Core.Interfaces.Inventory;
 using Chevo.RPG.WebApp.ViewModel.Interfaces;
-using Chevo.RPG.WebApp.ViewModel.Interfaces;
 using Chevo.RPG.WebApp.Core.Environment;
 using Chevo.RPG.WebApp.ViewModel.Control;
 using Chevo.RPG.WebApp.Common.Commands;
 using Chevo.RPG.WebApp.Core.Stats;
-using Chevo.RPG.WebApp.Core.Interaction;
 using Chevo.RPG.WebApp.Core.Actor;
-using Chevo.RPG.WebApp.Core.Inventory.Weapon;
 using Chevo.RPG.WebApp.Core.Behavior.StaticObject;
 using System.Linq;
 using System.Collections.ObjectModel;
@@ -43,7 +40,7 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
         // We need to add a container for levelobjects but not included into EnvironmentContainer
         public ViewModelCollection<IInstance> LevelObjects { get; protected set; }
 
-        public IEnumerable<IItem> LevelItems { get; protected set; }
+        public ViewModelCollection<IItem> LevelItems { get; protected set; }
 
         public IEnumerable<IInstancePrototype> PickableObjects { get; protected set; }
 

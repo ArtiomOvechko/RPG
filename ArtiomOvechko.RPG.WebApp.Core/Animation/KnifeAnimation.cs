@@ -15,13 +15,13 @@ namespace Chevo.RPG.WebApp.Core.Animation
             {
                 default:
                 case Direction.Up:
-                    return new Uri(@"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/Actors/Knife/DaggerUp.gif");
+                    return new Uri(@"/resources/images/actors/knife/DaggerUp.gif");
                 case Direction.Right:
-                    return new Uri(@"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/Actors/Knife/DaggerRight.gif");
+                    return new Uri(@"/resources/images/actors/knife/DaggerRight.gif");
                 case Direction.Down:
-                    return new Uri(@"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/Actors/Knife/DaggerDown.gif");
+                    return new Uri(@"/resources/images/actors/knife/DaggerDown.gif");
                 case Direction.Left:
-                    return new Uri(@"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/Actors/Knife/DaggerLeft.gif");
+                    return new Uri(@"/resources/images/actors/knife/DaggerLeft.gif");
             }
         }
 
@@ -31,13 +31,13 @@ namespace Chevo.RPG.WebApp.Core.Animation
             {
                 default:
                 case Direction.Up:
-                    return new Uri(@"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/Actors/Knife/DaggerUp.gif");
+                    return new Uri(@"/resources/images/actors/knife/DaggerUp.gif");
                 case Direction.Right:
-                    return new Uri(@"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/Actors/Knife/DaggerRight.gif");
+                    return new Uri(@"/resources/images/actors/knife/DaggerRight.gif");
                 case Direction.Down:
-                    return new Uri(@"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/Actors/Knife/DaggerDown.gif");
+                    return new Uri(@"/resources/images/actors/knife/DaggerDown.gif");
                 case Direction.Left:
-                    return new Uri(@"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/Actors/Knife/DaggerLeft.gif");
+                    return new Uri(@"/resources/images/actors/knife/DaggerLeft.gif");
             }
         }
     }

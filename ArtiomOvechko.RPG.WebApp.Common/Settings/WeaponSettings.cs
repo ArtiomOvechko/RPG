@@ -2,7 +2,7 @@
 {
     public static class WeaponSettings
     {
-        public const int KnifeCoolDown = 450;
+        public const int KnifeCoolDown = 850;
         public const int KnifeRange = 400;
         public const string KnifeSound = "pack://application:,,,/Chevo.RPG.WebApp.Common;component/Resources/Sounds/Actors/Knife/knife.wav";
 

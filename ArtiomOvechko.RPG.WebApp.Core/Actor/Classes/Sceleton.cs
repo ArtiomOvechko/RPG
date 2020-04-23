@@ -18,7 +18,8 @@ namespace Chevo.RPG.WebApp.Core.Actor
         {
             Stats = new DefaultStats(Common.Settings.ActorSettings.DefaultSize, 3000, 1, Common.Settings.ActorSettings.SkeletonStepLength);
             _animation = new SceletonAnimation();
-            _collisionResolver = new DefaultCollisionResolver(this);                
+            _collisionResolver = new DefaultCollisionResolver(this);
+            _isInteractive = true;
         }
     }
 }

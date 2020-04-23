@@ -28,14 +28,14 @@ namespace Chevo.RPG.WebApp.Core.Environment
         private int _instanceCount = 0;
         
         public ViewModelCollection<IInstance> _instances = new ViewModelCollection<IInstance>();
-        public ObservableCollection<IItem> _items = new ObservableCollection<IItem>();
+        public ViewModelCollection<IItem> _items = new ViewModelCollection<IItem>();
 
         public ViewModelCollection<IInstance> Instances
         {
             get { return _instances; }
             set { _instances = value; }
         }
-        public ObservableCollection<IItem> Items => _items;
+        public ViewModelCollection<IItem> Items => _items;
 
         public void AddInstance(IInstance instance)
         {

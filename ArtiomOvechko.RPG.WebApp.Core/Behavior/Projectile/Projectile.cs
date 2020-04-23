@@ -34,8 +34,8 @@ namespace Chevo.RPG.WebApp.Core.Behavior.Projectile
 
             if (creator.CurrentState == State.Moving)
             {
-                _currentActor.Stats.StepLenght += creator.Stats.StepLenght;
-                switch (creator.CurrentDirection)
+                _currentActor.Stats.StepLength += creator.Stats.StepLength;
+                switch (creator.CurrentAimDirection)
                 {
                     case Direction.Up:
                         _currentActor.Position = new Stats.Point(_currentActor.Position.X, _currentActor.Position.Y - creator.Stats.Size);
@@ -71,6 +71,8 @@ namespace Chevo.RPG.WebApp.Core.Behavior.Projectile
         /// </summary>
         public override void ProcessCurrentState()
         {
+            base.ProcessCurrentState(); 
+            
             var offset = Math.Abs(Actor.Move());
             _moveLength -= offset;
 

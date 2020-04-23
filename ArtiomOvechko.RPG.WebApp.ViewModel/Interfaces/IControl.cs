@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using Chevo.RPG.WebApp.Core.Interfaces.Actor;
 
 namespace Chevo.RPG.WebApp.ViewModel.Interfaces
 {
@@ -15,5 +16,7 @@ namespace Chevo.RPG.WebApp.ViewModel.Interfaces
         ICommand DiscardWeapon { get; }
 
         ICommand Aim { get; }
+        
+        IActor Actor { get; }
     }
 }

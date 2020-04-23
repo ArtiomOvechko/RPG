@@ -14,6 +14,10 @@ namespace Chevo.RPG.WebApp.Core.Stats
         private int _size;     
         private int _damage;
         private int _stepLength;
+        private int _health;
+        private int _totalHealth;
+
+        public List<Effect> CurrentEffects { get; set; }
 
         public int Size
         {
@@ -42,7 +46,7 @@ namespace Chevo.RPG.WebApp.Core.Stats
             }
         }
 
-        public int StepLenght
+        public int StepLength
         {
             get
             {
@@ -55,50 +59,42 @@ namespace Chevo.RPG.WebApp.Core.Stats
             }
         }
 
-        public bool IsAlive
-        {
-            get
-            {
-                return Lives.Count > 0;
-            }
-        }
+        public bool IsAlive => _health > 0;
 
-        public ICollection<object> Lives { get; }
+        public float HealthPercentage => (float)_health / _totalHealth * 100;
+
+        public int HealthBarSize => Size * 2;
 
         public DefaultStats(int size, int lives, int damage, int stepLength)
         {
             _size = size;          
             _damage = damage;
             _stepLength = stepLength;
-            Lives = new ObservableCollection<object>();
+            _totalHealth = lives;
+            _health = lives;
+            CurrentEffects = new List<Effect>(sizeof(byte));
 
             AddLives(lives);
         }
         
         public void AddLives(int lives)
         {
-            var result = (IList)Lives;
-            for (int i = 0; i < lives; i++)
+            _health += lives;
+            if (_health > _totalHealth)
             {
-                result.Add(new object());
+                _health = _totalHealth;
             }
-        }
-
-        public void LostLives(int lives)
-        {
-            var result = (ObservableCollection<object>)Lives;
-
-            for (int i = 0; i < lives; i++)
+            if (_health < 0)
             {
-                if (result.Count > 0)
-                {
-                    ((ObservableCollection<object>)Lives).RemoveAt(result.Count - 1);
-                }
-                else
-                {
-                    return;
-                }
+                _health = 0;
             }
+
+            if (lives < 0)
+            {
+                CurrentEffects.Add(new Effect(EffectType.Damage, TimeSpan.FromMilliseconds(200)));
+                CurrentEffects.Add(new Effect(EffectType.HealthChanged, TimeSpan.FromSeconds(2)));
+            }
+            OnPropertyChanged(nameof(HealthPercentage));
         }
 
         private void OnPropertyChanged(string name)

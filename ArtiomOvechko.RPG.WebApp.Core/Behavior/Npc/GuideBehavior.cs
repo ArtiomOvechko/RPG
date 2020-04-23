@@ -41,6 +41,8 @@ namespace Chevo.RPG.WebApp.Core.Behavior.Npc
 
         public override void ProcessCurrentState()
         {
+            base.ProcessCurrentState(); 
+            
             if (!_interacted)
             {
                 var player = _currentActor?.Environment.Instances.FirstOrDefault(x => x is IInteractor &&
@@ -55,8 +57,6 @@ namespace Chevo.RPG.WebApp.Core.Behavior.Npc
             {
                 _currentActor.Attack();
             }
-
-            base.ProcessCurrentState();         
         }
     }
 }

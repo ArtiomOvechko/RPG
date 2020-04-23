@@ -9,13 +9,13 @@ namespace Chevo.RPG.WebApp.Core.Animation
     [Serializable]
     public class SceletonAnimation : IActorAnimation
     {
-        private const string IdleLeft = @"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/Actors/Sceleton/SceletonLeftIdle.gif";
+        private const string IdleLeft = @"/resources/images/actors/sceleton/SceletonLeftIdle.gif";
 
-        private const string MovesLeft = @"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/Actors/Sceleton/SceletonMovesLeft.gif";
+        private const string MovesLeft = @"/resources/images/actors/sceleton/SceletonMovesLeft.gif";
 
-        private const string IdleRight = @"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/Actors/Sceleton/SceletonIdleRight.gif";
+        private const string IdleRight = @"/resources/images/actors/sceleton/SceletonIdleRight.gif";
 
-        private const string MovesRight = @"pack://application:,,,/Chevo.RPG.WebApp.Common;Component/Resources/Images/Actors/Sceleton/SceletonMovesRight.gif";        
+        private const string MovesRight = @"/resources/images/actors/sceleton/SceletonMovesRight.gif";        
 
         public Uri GetIdleAnimation(Direction direction, Uri currentAnimation)
         {

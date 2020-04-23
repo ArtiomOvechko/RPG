@@ -9,11 +9,10 @@ using Chevo.RPG.WebApp.Core.Interfaces.Instance;
 
 namespace ArtiomOvechko.RPG.WebApp.Core.Collections
 {
-    public class ViewModelCollection<T> where T : IInstance
+    public class ViewModelCollection<T> where T : class
     {
         private const int Capacity = 1000;
-        private const int ReinitTreshold = 0;
-        
+
         public T[] Items { get; private set; }
         
         private int _addCounter = -1;
