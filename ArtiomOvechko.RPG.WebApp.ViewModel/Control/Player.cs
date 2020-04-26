@@ -15,7 +15,7 @@ using Chevo.RPG.WebApp.Core.Behavior;
 namespace Chevo.RPG.WebApp.ViewModel.Control
 {
     [Serializable]
-    public class Player: BaseBehavior, IInstance, IControl, IInteractor
+    public class Player: BaseBehavior, IInstance, IControl
     {
         [NonSerialized]
         private Direction _currentDirection;
@@ -39,10 +39,8 @@ namespace Chevo.RPG.WebApp.ViewModel.Control
         public IActor Actor
         {
             get { return _currentActor; }
-        }  
-
-        public IInteractionHandler InteractionHandler { get; private set; }
-
+        }
+        
         public ICommand StartMove
         {
             get
@@ -85,7 +83,7 @@ namespace Chevo.RPG.WebApp.ViewModel.Control
                 {
                     _tryInteract = new ActionCommand((x) =>
                     {
-                        _currentActor.TryInteract(InteractionHandler);
+                        _currentActor.TryInteract();
                     });
                 }
                 return _tryInteract;
@@ -173,16 +171,16 @@ namespace Chevo.RPG.WebApp.ViewModel.Control
 
         public string Name { get; private set; }
 
-        public Player(IActor actor, IInteractionHandler interactor)
+        public Player(IActor actor)
         {
+            IsPlayer = true;
             _currentActor = actor;
-            InteractionHandler = interactor;
         }
 
-        public Player(IActor actor, string name, IInteractionHandler interactor)
+        public Player(IActor actor, string name)
         {
+            IsPlayer = true;
             _currentActor = actor;
-            InteractionHandler = interactor;
             Name = name;
         }
 
@@ -195,7 +193,6 @@ namespace Chevo.RPG.WebApp.ViewModel.Control
         {
             base.ProcessCurrentState();
             
-            _currentActor.TryStopInteraction(InteractionHandler);
             _currentActor.Move();
         }
     }

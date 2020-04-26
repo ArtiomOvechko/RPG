@@ -4,6 +4,7 @@ using Chevo.RPG.WebApp.Core.Interfaces.Actor;
 using System.ComponentModel;
 using System;
 using Chevo.RPG.WebApp.Core.Interfaces.Instance;
+using Chevo.RPG.WebApp.Core.Stats;
 
 namespace Chevo.RPG.WebApp.Core.Interaction
 {
@@ -11,56 +12,22 @@ namespace Chevo.RPG.WebApp.Core.Interaction
     public class Messenger : IMessenger
     {
         private string _message;
-        private IActor _lastSpeakedWith;
 
         public string Message
         {
-            get
-            {
-                return _message;
-            }
+            get => _message;
 
-            private set
-            {
-                _message = value;
-                OnPropertyChanged("Message");
-            }
+            private set => _message = value;
         }
-
-        public IActor LastSpeakedWith
-        {
-            get
-            {
-                return _lastSpeakedWith;
-            }
-
-            private set
-            {
-                _lastSpeakedWith = value;
-            }
-        }
-
-        private void OnPropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
-        public void Clear()
-        {
-            Message = null;
-            LastSpeakedWith = null;
-        }
-
+        
         public void WriteMessage(IInstance instance)
         {
             var message = instance.GetMessage();
             if (message != null)
             {
+                instance.Actor.Stats.CurrentEffects.Add(new Effect(EffectType.Talking, TimeSpan.FromSeconds(10)));
                 Message = message;
-                LastSpeakedWith = instance.Actor;
             }                   
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

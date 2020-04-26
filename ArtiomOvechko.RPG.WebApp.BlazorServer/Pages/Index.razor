@@ -43,21 +43,40 @@
               {
                   @if (levelObject != null)
                   {
-                      @if (levelObject.Actor.IsInteractive && levelObject.Actor.IsHealthBarShown)
+                      @if (levelObject.Actor.IsInteractive)
                       {
-                          <div style="
+                          @if (levelObject.Actor.IsHealthBarShown)
+                          {
+                              <div style="
                           background: darkred;
                           width: @(levelObject.Actor.Stats.HealthBarSize)px;
                           height: 2px;
                           position: absolute;
                           left: @(levelObject.Actor.HealthBarPosition.X)px;
                           top: @(levelObject.Actor.HealthBarPosition.Y)px;">
-                              <div style="
+                                  <div style="
                             background: red;
                             width: @(levelObject.Actor.Stats.HealthPercentage)%;
                             height: 100%;">
+                                  </div>
                               </div>
-                          </div>
+                          }
+                          
+                          @if (levelObject.Actor.IsTalking)
+                          {
+                               <div style="
+                                 left: @(levelObject.Actor.HealthBarPosition.X + 60)px;
+                                 top: @(levelObject.Actor.HealthBarPosition.Y - 50)px;
+                                 position: absolute;">
+                                   <div style="
+                                       left: -50%;
+                                       position: relative;
+                                       background: rgba(100,100,100,0.5);
+                                       color: white;">
+                                       @levelObject.Actor.InteractionHandler.Messenger.Message
+                                   </div>
+                               </div>
+                          }
                       }
                       <img src="@levelObject.Actor.CurrentAnimation.OriginalString" style="
                           width: @(levelObject.Actor.Stats.Size)px;

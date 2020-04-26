@@ -19,6 +19,7 @@ namespace Chevo.RPG.WebApp.Core.Weapon
 
         public Knife()
         {
+            Cooldown = WeaponSettings.KnifeCoolDown;
             Animation = new KnifeAnimation();
         }
 

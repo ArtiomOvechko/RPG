@@ -11,6 +11,8 @@ namespace Chevo.RPG.WebApp.Core.Weapon
     public abstract class BaseWeapon : INotifyPropertyChanged, IWeapon
     {
         private Direction _currentDirection;
+        
+        public int Cooldown { get; protected set; }
 
         protected IActorAnimation Animation { get; set; }
 

@@ -9,6 +9,8 @@ namespace Chevo.RPG.WebApp.Core.Behavior
     [Serializable]
     public abstract class BaseBehavior
     {
+        public bool IsPlayer { get; protected set; }
+        
         [NonSerialized]
         protected CancellationTokenSource _cts;
         protected IActor _currentActor;

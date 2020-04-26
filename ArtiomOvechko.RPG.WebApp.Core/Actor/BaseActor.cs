@@ -10,9 +10,12 @@ using Chevo.RPG.WebApp.Core.Interfaces.Interaction;
 using Chevo.RPG.WebApp.Core.Interfaces.Actor;
 using Chevo.RPG.WebApp.Core.Interfaces.Collision;
 using Chevo.RPG.WebApp.Core.Environment;
+using Chevo.RPG.WebApp.Core.Interaction;
+using Chevo.RPG.WebApp.Core.Interfaces.Instance;
 using Chevo.RPG.WebApp.Core.Stats;
 using Chevo.RPG.WebApp.Core.Interfaces.Inventory;
 using Chevo.RPG.WebApp.Core.Inventory;
+using static Chevo.RPG.WebApp.Core.Helpers.Collider;
 
 
 namespace Chevo.RPG.WebApp.Core.Actor
@@ -21,7 +24,7 @@ namespace Chevo.RPG.WebApp.Core.Actor
     /// Initial implementation
     /// </summary>
     [Serializable]
-    public abstract class BaseActor : INotifyPropertyChanged, IActor
+    public abstract class BaseActor : IActor
     {
         protected bool _isInteractive = false;
 
@@ -33,6 +36,7 @@ namespace Chevo.RPG.WebApp.Core.Actor
         private IStats _stats;
         private Uri _currentAnimation;
         private Direction _currentAimDirection;
+        public IInteractionHandler InteractionHandler { get; }
 
         protected IWeapon _currentWeapon;
         protected IActorAnimation _animation;
@@ -43,10 +47,7 @@ namespace Chevo.RPG.WebApp.Core.Actor
 
         public Direction CurrentAimDirection
         {
-            get
-            {
-                return _currentAimDirection;
-            }
+            get => _currentAimDirection;
 
             set
             {
@@ -55,7 +56,7 @@ namespace Chevo.RPG.WebApp.Core.Actor
                 {
                     _currentWeapon.CurrentDirection = value;
                 }                
-                OnPropertyChanged("CurrentAnimation");
+                //OnPropertyChanged("CurrentAnimation");
             }
         }
 
@@ -66,32 +67,19 @@ namespace Chevo.RPG.WebApp.Core.Actor
 
         public IWeapon Weapon
         {
-            get
-            {
-                return _currentWeapon;
-            }
+            get => _currentWeapon;
 
-            set
-            {
-                _currentWeapon = value;
-                OnPropertyChanged("Weapon");
-                OnPropertyChanged("WeaponPosition");
-            }
+            set => _currentWeapon = value;
+            // OnPropertyChanged("Weapon");
+            // OnPropertyChanged("WeaponPosition");
         }
 
         public IStats Stats
         {
-            get
-            {
-                return _stats;
-            }
+            get => _stats;
 
-            set
-            {
-                _stats = value;
-
-                OnPropertyChanged("Stats");
-            }
+            set => _stats = value;
+            //OnPropertyChanged("Stats");
         }
 
         public Uri CurrentAnimation
@@ -100,13 +88,13 @@ namespace Chevo.RPG.WebApp.Core.Actor
             {
                 switch (CurrentState)
                 {
-                    default:
-                    case State.Idle:
-                        _currentAnimation = _animation?.GetIdleAnimation(Weapon != null ? CurrentAimDirection : CurrentDirection, _currentAnimation);
-                        break;
                     case State.Moving:
                         _currentAnimation = _animation?.GetMovingAnimation(Weapon != null ? CurrentAimDirection : CurrentDirection, _currentAnimation);
                         break;
+                    default:
+                        _currentAnimation = _animation?.GetIdleAnimation(Weapon != null ? CurrentAimDirection : CurrentDirection, _currentAnimation);
+                        break;
+
                 }
 
                 return _currentAnimation;
@@ -115,18 +103,15 @@ namespace Chevo.RPG.WebApp.Core.Actor
 
         public Point Position
         {
-            get
-            {
-                return _currentPosition;
-            }
+            get => _currentPosition;
 
             set
             {
                 _currentPosition = value;
                 OnPropertyChanged(nameof(Position));
-                OnPropertyChanged(nameof(WeaponPosition));
-                OnPropertyChanged(nameof(HealthBarPosition));
             }
+            // OnPropertyChanged(nameof(WeaponPosition));
+            // OnPropertyChanged(nameof(HealthBarPosition));
         }
         
         public Point HealthBarPosition => 
@@ -135,13 +120,16 @@ namespace Chevo.RPG.WebApp.Core.Actor
         public Point WeaponPosition => 
             new Point(_currentPosition.X + _stats.Size / 2 - Weapon?.Size / 2 ?? 0, _currentPosition.Y + _stats.Size / 2 - Weapon?.Size / 2 ?? 0);
 
-        private bool _isDamaged = false;
+        private bool _isDamaged;
         public bool IsDamaged => _isDamaged;
 
-        private bool _isHealthBarShown = false;
+        private bool _isHealthBarShown;
         public bool IsHealthBarShown => _isHealthBarShown;
         
-        private bool _isAttacking = false;
+        private bool _isTalking;
+        public bool IsTalking => _isTalking;
+
+        private bool _isAttacking;
         public bool IsAttacking => _isAttacking;
 
         #endregion
@@ -185,10 +173,11 @@ namespace Chevo.RPG.WebApp.Core.Actor
             {
                 if (_currentWeapon != null)
                 {
+                    _currentWeapon.CurrentDirection = _currentAimDirection;
                     bool attackPerformed = _currentWeapon.Attack(this, CurrentAimDirection);
                     if (attackPerformed)
                     {
-                        _stats.CurrentEffects.Add(new Effect(EffectType.Attacking, TimeSpan.FromMilliseconds(500)));
+                        _stats.CurrentEffects.Add(new Effect(EffectType.Attacking, TimeSpan.FromMilliseconds(this.Weapon.Cooldown)));
                     }
                 }
             }
@@ -207,6 +196,7 @@ namespace Chevo.RPG.WebApp.Core.Actor
             _isDamaged = false;
             _isHealthBarShown = false;
             _isAttacking = false;
+            _isTalking = false;
             _stats.CurrentEffects = _stats.CurrentEffects.Where(e => e.EndTime >= DateTime.Now || e.IsPermanent).ToList();
             foreach (Effect effect in _stats.CurrentEffects)
             {
@@ -224,44 +214,33 @@ namespace Chevo.RPG.WebApp.Core.Actor
                 {
                     _isAttacking = true;
                 }
+
+                if (effect.Type == EffectType.Talking)
+                {
+                    _isTalking = true;
+                }
             }
         }
 
-        public void TryInteract(IInteractionHandler interactor)
+        public void TryInteract()
         {
-            if (Stats.IsAlive && interactor != null)
+            if (Stats.IsAlive)
             {
-                var collided = Environment.Instances.FirstOrDefault(x =>
-                                x != null && Collider.InRangeOfInteraction(new CollisionModel(x.Actor), new CollisionModel(this)) &&
+                IInstance collided = Environment.Instances.FirstOrDefault(x =>
+                                x != null && InRangeOfInteraction(new CollisionModel(x.Actor), new CollisionModel(this)) &&
                                 !ReferenceEquals(x.Actor, this));
 
-                var itemNear = Environment.Items.FirstOrDefault(x =>
-                    x != null && Collider.InRangeOfInteraction(new CollisionModel(0, x.Position.X, x.Position.Y), new CollisionModel(this)));
+                IItem itemNear = Environment.Items.FirstOrDefault(x =>
+                    x != null && InRangeOfInteraction(new CollisionModel(0, x.Position.X, x.Position.Y), new CollisionModel(this)));
 
-                if (itemNear == null && collided != null)
+                if (itemNear == null)
                 {
-                    interactor.Messenger.WriteMessage(collided);
+                    collided?.Actor?.InteractionHandler?.Messenger.WriteMessage(collided);
                 }
-                else if (itemNear != null) {
+                else 
+                {
                     Inventory.Add(itemNear);
-                    Environment.Items.RemoveAll(new []{itemNear}, 1);
-                }
-            }
-        }
-
-        public void TryStopInteraction(IInteractionHandler interactor)
-        {
-            if (Stats.IsAlive && interactor != null)
-            {
-                var lastSpeakedWith = interactor.Messenger.LastSpeakedWith;
-                if (lastSpeakedWith != null)
-                {
-                    var otherCollisionModel = new CollisionModel(lastSpeakedWith.Stats.Size, lastSpeakedWith.Position.X, lastSpeakedWith.Position.Y);
-                    var thisCollisionModel = new CollisionModel(Stats.Size, Position.X, Position.Y);
-                    if (!Collider.InRangeOfInteraction(otherCollisionModel, thisCollisionModel))
-                    {
-                        interactor.Messenger.Clear();
-                    }
+                    Environment.Items.RemoveAll(new []{ itemNear }, 1);
                 }
             }
         }
@@ -282,14 +261,14 @@ namespace Chevo.RPG.WebApp.Core.Actor
             if (Stats == null || Stats.IsAlive)
             {
                 IWeaponItem equippedWeapon = (IWeaponItem)Inventory.Items
-                    .FirstOrDefault(x => x is IWeaponItem && !((IWeaponItem)x).Equippable);
+                    .FirstOrDefault(x => x is IWeaponItem item && !item.Equippable);
                 equippedWeapon?.Unequip();
                 _currentWeapon = null;
             }           
         }
         #endregion
 
-        public BaseActor(IWeaponItem weaponItem, Point initialPosition, IEnvironmentContainer environmentContainer)
+        protected BaseActor(IWeaponItem weaponItem, Point initialPosition, IEnvironmentContainer environmentContainer)
         {
             Environment = environmentContainer;
             
@@ -303,6 +282,8 @@ namespace Chevo.RPG.WebApp.Core.Actor
             {
                 Inventory.Add(weaponItem);
             }           
+            
+            InteractionHandler = new InteractionHandler(new Messenger());
         }
 
         protected void OnPropertyChanged(string name)

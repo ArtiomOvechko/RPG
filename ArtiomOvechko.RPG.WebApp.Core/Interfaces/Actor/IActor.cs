@@ -22,6 +22,8 @@ namespace Chevo.RPG.WebApp.Core.Interfaces.Actor
         
         public bool IsHealthBarShown { get; }
         
+        public bool IsTalking { get; }
+        
         public bool IsAttacking { get; }
         
         /// <summary>
@@ -66,6 +68,11 @@ namespace Chevo.RPG.WebApp.Core.Interfaces.Actor
         Point Position { get; set; }
         
         /// <summary>
+        /// Communication module
+        /// </summary>
+        IInteractionHandler InteractionHandler { get; }
+        
+        /// <summary>
         /// Position of the health bar
         /// </summary>
         Point HealthBarPosition { get; }
@@ -103,13 +110,7 @@ namespace Chevo.RPG.WebApp.Core.Interfaces.Actor
         /// Attemp to interact with nearest instances
         /// </summary>
         /// <param name="interactor">Interaction handler</param>
-        void TryInteract(IInteractionHandler interactor);
-
-        /// <summary>
-        /// Try to break interaction process
-        /// </summary>
-        /// <param name="interactor">Interaction handler</param>
-        void TryStopInteraction(IInteractionHandler interactor);
+        void TryInteract();
 
         /// <summary>
         /// Use weapon to attack in some direction

@@ -4,14 +4,10 @@ using System.ComponentModel;
 
 namespace Chevo.RPG.WebApp.Core.Interfaces.Interaction
 {
-    public interface IMessenger: INotifyPropertyChanged
+    public interface IMessenger
     {
         string Message { get; }
 
         void WriteMessage(IInstance instance);
-
-        void Clear();
-
-        IActor LastSpeakedWith { get; }
     }
 }

@@ -29,7 +29,7 @@ namespace Chevo.RPG.WebApp.Core.Stats
             set
             {
                 _size = value;
-                OnPropertyChanged("Size");
+                //OnPropertyChanged("Size");
             }
         }
 
@@ -94,7 +94,6 @@ namespace Chevo.RPG.WebApp.Core.Stats
                 CurrentEffects.Add(new Effect(EffectType.Damage, TimeSpan.FromMilliseconds(200)));
                 CurrentEffects.Add(new Effect(EffectType.HealthChanged, TimeSpan.FromSeconds(2)));
             }
-            OnPropertyChanged(nameof(HealthPercentage));
         }
 
         private void OnPropertyChanged(string name)

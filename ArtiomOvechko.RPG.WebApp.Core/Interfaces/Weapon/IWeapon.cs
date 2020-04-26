@@ -11,6 +11,8 @@ namespace Chevo.RPG.WebApp.Core.Interfaces.Weapon
         Uri CurrentAnimation { get; }
 
         int Size { get; }
+        
+        public int Cooldown { get; }
 
         Direction CurrentDirection { get; set; }
 

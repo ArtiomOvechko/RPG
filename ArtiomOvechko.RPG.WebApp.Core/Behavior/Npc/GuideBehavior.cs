@@ -6,6 +6,8 @@ using Chevo.RPG.WebApp.Core.Interfaces.Interaction;
 
 using System;
 using System.Linq;
+using Chevo.RPG.WebApp.Core.Interfaces.Inventory;
+using Chevo.RPG.WebApp.Core.Interfaces.Weapon;
 
 namespace Chevo.RPG.WebApp.Core.Behavior.Npc
 {
@@ -20,41 +22,59 @@ namespace Chevo.RPG.WebApp.Core.Behavior.Npc
         private string _currentMessage;
         private int _interactionsCount = 6;
         private bool _interacted = false;
-        private string[] _phrases = new string[] { "Oh, hello!", "New in here, aren't you?", "Use arrows to attack, but don't even try to test in on me!", "DONT.", "EVEN.", "TRY." };
+        private bool _attacked = false;
+        private string[] _phrases = new string[] { "Oh, hello!", "New in here, aren't you?", "Use left mouse button to attack, but don't even try to test in on me!", "DONT.", "EVEN.", "TRY." };
 
         public string GetMessage()
         {
-            if (_currentMessage == null)
+            if (!_attacked)
             {
-                _interacted = true;
-                var index = _interactionsCount++ % _phrases.Length;
-                var result = _phrases[index];
-                return result;
+                if (_currentMessage == null)
+                {
+                    _interacted = true;
+                    var index = _interactionsCount++ % _phrases.Length;
+                    var result = _phrases[index];
+                    return result;
+                }
+                else
+                {
+                    var result = _currentMessage;
+                    _currentMessage = null;
+                    return result;
+                }
             }
-            else
-            {
-                var result = _currentMessage;
-                _currentMessage = null;
-                return result;
-            }
+
+            return null;
         }
 
         public override void ProcessCurrentState()
         {
             base.ProcessCurrentState(); 
             
-            if (!_interacted)
+            if (_currentActor.IsDamaged)
             {
-                var player = _currentActor?.Environment.Instances.FirstOrDefault(x => x is IInteractor &&
-                    Collider.InRangeOfInteraction(new CollisionModel(x.Actor), new CollisionModel(_currentActor)));
+                _attacked = true;
+            }
+            
+            if (!_interacted && !_attacked)
+            {
+                var player = _currentActor?.Environment.Instances.FirstOrDefault(x => (x?.IsPlayer ?? false)
+                    && Collider.InRangeOfInteraction(new CollisionModel(x?.Actor), new CollisionModel(this.Actor)));
                 if (player != null)
                 {
                     _currentMessage = "Heya! Wait!";
-                    ((IInteractor)player).InteractionHandler.Messenger.WriteMessage(this);
+                    this.Actor.InteractionHandler.Messenger.WriteMessage(this);
                 }
             }
-            else
+            
+            if (_attacked)
             {
+                if (_currentActor.Weapon == null)
+                {
+                    IWeaponItem weapon = (IWeaponItem)_currentActor.Inventory.Items.FirstOrDefault(x => x.Equippable);
+                    _currentActor.EquipWeapon(weapon);
+                }
+
                 _currentActor.Attack();
             }
         }

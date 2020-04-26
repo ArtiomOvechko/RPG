@@ -15,6 +15,7 @@ namespace Chevo.RPG.WebApp.Core.Weapon
 
         public BlazingHands()
         {
+            Cooldown = WeaponSettings.KnifeCoolDown;
             Animation = new KnifeAnimation();
         }
 

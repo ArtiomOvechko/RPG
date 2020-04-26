@@ -18,7 +18,7 @@ namespace Chevo.RPG.WebApp.Core.Collision
         /// <summary>
         /// Do nothing
         /// </summary>
-        /// <param name="attackerStats">No matter</param>
+        /// <param name="attackerStats">Doesn't matter</param>
         public override void HandleAttack(IStats attackerStats) { }
 
         public override int ResolveCollision(Direction direction)

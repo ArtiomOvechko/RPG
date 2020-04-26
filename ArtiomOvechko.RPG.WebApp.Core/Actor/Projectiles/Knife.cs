@@ -15,7 +15,7 @@ namespace Chevo.RPG.WebApp.Core.Actor
         public Knife(Point initialPosition, IActor creator, IEnvironmentContainer environmentContainer) 
             : base(null, initialPosition, environmentContainer)
         {
-            Stats = new DefaultStats(Common.Settings.ActorSettings.DefaultSize, 1, 1, Common.Settings.ActorSettings.DaggerStepLength);
+            Stats = new DefaultStats(Common.Settings.ActorSettings.DefaultSize, 1, 9, Common.Settings.ActorSettings.DaggerStepLength);
             _collisionResolver = new ProjectileCollisionResolver(creator, this);
             _animation = new KnifeAnimation();
         }

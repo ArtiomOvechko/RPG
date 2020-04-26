@@ -32,6 +32,7 @@ namespace Chevo.RPG.WebApp.Core.Stats
         Freeze,
         Poison,
         HealthChanged,
-        Attacking
+        Attacking,
+        Talking
     }
 }

@@ -47,7 +47,7 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
 
                 // Init Player         
                 var playerActor = new Thief(new KnifeWeaponItem(null), new Point(2700, 2700), environment);
-                Player = new Player(playerActor, new InteractionHandler(new Messenger()));
+                Player = new Player(playerActor);
                 //Player = new Player(playerActor, new InteractionHandler(new Messenger()));
                 ViewPort = new ViewPort(screenWidth, screenHeight, (IInstance)Player);
 
@@ -55,15 +55,15 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
                 environment.AddInstance(wall1);
                 environment.AddInstance(wall2);
                 environment.AddInstance(GuideChar);
-                environment.AddInstance(TestEnemy1);
-                environment.AddInstance(TestEnemy2);
-                environment.AddInstance(TestEnemy3);
-                environment.AddInstance(TestEnemy4);
+                // environment.AddInstance(TestEnemy1);
+                // environment.AddInstance(TestEnemy2);
+                // environment.AddInstance(TestEnemy3);
+                // environment.AddInstance(TestEnemy4);
 
-                for (var i = 3000; i < 3500; i+= 50)
-                {
-                    environment.AddInstance(new GuideBehavior(new Sceleton(new KnifeWeaponItem(null), new Point(i, i), environment)));
-                }
+                // for (var i = 3000; i < 3500; i+= 50)
+                // {
+                //     environment.AddInstance(new GuideBehavior(new Sceleton(new KnifeWeaponItem(null), new Point(i, i), environment)));
+                // }
 
                 //for (var i = 32; i < 6000; i += 32)
                 //{
@@ -91,7 +91,7 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
                 
                 // Init Player         
                 var playerActor = new Thief(new KnifeWeaponItem(null), new Point(2600, 2700), environment);
-                Player = new Player(playerActor, new InteractionHandler(new Messenger()));
+                Player = new Player(playerActor);
                 //Player = new Player(playerActor, new InteractionHandler(new Messenger()));
                 ViewPort = new ViewPort(screenWidth, screenHeight, (IInstance)Player);
                 
