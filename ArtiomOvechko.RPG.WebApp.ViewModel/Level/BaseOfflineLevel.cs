@@ -13,13 +13,14 @@ using ArtiomOvechko.RPG.WebApp.ViewModel.Annotations;
 using Chevo.RPG.WebApp.Core.Interfaces.Inventory;
 using Chevo.RPG.WebApp.Core.Stats;
 using Chevo.RPG.WebApp.Core.Enum;
+using Chevo.RPG.WebApp.Core.Environment;
 using Chevo.RPG.WebApp.Core.Interfaces.Actor;
 using Chevo.RPG.WebApp.ViewModel.Control;
 using Chevo.RPG.WebApp.ViewModel.Interfaces;
 
 namespace Chevo.RPG.WebApp.ViewModel.Level
 {
-    public class BaseOfflineLevel: ILevel
+    public abstract class BaseOfflineLevel: ILevel
     {
         private ICommand _startMove;
         private ICommand _stopMove;
@@ -29,6 +30,8 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
         private ICommand _unequipWeapon;
         private ICommand _discardWeapon;
         private ICommand _aim;
+        
+        public abstract IEnvironmentContainer Container { get; protected set; }
 
         private enum ScreenPart
         {

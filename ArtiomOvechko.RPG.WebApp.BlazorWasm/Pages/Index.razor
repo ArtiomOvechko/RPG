@@ -1,0 +1,288 @@
+﻿@page "/"
+@using Chevo.RPG.WebApp.ViewModel.Interfaces
+@using Chevo.RPG.WebApp.ViewModel.Level
+@using Microsoft.JSInterop;
+@using Chevo.RPG.WebApp.Core.Interfaces.Instance;
+@using System.Threading
+@using Chevo.RPG.WebApp.Core.Enum
+@using Chevo.RPG.WebApp.Core.Interfaces.Inventory
+@using Chevo.RPG.WebApp.Core.Stats
+
+@inject BrowserService browserService;
+
+@if (CurrentLevel != null)
+{
+        <input id="stopController" @onchange="@OnKeyUp"/>
+        <input id="moveController" @onchange="@OnKeyDown"/>
+
+    <div @onmousemove="@OnMouseMove" 
+          @onclick="@(e => OnClick(UIEventType.Attack, null))"
+          class="game-surface" style="
+          background: black;
+          transform: translateZ(0);
+          width: @(CurrentLevel.LevelWidth)px;
+          height: @(CurrentLevel.LevelHeight)px;
+          position: absolute;
+          left: @(CurrentLevel.ViewPort.Position.X)px;
+          top: @(CurrentLevel.ViewPort.Position.Y)px;">
+            
+              @foreach (IItem levelItem in CurrentLevel.LevelItems.Items)
+              {
+                  @if (levelItem != null)
+                  {
+                      <img src="@levelItem.Animation.OriginalString" style="
+                          width: 20px;
+                          height: 20px;
+                          position: absolute;
+                          left: @(levelItem.Position.X)px;
+                          top: @(levelItem.Position.Y)px;">
+                  }
+              }
+            
+              @foreach (IInstance levelObject in CurrentLevel.LevelObjects.Items)
+              {
+                  @if (levelObject != null)
+                  {
+                      @if (levelObject.Actor.IsInteractive)
+                      {
+                          @if (levelObject.Actor.IsHealthBarShown)
+                          {
+                              <div style="
+                          background: darkred;
+                          width: @(levelObject.Actor.Stats.HealthBarSize)px;
+                          height: 2px;
+                          position: absolute;
+                          left: @(levelObject.Actor.HealthBarPosition.X)px;
+                          top: @(levelObject.Actor.HealthBarPosition.Y)px;">
+                                  <div style="
+                            background: red;
+                            width: @(levelObject.Actor.Stats.HealthPercentage)%;
+                            height: 100%;">
+                                  </div>
+                              </div>
+                          }
+                          
+                          @if (levelObject.Actor.IsTalking)
+                          {
+                               <div style="
+                                 left: @(levelObject.Actor.HealthBarPosition.X + 60)px;
+                                 top: @(levelObject.Actor.HealthBarPosition.Y - 50)px;
+                                 position: absolute;">
+                                   <div style="
+                                       left: -50%;
+                                       position: relative;
+                                       background: rgba(100,100,100,0.5);
+                                       color: white;">
+                                       @levelObject.Actor.InteractionHandler.Messenger.Message
+                                   </div>
+                               </div>
+                          }
+                      }
+                      <img src="@levelObject.Actor.CurrentAnimation.OriginalString" style="
+                          width: @(levelObject.Actor.Stats.Size)px;
+                          height: @(levelObject.Actor.Stats.Size)px;
+                          position: absolute;
+                          left: @(levelObject.Actor.Position.X)px;
+                          transition: filter 200ms ease;
+                          filter: brightness(@(levelObject.Actor.IsDamaged ? 10 : 1));
+                          top: @(levelObject.Actor.Position.Y)px;">
+                      @if (levelObject.Actor.Weapon != null)
+                      {
+                          <img src="@levelObject.Actor.Weapon.CurrentAnimation.OriginalString" 
+                               class="@(levelObject.Actor.IsAttacking ? "rotator" : string.Empty)"
+                               style="
+                          width: @(levelObject.Actor.Weapon.Size)px;
+                          height: @(levelObject.Actor.Weapon.Size)px;
+                          position: absolute;
+                          left: @(levelObject.Actor.WeaponPosition.X)px;
+                          top: @(levelObject.Actor.WeaponPosition.Y)px;">  
+                      }
+                  }
+              }
+        </div>
+
+    <div style="
+        width: 300px;
+        height: 600px;
+        background: transparent;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        background-color: rgba(255,255,255,0.2);">
+        <ul style="
+            color: white;
+            list-style-type: none;
+            padding: 5%;">
+                @foreach (IItem item in CurrentLevel.Player.Actor.Inventory.Items)
+                {
+                    <li><div>@(item.Title)</div>
+                        <div>
+                            @if (item.Equippable)
+                            {
+                                <div 
+                                    @onclick="@(e => OnClick(UIEventType.EquipItem, item))"
+                                     @onclick:stopPropagation="_stopPropagation"
+                                     style="
+                                background: rgba(255,255,255,0.3);
+                                display: inline-block;
+                                cursor: pointer !important;">
+                                    Equip
+                                </div>
+                            }
+                            @if (item.Unequippable)
+                            {
+                                <div
+                                     @onclick="@(e => OnClick(UIEventType.UnequipItem, item))"
+                                     @onclick:stopPropagation="_stopPropagation"
+                                     style="
+                                background: rgba(255,255,255,0.3);
+                                display: inline-block;
+                                cursor: pointer !important;">
+                                    Unequip
+                                </div>
+                            }
+                            @if (item.Discardable)
+                            {
+                                <div
+                                     @onclick="@(e => OnClick(UIEventType.DiscardItem, item))"
+                                     @onclick:stopPropagation="_stopPropagation"
+                                     style="
+                                background: rgba(255,255,255,0.3);
+                                display: inline-block;
+                                cursor: pointer !important;">
+                                    Discard
+                                </div>
+                            }
+                        </div>
+                    </li>
+                }
+        </ul>
+    </div>
+}
+
+@code {
+    private bool _stopPropagation = false;
+    
+    public class BrowserService
+    {
+        private readonly IJSRuntime _js;
+
+        public BrowserService(IJSRuntime js)
+        {
+            _js = js;
+        }
+
+        public async Task<BrowserDimension> GetDimensionsAsync()
+        {
+            return await _js.InvokeAsync<BrowserDimension>("getDimensions");
+        }
+        
+        public BrowserDimension GetDimensions()
+        {
+            return new BrowserDimension() {Height = 1, Width = -1};
+        }
+    }
+    
+    public class BrowserDimension
+    {
+        public int Width { get; set; }
+        public int Height { get; set; }
+    }
+
+    private ILevel CurrentLevel { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRenderer)
+    {
+        if (firstRenderer)
+        {
+            BrowserDimension dimension = await browserService.GetDimensionsAsync();
+            Console.WriteLine($"Width: {dimension.Width}; Height: {dimension.Height}");
+            CurrentLevel = new Sanctuary((int) dimension.Width, (int) dimension.Height);
+            CurrentLevel.PropertyChanged += (o, e) => InvokeAsync(() =>
+            {
+                StateHasChanged();
+            });
+            await Task.Run(CurrentLevel.Container.Run);
+        }
+    }
+
+    public void OnKeyUp(ChangeEventArgs o)
+    {
+        Key input = Key.Undefined;
+        bool parseResult = Enum.TryParse(o.Value.ToString(), out input);
+        if (parseResult)
+        {
+            switch (input)
+            {
+                case Key.KeyW:
+                    CurrentLevel.StopMove.Execute(Direction.Up);
+                    break;
+                case Key.KeyD:
+                    CurrentLevel.StopMove.Execute(Direction.Right);
+                    break;
+                case Key.KeyS:
+                    CurrentLevel.StopMove.Execute(Direction.Down);
+                    break;
+                case Key.KeyA:
+                    CurrentLevel.StopMove.Execute(Direction.Left);
+                    break;
+                case Key.Space:
+                    CurrentLevel.TryInteract.Execute(null);
+                    break;
+                default: return;
+            }
+        }
+    }
+
+    public void OnKeyDown(ChangeEventArgs o)
+    {
+        Key input = Key.Undefined;
+        bool parseResult = Enum.TryParse(o.Value.ToString(), out input);
+        if (parseResult)
+        {
+            switch (input)
+            {
+                case Key.KeyW:
+                    CurrentLevel.StartMove.Execute(Direction.Up);
+                    break;
+                case Key.KeyD:
+                    CurrentLevel.StartMove.Execute(Direction.Right);
+                    break;
+                case Key.KeyS:
+                    CurrentLevel.StartMove.Execute(Direction.Down);
+                    break;
+                case Key.KeyA:
+                    CurrentLevel.StartMove.Execute(Direction.Left);
+                    break;
+                default: return;
+            }
+        }
+    }
+    
+    public void OnClick(UIEventType eventType, IItem item)
+    {
+        switch (eventType)
+        {
+            case UIEventType.UnequipItem: 
+                CurrentLevel.UnequipWeapon.Execute(item);
+                break;
+            case UIEventType.DiscardItem:
+                CurrentLevel.DiscardWeapon.Execute(item);
+                break;
+            case UIEventType.EquipItem:
+                CurrentLevel.EquipWeapon.Execute(item);
+                break;
+            case UIEventType.Attack:
+                CurrentLevel.Attack.Execute(null);
+                break;
+            default:
+                break;
+        }
+    }
+    
+    public void OnMouseMove(MouseEventArgs o)
+    {
+        CurrentLevel.Aim.Execute(
+            new Point((int)o.ClientX, (int)o.ClientY));
+    }
+}

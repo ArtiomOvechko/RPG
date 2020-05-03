@@ -1,14 +1,29 @@
-﻿<Properties StartupConfiguration="{3296BB54-BC06-4AF0-899D-989553268348}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ArtiomOvechko.RPG.Blazor/Shared/MainLayout.razor">
+﻿<Properties StartupConfiguration="{1B0CC2D6-FC19-441D-B162-1758F3340E83}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ArtiomOvechko.RPG.Mono.Common/Settings/ActorSettings.cs">
     <Files>
-      <File FileName="ArtiomOvechko.RPG.Blazor/Shared/MainLayout.razor" Line="8" Column="1" />
+      <File FileName="ArtiomOvechko.RPG.Mono.App/GameLevel.cs" Line="91" Column="58" />
+      <File FileName="ArtiomOvechko.RPG.Mono.App/Program.cs" Line="11" Column="44" />
+      <File FileName="ArtiomOvechko.RPG.Mono.App/Game1.cs" Line="50" Column="47" />
+      <File FileName="ArtiomOvechko.RPG.Mono.Common/Settings/ActorSettings.cs" Line="5" Column="42" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Custom.RPG" expanded="True">
-            <Node name="WebApp" expanded="True">
-              <Node name="ArtiomOvechko.RPG.Blazor" selected="True" />
+            <Node name="MonoGame" expanded="True">
+              <Node name="ArtiomOvechko.RPG.Mono.App" expanded="True">
+                <Node name="Dependencies" expanded="True">
+                  <Node name="PackageDependencies" expanded="True" />
+                </Node>
+                <Node name="Content" expanded="True" />
+              </Node>
+              <Node name="ArtiomOvechko.RPG.Mono.Common" expanded="True">
+                <Node name="Constants" expanded="True" />
+                <Node name="Resources" expanded="True" />
+                <Node name="Settings" expanded="True">
+                  <Node name="ActorSettings.cs" selected="True" />
+                </Node>
+              </Node>
             </Node>
           </Node>
         </State>
@@ -23,4 +38,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.MonoGame.ArtiomOvechko.RPG.Mono.App PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

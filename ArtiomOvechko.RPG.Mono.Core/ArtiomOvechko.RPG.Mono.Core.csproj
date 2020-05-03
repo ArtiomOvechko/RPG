@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{1BA3ADCD-26A9-48A5-886A-922BFD0AD055}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>ArtiomOvechko.RPG.Mono.Core</RootNamespace>
+        <AssemblyName>ArtiomOvechko.RPG.Mono.Core</AssemblyName>
+        <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+          <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Actor\BaseActor.cs" />
+        <Compile Include="Actor\Classes\Sceleton.cs" />
+        <Compile Include="Actor\Classes\Thief.cs" />
+        <Compile Include="Actor\Misc\BrokenHeart.cs" />
+        <Compile Include="Actor\Projectiles\Bone.cs" />
+        <Compile Include="Actor\Projectiles\Knife.cs" />
+        <Compile Include="Actor\Static\DungeonStoneWall.cs" />
+        <Compile Include="Actor\Static\Tree.cs" />
+        <Compile Include="Animation\DungeonStoneWallAnimation.cs" />
+        <Compile Include="Animation\HeartAnimation.cs" />
+        <Compile Include="Animation\KnifeAnimation.cs" />
+        <Compile Include="Animation\SceletonAnimation.cs" />
+        <Compile Include="Animation\ThiefAnimation.cs" />
+        <Compile Include="Animation\TreeAnimation.cs" />
+        <Compile Include="Behavior\BaseBehavior.cs" />
+        <Compile Include="Behavior\Npc\GuideBehavior.cs" />
+        <Compile Include="Behavior\Npc\TestEnemyBehavior.cs" />
+        <Compile Include="Behavior\Projectile\Projectile.cs" />
+        <Compile Include="Behavior\StaticObject\MovableObjectBehavior.cs" />
+        <Compile Include="Behavior\StaticObject\StaticObjectBehavior.cs" />
+        <Compile Include="Collections\ViewModelCollection.cs" />
+        <Compile Include="Collision\DefaultCollisionResolver.cs" />
+        <Compile Include="Collision\IgnoringCollisionResolver.cs" />
+        <Compile Include="Collision\ProjectileCollisionResolver.cs" />
+        <Compile Include="Enum\Direction.cs" />
+        <Compile Include="Enum\Key.cs" />
+        <Compile Include="Enum\State.cs" />
+        <Compile Include="Enum\UIEventType.cs" />
+        <Compile Include="Environment\EnvironmentContainer.cs" />
+        <Compile Include="Environment\IEnvironmentContainer.cs" />
+        <Compile Include="Environment\LevelSaveMetadata.cs" />
+        <Compile Include="Environment\SaveManager.cs" />
+        <Compile Include="Extensions\LinqExtension.cs" />
+        <Compile Include="Factories\BaseInstancePrototype.cs" />
+        <Compile Include="Factories\DamageAnimationFactory.cs" />
+        <Compile Include="Factories\IInstanceFactory.cs" />
+        <Compile Include="Factories\IInstancePrototype.cs" />
+        <Compile Include="Factories\SceletonPrototype.cs" />
+        <Compile Include="Factories\WallPrototype.cs" />
+        <Compile Include="Helpers\Base64Serializer.cs" />
+        <Compile Include="Helpers\Collider.cs" />
+        <Compile Include="Helpers\DirectionConverter.cs" />
+        <Compile Include="Helpers\ExecutionHelper.cs" />
+        <Compile Include="Helpers\ScreenCentering.cs" />
+        <Compile Include="Helpers\SoundPlayerHelper.cs" />
+        <Compile Include="Interaction\InteractionHandler.cs" />
+        <Compile Include="Interaction\Messenger.cs" />
+        <Compile Include="Interfaces\Actor\IActor.cs" />
+        <Compile Include="Interfaces\Actor\IStats.cs" />
+        <Compile Include="Interfaces\Animation\IActorAnimation.cs" />
+        <Compile Include="Interfaces\Collision\ICollisionResolver.cs" />
+        <Compile Include="Interfaces\Instance\IInstance.cs" />
+        <Compile Include="Interfaces\Interaction\IInteractor.cs" />
+        <Compile Include="Interfaces\Interaction\IInteractorHadler.cs" />
+        <Compile Include="Interfaces\Interaction\IMessenger.cs" />
+        <Compile Include="Interfaces\Interaction\ISpec.cs" />
+        <Compile Include="Interfaces\Inventory\IInventory.cs" />
+        <Compile Include="Interfaces\Inventory\IItem.cs" />
+        <Compile Include="Interfaces\Inventory\IWeaponItem.cs" />
+        <Compile Include="Interfaces\Weapon\IWeapon.cs" />
+        <Compile Include="Inventory\DefaultInventory.cs" />
+        <Compile Include="Inventory\Item\BaseItem.cs" />
+        <Compile Include="Inventory\Item\CopperKeyItem.cs" />
+        <Compile Include="Inventory\Weapon\BaseWeaponItem.cs" />
+        <Compile Include="Inventory\Weapon\KnifeWeaponItem.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Stats\DefaultStats.cs" />
+        <Compile Include="Stats\Effect.cs" />
+        <Compile Include="Stats\Point.cs" />
+        <Compile Include="Weapon\BaseWeapon.cs" />
+        <Compile Include="Weapon\BlazingHands.cs" />
+        <Compile Include="Weapon\Knife.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\ArtiomOvechko.RPG.Mono.Common\ArtiomOvechko.RPG.Mono.Common.csproj">
+        <Project>{dfc763c9-4635-40fe-95e0-cd99d87a5096}</Project>
+        <Name>ArtiomOvechko.RPG.Mono.Common</Name>
+      </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="packages.config" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>

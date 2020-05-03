@@ -58,26 +58,23 @@ namespace Chevo.RPG.WebApp.Core.Environment
                 
                 //Console.WriteLine("environment cycle starting...");
                 //
-                // ThreadStart thread1 = new ThreadStart(() =>
+                // Thread thread1 = new Thread(new ThreadStart(() =>
                 // {
                 //     for (int i = 0; i < _instanceCount/2; i++)
                 //     {
                 //         Instances.Items[i]?.ProcessCurrentState();
                 //     }
-                // });
-                // ThreadStart thread2 = new ThreadStart(() =>
+                // }));
+                // Thread thread2 = new Thread(new ThreadStart(() =>
                 // {
                 //     for (int i = _instanceCount/2; i < _instanceCount; i++)
                 //     {
                 //         Instances.Items[i]?.ProcessCurrentState();
                 //     }
-                // });
-                // // thread1.Invoke();
-                // // thread2.Invoke();
+                // })); 
+                // thread1.Start();
+                // thread2.Start();
                 // // ThreadStart
-
-                
-
 
                 for (int i = 0; i < _instanceAddCounter + 1; i++)
                 {

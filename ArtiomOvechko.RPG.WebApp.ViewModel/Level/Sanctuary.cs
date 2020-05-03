@@ -15,13 +15,13 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
 {
     public class Sanctuary: BaseOfflineLevel
     {
-        private static IEnvironmentContainer _container;
+        public override IEnvironmentContainer Container { get; protected set; }
         public Sanctuary(int screenWidth, int screenHeight) : base(screenWidth, screenHeight)
         {
-            if (_container == null)
+            if (Container == null)
             {
                 IEnvironmentContainer environment = new EnvironmentContainer();
-                _container = environment;
+                Container = environment;
 
                 LevelWidth = Common.Settings.GlobalSettings.LevelWidth;
                 LevelHeight = Common.Settings.GlobalSettings.LevelHeight;
@@ -55,20 +55,20 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
                 environment.AddInstance(wall1);
                 environment.AddInstance(wall2);
                 environment.AddInstance(GuideChar);
-                // environment.AddInstance(TestEnemy1);
-                // environment.AddInstance(TestEnemy2);
-                // environment.AddInstance(TestEnemy3);
-                // environment.AddInstance(TestEnemy4);
+                environment.AddInstance(TestEnemy1);
+                environment.AddInstance(TestEnemy2);
+                environment.AddInstance(TestEnemy3);
+                environment.AddInstance(TestEnemy4);
 
-                // for (var i = 3000; i < 3500; i+= 50)
-                // {
-                //     environment.AddInstance(new GuideBehavior(new Sceleton(new KnifeWeaponItem(null), new Point(i, i), environment)));
-                // }
+                for (var i = 3000; i < 3500; i+= 50)
+                {
+                    environment.AddInstance(new GuideBehavior(new Sceleton(new KnifeWeaponItem(null), new Point(i, i), environment)));
+                }
 
-                //for (var i = 32; i < 6000; i += 32)
-                //{
-                //    EnvironmentContainer.AddInstance(new StaticObjectBehavior(new DungeonStoneWall(new Point(i, 3000))));
-                //}
+                for (var i = 32; i < 6000; i += 32)
+                {
+                    environment.AddInstance(new StaticObjectBehavior(new DungeonStoneWall(new Point(i, 3000), environment)));
+                }
 
                 environment.AddInstance((IInstance)Player);
 
@@ -76,13 +76,10 @@ namespace Chevo.RPG.WebApp.ViewModel.Level
                 environment.Items.Add(CopperKey);
                 environment.Items.Add(CopperKey3);
                 environment.Items.Add(Knife);
-
-                //Run environment
-                environment.Run();
             }
             else
             {
-                IEnvironmentContainer environment = _container;
+                IEnvironmentContainer environment = Container;
 
                 LevelWidth = Common.Settings.GlobalSettings.LevelWidth;
                 LevelHeight = Common.Settings.GlobalSettings.LevelHeight;

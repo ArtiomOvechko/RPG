@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{D8CFC230-446F-4C2C-8CD2-943F0B267B80}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>ArtiomOvechko.RPG.Mono.ViewModel</RootNamespace>
+        <AssemblyName>ArtiomOvechko.RPG.Mono.ViewModel</AssemblyName>
+        <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Annotations.cs" />
+        <Compile Include="Commands\ActionCommand.cs" />
+        <Compile Include="Control\Player.cs" />
+        <Compile Include="Control\ViewPort.cs" />
+        <Compile Include="Enum\LevelName.cs" />
+        <Compile Include="Interfaces\IControl.cs" />
+        <Compile Include="Interfaces\IEditorLevel.cs" />
+        <Compile Include="Interfaces\ILevel.cs" />
+        <Compile Include="Interfaces\ILevelSurface.cs" />
+        <Compile Include="Interfaces\IMovable.cs" />
+        <Compile Include="Interfaces\IPlayable.cs" />
+        <Compile Include="Interfaces\IViewPort.cs" />
+        <Compile Include="Level\BaseOfflineLevel.cs" />
+        <Compile Include="Level\EditorLevel.cs" />
+        <Compile Include="Level\Sanctuary.cs" />
+        <Compile Include="Playable\DefaultPlayableSet.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\ArtiomOvechko.RPG.Mono.Common\ArtiomOvechko.RPG.Mono.Common.csproj">
+        <Project>{dfc763c9-4635-40fe-95e0-cd99d87a5096}</Project>
+        <Name>ArtiomOvechko.RPG.Mono.Common</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\ArtiomOvechko.RPG.Mono.Core\ArtiomOvechko.RPG.Mono.Core.csproj">
+        <Project>{1ba3adcd-26a9-48a5-886a-922bfd0ad055}</Project>
+        <Name>ArtiomOvechko.RPG.Mono.Core</Name>
+      </ProjectReference>
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>
