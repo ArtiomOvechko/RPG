@@ -68,7 +68,7 @@ namespace ArtiomOvechko.RPG.Mono.App
                         graphics.PreferredBackBufferWidth / (float)graphics.PreferredBackBufferHeight;
                     float fieldOfView = Microsoft.Xna.Framework.MathHelper.PiOver4;
                     float nearClipPlane = 1;
-                    float farClipPlane = 2000;
+                    float farClipPlane = 200;
                     effect.Projection = Matrix.CreatePerspectiveFieldOfView(
                         fieldOfView, aspectRatio, nearClipPlane, farClipPlane);
                 }

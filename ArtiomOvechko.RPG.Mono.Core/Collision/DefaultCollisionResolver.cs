@@ -76,13 +76,13 @@ namespace ArtiomOvechko.RPG.Mono.Core.Collision
                 case Direction.Up:
                     expectedSpec = new CollisionModel(sender.Stats.Size, sender.Position.X, sender.Position.Y - stepLength);
                     break;
-                case Direction.Right:
+                case Direction.Left:
                     expectedSpec = new CollisionModel(sender.Stats.Size, sender.Position.X + stepLength, sender.Position.Y);
                     break;
                 case Direction.Down:
                     expectedSpec = new CollisionModel(sender.Stats.Size, sender.Position.X, sender.Position.Y + stepLength);
                     break;
-                case Direction.Left:
+                case Direction.Right:
                     expectedSpec = new CollisionModel(sender.Stats.Size, sender.Position.X - stepLength, sender.Position.Y);
                     break;
             }

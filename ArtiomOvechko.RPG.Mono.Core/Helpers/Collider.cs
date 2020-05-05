@@ -28,10 +28,10 @@ namespace ArtiomOvechko.RPG.Mono.Core.Helpers
 
         private static bool Intersect(CollisionModel from, CollisionModel to)
         {
-            Point leftUp = new Point(from.X - from.Size / 2, from.Y - from.Size / 2);
-            Point rightUp = new Point(from.X + from.Size / 2, from.Y - from.Size / 2);
-            Point rightDown = new Point(from.X + from.Size / 2, from.Y + from.Size / 2);
-            Point leftDown = new Point(from.X - from.Size / 2, from.Y + from.Size / 2);
+            Point leftUp = new Point(from.X - from.Size, from.Y - from.Size);
+            Point rightUp = new Point(from.X + from.Size, from.Y - from.Size);
+            Point rightDown = new Point(from.X + from.Size, from.Y + from.Size);
+            Point leftDown = new Point(from.X - from.Size, from.Y + from.Size);
 
             if (PointWithin(to, leftUp) || PointWithin(to, rightUp) || PointWithin(to, rightDown) || PointWithin(to, leftDown))
             {
@@ -42,8 +42,8 @@ namespace ArtiomOvechko.RPG.Mono.Core.Helpers
 
         private static bool PointWithin(CollisionModel area, Point point)
         {
-            if (point.X <= area.X + area.Size/2 && point.X >= area.X - area.Size / 2
-                && point.Y <= area.Y + area.Size / 2 && point.Y >= area.Y - area.Size / 2)
+            if (point.X <= area.X + area.Size && point.X >= area.X - area.Size
+                && point.Y <= area.Y + area.Size && point.Y >= area.Y - area.Size)
             {
                 return true;
             }

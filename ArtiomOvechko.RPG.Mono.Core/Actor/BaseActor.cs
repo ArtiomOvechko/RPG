@@ -115,7 +115,7 @@ namespace ArtiomOvechko.RPG.Mono.Core.Actor
         }
         
         public Point HealthBarPosition => 
-            new Point(_currentPosition.X - ((_stats.HealthBarSize - _stats.Size) / 2), _currentPosition.Y - 10);
+            new Point(_currentPosition.X - ((_stats.HealthBarSize - _stats.Size) / 2), _currentPosition.Y - 100);
         
         public Point WeaponPosition => 
             new Point(_currentPosition.X + _stats.Size / 2 - Weapon?.Size / 2 ?? 0, _currentPosition.Y + _stats.Size / 2 - Weapon?.Size / 2 ?? 0);

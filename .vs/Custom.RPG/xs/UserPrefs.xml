@@ -1,28 +1,32 @@
-﻿<Properties StartupConfiguration="{1B0CC2D6-FC19-441D-B162-1758F3340E83}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ArtiomOvechko.RPG.Mono.Common/Settings/ActorSettings.cs">
-    <Files>
-      <File FileName="ArtiomOvechko.RPG.Mono.App/GameLevel.cs" Line="91" Column="58" />
-      <File FileName="ArtiomOvechko.RPG.Mono.App/Program.cs" Line="11" Column="44" />
-      <File FileName="ArtiomOvechko.RPG.Mono.App/Game1.cs" Line="50" Column="47" />
-      <File FileName="ArtiomOvechko.RPG.Mono.Common/Settings/ActorSettings.cs" Line="5" Column="42" />
-    </Files>
+﻿<Properties GitUserInfo="UsingMD" StartupConfiguration="{1B0CC2D6-FC19-441D-B162-1758F3340E83}|Default">
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Custom.RPG" expanded="True">
             <Node name="MonoGame" expanded="True">
               <Node name="ArtiomOvechko.RPG.Mono.App" expanded="True">
-                <Node name="Dependencies" expanded="True">
-                  <Node name="PackageDependencies" expanded="True" />
-                </Node>
-                <Node name="Content" expanded="True" />
+                <Node name="GameLevel.cs" selected="True" />
               </Node>
               <Node name="ArtiomOvechko.RPG.Mono.Common" expanded="True">
-                <Node name="Constants" expanded="True" />
-                <Node name="Resources" expanded="True" />
-                <Node name="Settings" expanded="True">
-                  <Node name="ActorSettings.cs" selected="True" />
+                <Node name="Settings" expanded="True" />
+              </Node>
+              <Node name="ArtiomOvechko.RPG.Mono.Core" expanded="True">
+                <Node name="Actor" expanded="True">
+                  <Node name="Classes" expanded="True" />
                 </Node>
+                <Node name="Behavior" expanded="True">
+                  <Node name="Projectile" expanded="True" />
+                </Node>
+                <Node name="Helpers" expanded="True" />
+                <Node name="Interfaces" expanded="True">
+                  <Node name="Actor" expanded="True" />
+                </Node>
+                <Node name="Stats" expanded="True" />
+                <Node name="Weapon" expanded="True" />
+              </Node>
+              <Node name="ArtiomOvechko.RPG.Mono.ViewModel" expanded="True">
+                <Node name="Level" expanded="True" />
               </Node>
             </Node>
           </Node>

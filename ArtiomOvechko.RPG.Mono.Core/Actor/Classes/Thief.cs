@@ -15,7 +15,7 @@ namespace ArtiomOvechko.RPG.Mono.Core.Actor
         public Thief(IWeaponItem weapon, Point initialPosition, IEnvironmentContainer environmentContainer) 
             : base(weapon, initialPosition, environmentContainer)
         {
-            Stats = new DefaultStats(Common.Settings.ActorSettings.DefaultSize, 30, 9, Common.Settings.ActorSettings.ThiefStepLength);
+            Stats = new DefaultStats(Common.Settings.ActorSettings.DefaultSize, 300, 9, Common.Settings.ActorSettings.ThiefStepLength);
             _animation = new ThiefAnimation();
             _collisionResolver = new DefaultCollisionResolver(this);
             _isInteractive = true;

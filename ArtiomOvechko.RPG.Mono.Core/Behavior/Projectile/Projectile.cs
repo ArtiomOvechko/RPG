@@ -40,13 +40,13 @@ namespace ArtiomOvechko.RPG.Mono.Core.Behavior.Projectile
                     case Direction.Up:
                         _currentActor.Position = new Stats.Point(_currentActor.Position.X, _currentActor.Position.Y - creator.Stats.Size);
                         break;
-                    case Direction.Right:
+                    case Direction.Left:
                         _currentActor.Position = new Stats.Point(_currentActor.Position.X + creator.Stats.Size, _currentActor.Position.Y);
                         break;
                     case Direction.Down:
                         _currentActor.Position = new Stats.Point(_currentActor.Position.X, _currentActor.Position.Y + creator.Stats.Size);
                         break;
-                    case Direction.Left:
+                    case Direction.Right:
                         _currentActor.Position = new Stats.Point(_currentActor.Position.X - creator.Stats.Size, _currentActor.Position.Y);
                         break;
                 }
