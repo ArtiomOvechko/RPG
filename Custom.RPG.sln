@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chevo.RPG.App", "Chevo.RPG.App\Chevo.RPG.App.csproj", "{8421C668-8844-4108-B360-BA18FF19298B}"
 EndProject
@@ -17,19 +17,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtiomOvechko.RPG.Editor", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApp", "WebApp", "{48511846-185C-42AC-9D6A-AECA71A52991}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtiomOvechko.RPG.WebApp.Core", "ArtiomOvechko.RPG.WebApp.Core\ArtiomOvechko.RPG.WebApp.Core.csproj", "{9721EF0D-CEAD-43C7-B1E6-A28BBAE8C5C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtiomOvechko.RPG.WebApp.Core", "ArtiomOvechko.RPG.WebApp.Core\ArtiomOvechko.RPG.WebApp.Core.csproj", "{9721EF0D-CEAD-43C7-B1E6-A28BBAE8C5C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtiomOvechko.RPG.WebApp.Common", "ArtiomOvechko.RPG.WebApp.Common\ArtiomOvechko.RPG.WebApp.Common.csproj", "{F2436D79-D117-4007-91BE-7321AF9DB939}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtiomOvechko.RPG.WebApp.Common", "ArtiomOvechko.RPG.WebApp.Common\ArtiomOvechko.RPG.WebApp.Common.csproj", "{F2436D79-D117-4007-91BE-7321AF9DB939}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtiomOvechko.RPG.WebApp.ViewModel", "ArtiomOvechko.RPG.WebApp.ViewModel\ArtiomOvechko.RPG.WebApp.ViewModel.csproj", "{679F6E15-6DB0-4BAB-A697-341B3FA1EE54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtiomOvechko.RPG.WebApp.ViewModel", "ArtiomOvechko.RPG.WebApp.ViewModel\ArtiomOvechko.RPG.WebApp.ViewModel.csproj", "{679F6E15-6DB0-4BAB-A697-341B3FA1EE54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtiomOvechko.RPG.WebApp.Console", "ArtiomOvechko.RPG.WebApp.Console\ArtiomOvechko.RPG.WebApp.Console.csproj", "{690BFCA7-7DB1-44B7-8D36-F8A6F7DAEE8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtiomOvechko.RPG.WebApp.Console", "ArtiomOvechko.RPG.WebApp.Console\ArtiomOvechko.RPG.WebApp.Console.csproj", "{690BFCA7-7DB1-44B7-8D36-F8A6F7DAEE8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtiomOvechko.RPG.WebApp.BlazorServer", "ArtiomOvechko.RPG.WebApp.BlazorServer\ArtiomOvechko.RPG.WebApp.BlazorServer.csproj", "{D2443F15-F0C6-40EF-8F8B-60CEF7A9B5AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtiomOvechko.RPG.WebApp.BlazorServer", "ArtiomOvechko.RPG.WebApp.BlazorServer\ArtiomOvechko.RPG.WebApp.BlazorServer.csproj", "{D2443F15-F0C6-40EF-8F8B-60CEF7A9B5AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtiomOvechko.RPG.WebApp.BlazorWasm", "ArtiomOvechko.RPG.WebApp.BlazorWasm\ArtiomOvechko.RPG.WebApp.BlazorWasm.csproj", "{E8CFAA85-D83D-4EB9-8DD6-AAF4E6AF8504}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtiomOvechko.RPG.WebApp.BlazorWasm", "ArtiomOvechko.RPG.WebApp.BlazorWasm\ArtiomOvechko.RPG.WebApp.BlazorWasm.csproj", "{E8CFAA85-D83D-4EB9-8DD6-AAF4E6AF8504}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtiomOvechko.RPG.Mono.App", "ArtiomOvechko.RPG.Mono.App\ArtiomOvechko.RPG.Mono.App.csproj", "{1B0CC2D6-FC19-441D-B162-1758F3340E83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtiomOvechko.RPG.Mono.App", "ArtiomOvechko.RPG.Mono.App\ArtiomOvechko.RPG.Mono.App.csproj", "{1B0CC2D6-FC19-441D-B162-1758F3340E83}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MonoGame", "MonoGame", "{02074C42-4DE2-4571-A642-48EA8B0FA0B3}"
 EndProject
@@ -40,6 +40,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtiomOvechko.RPG.Mono.ViewModel", "ArtiomOvechko.RPG.Mono.ViewModel\ArtiomOvechko.RPG.Mono.ViewModel.csproj", "{D8CFC230-446F-4C2C-8CD2-943F0B267B80}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deprecated", "Deprecated", "{4AAB12B8-6756-4237-AA43-E7F545BD9B84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Desktop", "Desktop", "{B3385663-30E2-4700-AA47-339DBE897CC8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtiomOvechko.RPG.Desktop.App", "ArtiomOvechko.RPG.Desktop.App\ArtiomOvechko.RPG.Desktop.App.csproj", "{787A62D8-098E-457D-ABEA-D0E10793BC15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtiomOvechko.PRG.Desktop.Core", "ArtiomOvechko.PRG.Desktop.Core\ArtiomOvechko.PRG.Desktop.Core.csproj", "{6DA3A647-FA9A-4644-99F1-80CAE88498B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -293,6 +299,38 @@ Global
 		{D8CFC230-446F-4C2C-8CD2-943F0B267B80}.Release|x64.Build.0 = Release|Any CPU
 		{D8CFC230-446F-4C2C-8CD2-943F0B267B80}.Release|x86.ActiveCfg = Release|Any CPU
 		{D8CFC230-446F-4C2C-8CD2-943F0B267B80}.Release|x86.Build.0 = Release|Any CPU
+		{787A62D8-098E-457D-ABEA-D0E10793BC15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{787A62D8-098E-457D-ABEA-D0E10793BC15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{787A62D8-098E-457D-ABEA-D0E10793BC15}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{787A62D8-098E-457D-ABEA-D0E10793BC15}.Debug|ARM.Build.0 = Debug|Any CPU
+		{787A62D8-098E-457D-ABEA-D0E10793BC15}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{787A62D8-098E-457D-ABEA-D0E10793BC15}.Debug|x64.Build.0 = Debug|Any CPU
+		{787A62D8-098E-457D-ABEA-D0E10793BC15}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{787A62D8-098E-457D-ABEA-D0E10793BC15}.Debug|x86.Build.0 = Debug|Any CPU
+		{787A62D8-098E-457D-ABEA-D0E10793BC15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{787A62D8-098E-457D-ABEA-D0E10793BC15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{787A62D8-098E-457D-ABEA-D0E10793BC15}.Release|ARM.ActiveCfg = Release|Any CPU
+		{787A62D8-098E-457D-ABEA-D0E10793BC15}.Release|ARM.Build.0 = Release|Any CPU
+		{787A62D8-098E-457D-ABEA-D0E10793BC15}.Release|x64.ActiveCfg = Release|Any CPU
+		{787A62D8-098E-457D-ABEA-D0E10793BC15}.Release|x64.Build.0 = Release|Any CPU
+		{787A62D8-098E-457D-ABEA-D0E10793BC15}.Release|x86.ActiveCfg = Release|Any CPU
+		{787A62D8-098E-457D-ABEA-D0E10793BC15}.Release|x86.Build.0 = Release|Any CPU
+		{6DA3A647-FA9A-4644-99F1-80CAE88498B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DA3A647-FA9A-4644-99F1-80CAE88498B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DA3A647-FA9A-4644-99F1-80CAE88498B0}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{6DA3A647-FA9A-4644-99F1-80CAE88498B0}.Debug|ARM.Build.0 = Debug|Any CPU
+		{6DA3A647-FA9A-4644-99F1-80CAE88498B0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6DA3A647-FA9A-4644-99F1-80CAE88498B0}.Debug|x64.Build.0 = Debug|Any CPU
+		{6DA3A647-FA9A-4644-99F1-80CAE88498B0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6DA3A647-FA9A-4644-99F1-80CAE88498B0}.Debug|x86.Build.0 = Debug|Any CPU
+		{6DA3A647-FA9A-4644-99F1-80CAE88498B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DA3A647-FA9A-4644-99F1-80CAE88498B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DA3A647-FA9A-4644-99F1-80CAE88498B0}.Release|ARM.ActiveCfg = Release|Any CPU
+		{6DA3A647-FA9A-4644-99F1-80CAE88498B0}.Release|ARM.Build.0 = Release|Any CPU
+		{6DA3A647-FA9A-4644-99F1-80CAE88498B0}.Release|x64.ActiveCfg = Release|Any CPU
+		{6DA3A647-FA9A-4644-99F1-80CAE88498B0}.Release|x64.Build.0 = Release|Any CPU
+		{6DA3A647-FA9A-4644-99F1-80CAE88498B0}.Release|x86.ActiveCfg = Release|Any CPU
+		{6DA3A647-FA9A-4644-99F1-80CAE88498B0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -302,7 +340,9 @@ Global
 		{4A8DDE37-78F7-4B52-89BE-8EB58785B6E3} = {9B836B70-7F8B-47B4-AE38-EBDE5CE27038}
 		{06695F0A-53D1-4C1E-B38E-176C2669E2E7} = {9B836B70-7F8B-47B4-AE38-EBDE5CE27038}
 		{10178152-03CD-4240-A301-3DBE2E854DA6} = {9B836B70-7F8B-47B4-AE38-EBDE5CE27038}
+		{9B836B70-7F8B-47B4-AE38-EBDE5CE27038} = {4AAB12B8-6756-4237-AA43-E7F545BD9B84}
 		{1FBEA475-ED3E-4DD9-AAC9-3D89E33BFC3F} = {9B836B70-7F8B-47B4-AE38-EBDE5CE27038}
+		{48511846-185C-42AC-9D6A-AECA71A52991} = {4AAB12B8-6756-4237-AA43-E7F545BD9B84}
 		{9721EF0D-CEAD-43C7-B1E6-A28BBAE8C5C8} = {48511846-185C-42AC-9D6A-AECA71A52991}
 		{F2436D79-D117-4007-91BE-7321AF9DB939} = {48511846-185C-42AC-9D6A-AECA71A52991}
 		{679F6E15-6DB0-4BAB-A697-341B3FA1EE54} = {48511846-185C-42AC-9D6A-AECA71A52991}
@@ -310,60 +350,14 @@ Global
 		{D2443F15-F0C6-40EF-8F8B-60CEF7A9B5AC} = {48511846-185C-42AC-9D6A-AECA71A52991}
 		{E8CFAA85-D83D-4EB9-8DD6-AAF4E6AF8504} = {48511846-185C-42AC-9D6A-AECA71A52991}
 		{1B0CC2D6-FC19-441D-B162-1758F3340E83} = {02074C42-4DE2-4571-A642-48EA8B0FA0B3}
+		{02074C42-4DE2-4571-A642-48EA8B0FA0B3} = {4AAB12B8-6756-4237-AA43-E7F545BD9B84}
 		{DFC763C9-4635-40FE-95E0-CD99D87A5096} = {02074C42-4DE2-4571-A642-48EA8B0FA0B3}
 		{1BA3ADCD-26A9-48A5-886A-922BFD0AD055} = {02074C42-4DE2-4571-A642-48EA8B0FA0B3}
 		{D8CFC230-446F-4C2C-8CD2-943F0B267B80} = {02074C42-4DE2-4571-A642-48EA8B0FA0B3}
-		{48511846-185C-42AC-9D6A-AECA71A52991} = {4AAB12B8-6756-4237-AA43-E7F545BD9B84}
-		{9B836B70-7F8B-47B4-AE38-EBDE5CE27038} = {4AAB12B8-6756-4237-AA43-E7F545BD9B84}
+		{787A62D8-098E-457D-ABEA-D0E10793BC15} = {B3385663-30E2-4700-AA47-339DBE897CC8}
+		{6DA3A647-FA9A-4644-99F1-80CAE88498B0} = {B3385663-30E2-4700-AA47-339DBE897CC8}
 	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 12
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://artiomovechko.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Chevo.RPG.App\\Chevo.RPG.App.csproj
-		SccProjectTopLevelParentUniqueName1 = Custom.RPG.sln
-		SccProjectName1 = Chevo.RPG.App
-		SccLocalPath1 = Chevo.RPG.App
-		SccProjectUniqueName2 = Chevo.RPG.Core\\Chevo.RPG.Core.csproj
-		SccProjectTopLevelParentUniqueName2 = Custom.RPG.sln
-		SccProjectName2 = Chevo.RPG.Core
-		SccLocalPath2 = Chevo.RPG.Core
-		SccProjectUniqueName3 = Chevo.RPG.Common\\Chevo.RPG.Common.csproj
-		SccProjectTopLevelParentUniqueName3 = Custom.RPG.sln
-		SccProjectName3 = Chevo.RPG.Common
-		SccLocalPath3 = Chevo.RPG.Common
-		SccProjectUniqueName4 = Chevo.RPG.ViewModel\\Chevo.RPG.ViewModel.csproj
-		SccProjectTopLevelParentUniqueName4 = Custom.RPG.sln
-		SccProjectName4 = Chevo.RPG.ViewModel
-		SccLocalPath4 = Chevo.RPG.ViewModel
-		SccProjectUniqueName5 = ArtiomOvechko.RPG.WebAPI\\ArtiomOvechko.RPG.WebAPI.csproj
-		SccProjectTopLevelParentUniqueName5 = Custom.RPG.sln
-		SccProjectName5 = ArtiomOvechko.RPG.WebAPI
-		SccLocalPath5 = ArtiomOvechko.RPG.WebAPI
-		SccProjectUniqueName6 = ArtiomOvechko.RPG.Test\\ArtiomOvechko.RPG.Test.csproj
-		SccProjectTopLevelParentUniqueName6 = Custom.RPG.sln
-		SccProjectName6 = ArtiomOvechko.RPG.Test
-		SccLocalPath6 = ArtiomOvechko.RPG.Test
-		SccProjectUniqueName7 = ArtiomOvechko.RPG.Common\\ArtiomOvechko.RPG.Common.csproj
-		SccProjectTopLevelParentUniqueName7 = Custom.RPG.sln
-		SccProjectName7 = ArtiomOvechko.RPG.Common
-		SccLocalPath7 = ArtiomOvechko.RPG.Common
-		SccProjectUniqueName8 = ArtiomOvechko.RPG.Core\\ArtiomOvechko.RPG.Core.csproj
-		SccProjectTopLevelParentUniqueName8 = Custom.RPG.sln
-		SccProjectName8 = ArtiomOvechko.RPG.Core
-		SccLocalPath8 = ArtiomOvechko.RPG.Core
-		SccProjectUniqueName9 = ArtiomOvechko.RPG.ViewModel\\ArtiomOvechko.RPG.ViewModel.csproj
-		SccProjectTopLevelParentUniqueName9 = Custom.RPG.sln
-		SccProjectName9 = ArtiomOvechko.RPG.ViewModel
-		SccLocalPath9 = ArtiomOvechko.RPG.ViewModel
-		SccProjectUniqueName10 = ArtiomOvechko.RPG.App\\ArtiomOvechko.RPG.App.csproj
-		SccProjectTopLevelParentUniqueName10 = Custom.RPG.sln
-		SccProjectName10 = ArtiomOvechko.RPG.App
-		SccLocalPath10 = ArtiomOvechko.RPG.App
-		SccProjectUniqueName11 = ArtiomOvechko.RPG.Editor\\ArtiomOvechko.RPG.Editor.csproj
-		SccProjectTopLevelParentUniqueName11 = Custom.RPG.sln
-		SccProjectName11 = ArtiomOvechko.RPG.Editor
-		SccLocalPath11 = ArtiomOvechko.RPG.Editor
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D9C168AD-ADF7-4B2A-A76F-C8DC87E5253B}
 	EndGlobalSection
 EndGlobal
