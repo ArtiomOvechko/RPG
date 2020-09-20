@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\ArtiomOvechko.PRG.Desktop.Core\ArtiomOvechko.PRG.Desktop.Core.csproj" />
+    <ProjectReference Include="..\ArtiomOvechko.RPG.Desktop.Common\ArtiomOvechko.RPG.Desktop.Common.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,92 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:gif="http://wpfanimatedgif.codeplex.com"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ArtiomOvechko.RPG.Desktop.App.Views.GameLevelMenu">
+        <UserControl.Resources>
+            <Bitmap x:key="Play">/Assets/Player/Play.png</Bitmap>
+            <Bitmap x:key="Pause">/Assets/Player/Pause.png</Bitmap>
+        </UserControl.Resources>     
+        <Canvas MouseLeftButtonDown="Canvas_MouseLeftButtonDown" Grid.ColumnSpan="4" Grid.RowSpan="4" Background="Black" Height="{Binding LevelWidth}" Width="{Binding LevelHeight}">
+            <!-- Level items
+            <ItemsControl ItemsSource="{Binding LevelItems}" Canvas.Top="{Binding ViewPort.Position.Y}" Canvas.Left="{Binding ViewPort.Position.X}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas Background="Black" Height="{Binding LevelWidth}" Width="{Binding LevelHeight}"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="Canvas.Left" Value="{Binding Position.X}"/>
+                        <Setter Property="Canvas.Top" Value="{Binding Position.Y}"/>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Width="20" Height="20" gif:ImageBehavior.AnimatedSource="{Binding Animation}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl> -->
+
+            <!--Level objects-->
+            <ItemsControl Items="{Binding LevelObjects}" Canvas.Top="{Binding ViewPort.Position.Y}" Canvas.Left="{Binding ViewPort.Position.X}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas Background="Transparent" Height="{Binding LevelWidth}" Width="{Binding LevelHeight}"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="Canvas.Left" Value="{Binding Actor.Position.X}"/>
+                        <Setter Property="Canvas.Top" Value="{Binding Actor.Position.Y}"/>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Width="{Binding Actor.Stats.Size}" Height="{Binding Actor.Stats.Size}" gif:ImageBehavior.AnimatedSource="{Binding Actor.CurrentAnimation}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <!--<ItemsControl ItemsSource="{Binding LevelObjects}" Canvas.Top="{Binding ViewPort.Position.Y}" Canvas.Left="{Binding ViewPort.Position.X}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas Background="Transparent" Height="{Binding LevelWidth}" Width="{Binding LevelHeight}"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="Canvas.Left" Value="{Binding Actor.Position.X}"/>
+                        <Setter Property="Canvas.Top" Value="{Binding Actor.Position.Y}"/>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Label Foreground="White" FontSize="32" Content="{Binding Name}"></Label>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>-->
+
+            <!-- Object's weapons
+            <ItemsControl ItemsSource="{Binding LevelObjects}" Canvas.Top="{Binding ViewPort.Position.Y}" Canvas.Left="{Binding ViewPort.Position.X}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas Background="Transparent" Height="{Binding LevelWidth}" Width="{Binding LevelHeight}"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="Canvas.Left" Value="{Binding Actor.WeaponPosition.X}"/>
+                        <Setter Property="Canvas.Top" Value="{Binding Actor.WeaponPosition.Y}"/>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Width="{Binding Actor.Weapon.Size}" Height="{Binding Actor.Weapon.Size}" gif:ImageBehavior.AnimatedSource="{Binding Actor.Weapon.CurrentAnimation}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl> -->
+        </Canvas>
+</UserControl>

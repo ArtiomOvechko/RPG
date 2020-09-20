@@ -15,4 +15,8 @@
     <PackageReference Include="Avalonia" Version="0.9.12" />
     <PackageReference Include="Avalonia.Desktop" Version="0.9.12" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ArtiomOvechko.RPG.Desktop.ViewModel\ArtiomOvechko.RPG.Desktop.ViewModel.csproj" />
+    <ProjectReference Include="..\ArtiomOvechko.PRG.Desktop.Core\ArtiomOvechko.PRG.Desktop.Core.csproj" />
+  </ItemGroup>
 </Project>
